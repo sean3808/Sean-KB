@@ -26,6 +26,7 @@
 - 客戶名稱、報價、發票、訂單明細、個資一律視為 confidential，未經 Sean review 不得進 `_okf/`。
 - 修改既有 promoted note 前，一律先產生 Git diff 讓 Sean review，不靜默覆寫。
 - raw transcript / Excel / ERP / 任務狀態表 **不進** `notes/`，只留 `sources/` 或 Notion。
+- **Fully-raw**（PDF、錄音逐字稿、原始講義）**不進專案**，留外部原始位置，note 內只放路徑指標；**初階萃取後**的高品質 `.md` 才可進 `sources/`。
 
 ## Note Rules
 
@@ -34,6 +35,19 @@
 - frontmatter 規格見 `_system/schemas/okf-note-schema.md`；新 note 從 `templates/okf-note.md` 複製。
 - 不把營運狀態表轉成 Obsidian note。
 - highlight / fleeting 不是知識，是候選素材，先進 `_inbox/`，由 Sean 判斷才 promote。
+
+## concepts/ 結構與命名（issue #1 定案，2026-06-25）
+
+`notes/concepts/` 是**型別資料夾、扁平結構**（v1.2 §5.2）。**不開「每來源一子資料夾」**；
+分類靠 wikilink / `maps/` MOC / `tags`，不靠資料夾階層（§3.2「MOC 不是資料夾索引，LYT 價值在導航不在分類」）。
+
+- **檔名一律帶來源前綴**：`<來源>-<卡號>-<標題>.md`（如 `防彈筆記法-A001-…`、`問解-A001-…`、`商學院-C01-…`），避免扁平根目錄檔名碰撞。
+- **`pkm-id` 全 vault 唯一**：每個來源佔**獨立號段**，不得跨來源重號；新來源入庫前先確認號段不撞。
+- **每個來源必備導航層**：1 張 literature note ＋ source 卡；`source_ref` 不得指向不存在的卡（no dangling）。
+- **每個來源有對應 MOC**；並建**跨來源主題 MOC**（如「決策-MOC」連多來源相關卡），讓 Zettelkasten 連結不被來源邊界阻斷。
+- 一本書入庫：萃取素材 → `sources/books/<書>/`；原子卡（扁平、帶前綴）→ `notes/concepts/`；導航 → `maps/`。
+
+> 現況待收斂（issue #1）：問解 244 張扁平無前綴、防彈 80 張在子資料夾、商學院 34 張在子資料夾——三套需依本規則統一（攤平 + 加前綴 + 重配 id + 補導航層）。屬 L-size 重構。
 
 ## 資料分級（sensitivity → 可否 export 到 _okf/）
 
