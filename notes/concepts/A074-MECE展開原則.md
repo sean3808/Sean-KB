@@ -5,9 +5,10 @@ description: "所有邏輯樹橫向必須MECE,縱向關係因樹種而異(從屬
 resource: "D:\\sean personal file\\1_學習與進修\\L13_李聖珉-問題解決與批判思考\\20250607-20250614\\Zettelkasten\\1_解決問題的領導力-下.md"
 tags: [MECE, 邏輯樹, 橫向窮盡]
 timestamp: 2026-06-25T21:40:00+08:00
-id: pkm-20260625-074
+id: pkm-20260625-ps-a074
 status: stable
 domain: career
+source: 問題解決與批判思考
 lang: zh-TW
 confidence: high
 sensitivity: internal

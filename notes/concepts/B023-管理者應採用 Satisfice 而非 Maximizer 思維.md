@@ -5,9 +5,10 @@ description: 管理與投資決策的複雜性使得 Maximizer（最大化）思
 resource: "D:\\sean personal file\\1_學習與進修\\L13_李聖珉-問題解決與批判思考\\20250607-20250614\\Zettelkasten\\2_策略溝通與論證技巧-上_zettelkasten.md"
 tags: [決策, Satisfice, 管理者, 有限理性]
 timestamp: 2026-06-25T21:40:00+08:00
-id: pkm-20260625-152
+id: pkm-20260625-ps-b023
 status: stable
 domain: career
+source: 問題解決與批判思考
 lang: zh-TW
 confidence: high
 sensitivity: internal

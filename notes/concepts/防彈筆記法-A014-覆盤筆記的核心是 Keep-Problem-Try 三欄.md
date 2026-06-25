@@ -8,9 +8,10 @@ tags: [防彈筆記法, 覆盤, KPT, 成長筆記]
 timestamp: 2026-06-25T21:41:00+08:00
 
 # Sean custom fields
-id: pkm-20260625-014
+id: pkm-20260625-bp-a014
 status: seed
 domain: productivity
+source: 防彈筆記法
 lang: zh-TW
 confidence: high
 sensitivity: internal

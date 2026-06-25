@@ -5,9 +5,10 @@ description: 設定方向錯誤的 KPI，會使整個組織朝錯誤方向優化
 resource: "D:\\sean personal file\\1_學習與進修\\L13_李聖珉-問題解決與批判思考\\20250607-20250614\\Zettelkasten\\2_策略溝通與論證技巧-下_zettelkasten.md"
 tags: [KPI設計, 組織管理, 目標設定, 績效衡量]
 timestamp: 2026-06-25T21:40:00+08:00
-id: pkm-20260625-235
+id: pkm-20260625-ps-c048
 status: stable
 domain: career
+source: 問題解決與批判思考
 lang: zh-TW
 confidence: high
 sensitivity: internal

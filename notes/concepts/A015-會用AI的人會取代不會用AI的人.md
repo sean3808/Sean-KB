@@ -5,9 +5,10 @@ description: "真正的競爭不是人類vs AI,而是善用AI的人vs不善用AI
 resource: "D:\\sean personal file\\1_學習與進修\\L13_李聖珉-問題解決與批判思考\\20250607-20250614\\Zettelkasten\\1_解決問題的領導力-上_zettelkasten.md"
 tags: [AI, 競爭力, 工具使用]
 timestamp: 2026-06-25T21:40:00+08:00
-id: pkm-20260625-015
+id: pkm-20260625-ps-a015
 status: stable
 domain: career
+source: 問題解決與批判思考
 lang: zh-TW
 confidence: high
 sensitivity: internal

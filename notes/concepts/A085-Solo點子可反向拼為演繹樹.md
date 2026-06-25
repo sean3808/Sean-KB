@@ -5,9 +5,10 @@ description: 擁有領域知識的人可以從零散的Solo點子反向推導出
 resource: "D:\\sean personal file\\1_學習與進修\\L13_李聖珉-問題解決與批判思考\\20250607-20250614\\Zettelkasten\\1_解決問題的領導力-下.md"
 tags: [演繹樹, 逆向思考, 領域知識, MECE]
 timestamp: 2026-06-25T21:40:00+08:00
-id: pkm-20260625-085
+id: pkm-20260625-ps-a085
 status: stable
 domain: career
+source: 問題解決與批判思考
 lang: zh-TW
 confidence: high
 sensitivity: internal

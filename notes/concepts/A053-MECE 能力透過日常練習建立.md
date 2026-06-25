@@ -5,9 +5,10 @@ description: "MECE 能力需要透過在日常場景(開會、聽課、整理資
 resource: "D:\\sean personal file\\1_學習與進修\\L13_李聖珉-問題解決與批判思考\\20250607-20250614\\Zettelkasten\\1_解決問題的領導力-上_zettelkasten.md"
 tags: [MECE, 刻意練習, 習慣養成, 技能培養]
 timestamp: 2026-06-25T21:40:00+08:00
-id: pkm-20260625-053
+id: pkm-20260625-ps-a053
 status: stable
 domain: career
+source: 問題解決與批判思考
 lang: zh-TW
 confidence: high
 sensitivity: internal

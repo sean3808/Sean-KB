@@ -5,9 +5,10 @@ description: 在簡報中持續顯示目前所在位置的 Tracker Page（導覽
 resource: "D:\\sean personal file\\1_學習與進修\\L13_李聖珉-問題解決與批判思考\\20250607-20250614\\Zettelkasten\\2_策略溝通與論證技巧-上_zettelkasten.md"
 tags: [TrackerPage, 導覽, 簡報結構, 聽者體驗]
 timestamp: 2026-06-25T21:40:00+08:00
-id: pkm-20260625-171
+id: pkm-20260625-ps-b042
 status: stable
 domain: career
+source: 問題解決與批判思考
 lang: zh-TW
 confidence: high
 sensitivity: internal

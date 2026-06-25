@@ -5,9 +5,10 @@ description: "在麥肯錫等頂級顧問公司,「你的思考不夠 MECE」是
 resource: "D:\\sean personal file\\1_學習與進修\\L13_李聖珉-問題解決與批判思考\\20250607-20250614\\Zettelkasten\\1_解決問題的領導力-上_zettelkasten.md"
 tags: [MECE, 麥肯錫文化, 專業標準, 思維嚴謹度]
 timestamp: 2026-06-25T21:40:00+08:00
-id: pkm-20260625-059
+id: pkm-20260625-ps-a059
 status: stable
 domain: career
+source: 問題解決與批判思考
 lang: zh-TW
 confidence: high
 sensitivity: internal

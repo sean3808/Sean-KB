@@ -5,9 +5,10 @@ description: "當面對不熟悉的領域或需要整理大量細項時,MECE 是
 resource: "D:\\sean personal file\\1_學習與進修\\L13_李聖珉-問題解決與批判思考\\20250607-20250614\\Zettelkasten\\1_解決問題的領導力-上_zettelkasten.md"
 tags: [MECE, 專案管理, 細項整理, 不熟悉領域]
 timestamp: 2026-06-25T21:40:00+08:00
-id: pkm-20260625-052
+id: pkm-20260625-ps-a052
 status: stable
 domain: career
+source: 問題解決與批判思考
 lang: zh-TW
 confidence: high
 sensitivity: internal

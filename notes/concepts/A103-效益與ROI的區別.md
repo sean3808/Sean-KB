@@ -5,9 +5,10 @@ description: "評估點子需同時考慮總效益(R)和投資報酬率(ROI),單
 resource: "D:\\sean personal file\\1_學習與進修\\L13_李聖珉-問題解決與批判思考\\20250607-20250614\\Zettelkasten\\1_解決問題的領導力-下.md"
 tags: [效益評估, ROI, 總效益, 雙重檢視]
 timestamp: 2026-06-25T21:40:00+08:00
-id: pkm-20260625-103
+id: pkm-20260625-ps-a103
 status: stable
 domain: career
+source: 問題解決與批判思考
 lang: zh-TW
 confidence: high
 sensitivity: internal

@@ -5,9 +5,10 @@ description: Design Thinking 的流程是：用同理心與洞察找出真正的
 resource: "D:\\sean personal file\\1_學習與進修\\L13_李聖珉-問題解決與批判思考\\20250607-20250614\\Zettelkasten\\1_解決問題的領導力-上_zettelkasten.md"
 tags: [DesignThinking, 同理心, 原型測試, 發想]
 timestamp: 2026-06-25T21:40:00+08:00
-id: pkm-20260625-038
+id: pkm-20260625-ps-a038
 status: stable
 domain: career
+source: 問題解決與批判思考
 lang: zh-TW
 confidence: high
 sensitivity: internal

@@ -36,7 +36,7 @@ reviewed_at:
 
 ## 萃取結果
 
-34 張原子概念卡進 `notes/concepts/The Bottom Line 商學院/`，依三大主題分群（C 商學概論 11 張、D 決策學 11 張、M 金錢教育 12 張）。導航見 [[The Bottom Line 商學院-MOC]]。
+34 張原子概念卡扁平存放於 `notes/concepts/`（檔名前綴 `商學院-`、`source: The Bottom Line 商學院`、`pkm-id` 採 `bl-` 號段），依三大主題分群（C 商學概論 11 張、D 決策學 11 張、M 金錢教育 12 張）。導航見 [[The Bottom Line 商學院-MOC]]。跨領域決策卡另見 [[決策-MOC]]。
 
 ## 三大主題
 

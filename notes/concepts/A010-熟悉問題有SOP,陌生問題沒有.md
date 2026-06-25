@@ -5,9 +5,10 @@ description: "熟悉問題的特徵是有標準作業程序(SOP)可依循,陌生
 resource: "D:\\sean personal file\\1_學習與進修\\L13_李聖珉-問題解決與批判思考\\20250607-20250614\\Zettelkasten\\1_解決問題的領導力-上_zettelkasten.md"
 tags: [熟悉問題, 陌生問題, SOP, Best_Practice]
 timestamp: 2026-06-25T21:40:00+08:00
-id: pkm-20260625-010
+id: pkm-20260625-ps-a010
 status: stable
 domain: career
+source: 問題解決與批判思考
 lang: zh-TW
 confidence: high
 sensitivity: internal

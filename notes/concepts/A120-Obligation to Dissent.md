@@ -5,9 +5,10 @@ description: "在團隊討論中,表達異議不是權利而是義務。"
 resource: "D:\\sean personal file\\1_學習與進修\\L13_李聖珉-問題解決與批判思考\\20250607-20250614\\Zettelkasten\\1_解決問題的領導力-下.md"
 tags: [obligation_to_dissent, 麥肯錫, 團隊文化, 異議表達]
 timestamp: 2026-06-25T21:40:00+08:00
-id: pkm-20260625-120
+id: pkm-20260625-ps-a120
 status: stable
 domain: career
+source: 問題解決與批判思考
 lang: zh-TW
 confidence: high
 sensitivity: internal
