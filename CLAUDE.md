@@ -49,6 +49,12 @@
 
 > 已收斂（issue #1，2026-06-25）：三套（問解 244／防彈 80／商學院 34）全部攤平至 `notes/concepts/`、帶來源前綴、`pkm-id` 以 `-ps-/-bp-/-bl-` 號段唯一、導航層補齊（各來源 lit note + MOC + 跨來源決策-MOC）。
 
+## notes/ 與 maps/ 結構（issue #2 定案，2026-06-25）
+
+- **`notes/` 只按型別切一層**：concepts／cases／people／literature（Principle 併入 concepts，`type`＋`domain` 走 frontmatter）。不開領域／主題命名的資料夾，不做領域×型別雙層巢狀。
+- **`maps/` 一律扁平**：只有 Map 一種型別，唯一可切的軸是領域（已禁止做成資料夾）。MOC 階層用 **MOC 互連**表達，不用巢狀資料夾；MOC 以主題／來源命名、彼此互連。
+- 領域／主題／來源是**導航層**（frontmatter + MOC + wikilink），不是物理結構。
+
 ## 資料分級（sensitivity → 可否 export 到 _okf/）
 
 | sensitivity | 可 export | 說明 |
