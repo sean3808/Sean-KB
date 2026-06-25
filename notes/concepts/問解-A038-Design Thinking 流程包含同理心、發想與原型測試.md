@@ -22,7 +22,7 @@ reviewed_at: 2026-06-25T21:40:00+08:00
 # Design Thinking 流程包含同理心、發想與原型測試
 
 ## 核心想法
-Design Thinking 的流程是：用同理心與洞察找出真正的問題（人的需求） → 發想（Ideation） → 原型（Prototype）與測試（Test）。
+Design Thinking 的流程是：用同理心與洞察找出真正的問題（人的需求） → 發想（Ideation） → 原型（Prototype）與測試（Test）。 ^claim
 
 ## 展開 / 理由
 這個流程強調先理解人的問題和需求，再來發想解決方案，然後做原型測試。這個階段又和 PDCA、敏捷很像，體現快速迭代的精神。Design Thinking 適用於產品設計、服務創新、創業、企業內部創新等領域，與其他解決問題方法不太一樣。

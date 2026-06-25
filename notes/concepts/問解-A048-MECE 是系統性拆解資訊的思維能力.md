@@ -22,7 +22,7 @@ reviewed_at: 2026-06-25T21:40:00+08:00
 # MECE 是系統性拆解資訊的思維能力
 
 ## 核心想法
-MECE(Mutually Exclusive, Collectively Exhaustive)是將雜亂資訊系統性拆解為兩點以上、互不重疊且完整涵蓋的思維工具。
+MECE(Mutually Exclusive, Collectively Exhaustive)是將雜亂資訊系統性拆解為兩點以上、互不重疊且完整涵蓋的思維工具。 ^claim
 
 ## 展開 / 理由
 由 Barbara Minto 定義,MECE 要求拆解後的各項「條理分明(不重疊)」且「完整(拼回去不漏東西)」。它是處理複雜資訊的基本功,可用於吸收、整理、表達資訊,也是邏輯樹的一種形式。

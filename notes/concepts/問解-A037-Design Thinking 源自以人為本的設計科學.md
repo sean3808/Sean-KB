@@ -22,7 +22,7 @@ reviewed_at: 2026-06-25T21:40:00+08:00
 # Design Thinking 源自以人為本的設計科學
 
 ## 核心想法
-Design Thinking（設計思考）源自 Herbert Simon 的 Design Science 理念，強調以人為本、同理心、應對模糊需求與未知情境。
+Design Thinking（設計思考）源自 Herbert Simon 的 Design Science 理念，強調以人為本、同理心、應對模糊需求與未知情境。 ^claim
 
 ## 展開 / 理由
 1960 年代諾貝爾獎得主 Herbert Simon 發表《The Sciences of the Artificial》，主張人造的東西（設計）也應接受科學檢視，應該用模型、測試、驗證跟改進的方法。這條路發展成今天的 Design Thinking，強調看出使用者需求與痛點、適用於模糊需求、新產品構想、未知情境。
