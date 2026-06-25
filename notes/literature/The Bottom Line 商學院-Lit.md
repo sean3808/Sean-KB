@@ -13,7 +13,6 @@ status: stable
 domain: pmba
 lang: zh-TW
 confidence: high
-sensitivity: internal
 source_type: class
 notion_refs: []
 aliases:

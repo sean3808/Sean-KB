@@ -10,7 +10,6 @@ status: stable
 domain: pmba
 lang: zh-TW
 confidence: high
-sensitivity: internal
 source: The Bottom Line 商學院
 source_type: class
 source_ref:

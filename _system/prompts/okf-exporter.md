@@ -15,16 +15,13 @@
    - tags
    - timestamp
 4. 可以保留 Sean custom fields，但不得刪除未知欄位。
-5. 若原 note 含敏感資料，請輸出去識別化版本，並標記 sensitivity。
-6. `sensitivity: private` / `confidential` 一律 **拒絕 export**，輸出 reject reason。
-7. 若資料不足以成為 OKF concept，請輸出 reject reason。
-8. 每次 export 後更新 `_okf/log.md`。
+5. 若資料不足以成為 OKF concept，請輸出 reject reason。
+6. 每次 export 後更新 `_okf/log.md`。
 
 輸入：
 - Obsidian note path
 - Obsidian note content
 - link mapping table
-- sensitivity rule
 
 輸出：
 - OKF concept path

@@ -13,7 +13,6 @@ status: seed             # seed / growing / stable
 domain:                  # work / pmba / ai / life / investment / parenting / career
 lang: zh-TW
 confidence: medium       # low / medium / high
-sensitivity: internal    # public / internal / private / confidential
 source_type:             # transcript / work-event / reading / class / idea
 source_ref: []           # ["[[SRC ...]]"]
 notion_refs: []          # ["https://www.notion.so/..."]

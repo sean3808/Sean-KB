@@ -13,7 +13,6 @@ status: growing
 domain: pmba
 lang: zh-TW
 confidence: high
-sensitivity: internal
 source_type: class
 source_ref:
   - "[[The Bottom Line 商學院-Lit]]"

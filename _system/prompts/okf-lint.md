@@ -14,8 +14,7 @@ OKF v0.1 最低 conformance（hard）：
 5. 是否有 Obsidian wikilink 殘留
 6. 是否有 missing description / missing timestamp
 7. 是否有 path identity 被改動的風險
-8. 是否有敏感內容被 export（sensitivity private / confidential）
-9. unknown fields 是否被保留
+8. unknown fields 是否被保留
 
 輸出 JSON：
 ```json
@@ -25,7 +24,6 @@ OKF v0.1 最低 conformance（hard）：
   "checked_at": "",
   "hard_errors": [],
   "soft_warnings": [],
-  "sensitivity_warnings": [],
   "recommended_actions": []
 }
 ```

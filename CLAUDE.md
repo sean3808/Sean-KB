@@ -22,8 +22,6 @@
 
 ## Safety（不可違反）
 
-- 絕不把 `sensitivity: private` 或 `sensitivity: confidential` 的 note export 到 `_okf/`。
-- 客戶名稱、報價、發票、訂單明細、個資一律視為 confidential，未經 Sean review 不得進 `_okf/`。
 - 修改既有 promoted note 前，一律先產生 Git diff 讓 Sean review，不靜默覆寫。
 - raw transcript / Excel / ERP / 任務狀態表 **不進** `notes/`，只留 `sources/` 或 Notion。
 - **Fully-raw**（PDF、錄音逐字稿、原始講義）**不進專案**，留外部原始位置，note 內只放路徑指標；**初階萃取後**的高品質 `.md` 才可進 `sources/`。
@@ -55,18 +53,9 @@
 - **`maps/` 一律扁平**：只有 Map 一種型別，唯一可切的軸是領域（已禁止做成資料夾）。MOC 階層用 **MOC 互連**表達，不用巢狀資料夾；MOC 以主題／來源命名、彼此互連。
 - 領域／主題／來源是**導航層**（frontmatter + MOC + wikilink），不是物理結構。
 
-## 資料分級（sensitivity → 可否 export 到 _okf/）
-
-| sensitivity | 可 export | 說明 |
-|---|---|---|
-| public | ✅ | 公開資訊 |
-| internal | 需 review | 工作洞察、去識別化案例 |
-| private | ❌ 不可自動 export | 家庭、健康、個人心理 |
-| confidential | ❌ 不可 export | 客戶、價格、內部營運、個資 |
-
 ## 維護分工
 
-- **AI（Claude Code）**：索引、補 link、整理 MOC、產 index、export OKF、跑 content / OKF lint、敏感資料檢查；改動一律走 Git diff。
+- **AI（Claude Code）**：索引、補 link、整理 MOC、產 index、export OKF、跑 content / OKF lint；改動一律走 Git diff。
 - **Sean**：判斷哪些值得留、promote、approve、最終決策。AI 是 drafter，Sean 是 curator。
 
 ## Workflows
@@ -84,7 +73,7 @@
 |---|---|---|
 | `obsidian:obsidian-markdown` | **預設**。寫 / 改 `notes/`、`wiki/`、`maps/` 任何卡片 | wikilink `[[Note]]`、`[[Note\|別名]]`、embed `![[Note]]`、callout `> [!warning]`、`==highlight==`、frontmatter properties |
 | `obsidian:obsidian-cli` | 程式化讀 / 建 / 搜尋 note、批次操作、reload plugin | `obsidian read file=`、`obsidian create name= content= template=`、`obsidian search query= limit=`。**前提：Obsidian app 要開著** |
-| `obsidian:obsidian-bases` | `maps/` 做動態 note 視圖（依 `domain` / `status` / `sensitivity` / `type` 篩選聚合），取代手動維護清單 | `.base` 檔：`filters` / `formulas` / `views`（table / card） |
+| `obsidian:obsidian-bases` | `maps/` 做動態 note 視圖（依 `domain` / `status` / `type` 篩選聚合），取代手動維護清單 | `.base` 檔：`filters` / `formulas` / `views`（table / card） |
 | `obsidian:json-canvas` | `maps/` 視覺化 MOC、概念關係圖、流程圖 | `.canvas` 檔：`nodes`（text / file）+ `edges` |
 | `obsidian:defuddle` | `sources/` 收網路文章 / 文獻，轉乾淨 markdown（**取代 WebFetch**，非 .md URL） | `defuddle parse <url> --md -o sources/<...>.md`。前提：`npm i -g defuddle` |
 

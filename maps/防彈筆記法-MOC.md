@@ -12,7 +12,6 @@ id: pkm-20260625-map-001
 status: seed
 domain: productivity
 lang: zh-TW
-sensitivity: internal
 reviewed: false
 reviewed_at:
 ---

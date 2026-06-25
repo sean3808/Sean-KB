@@ -10,7 +10,6 @@ status: stable
 domain: productivity
 lang: zh-TW
 confidence: high
-sensitivity: internal
 source: 防彈筆記法
 source_type: reading
 source_ref:

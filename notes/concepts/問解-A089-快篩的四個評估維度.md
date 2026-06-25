@@ -11,7 +11,6 @@ domain: career
 source: 問題解決與批判思考
 lang: zh-TW
 confidence: high
-sensitivity: internal
 source_type: class
 source_ref: ["[[解決問題的領導力]]"]
 notion_refs: []

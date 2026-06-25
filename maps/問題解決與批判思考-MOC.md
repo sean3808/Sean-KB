@@ -10,7 +10,6 @@ status: growing
 domain: career
 lang: zh-TW
 confidence: high
-sensitivity: internal
 source_type: class
 source: 問題解決與批判思考
 source_ref:

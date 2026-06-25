@@ -14,7 +14,6 @@ domain: productivity
 source: 防彈筆記法
 lang: zh-TW
 confidence: high
-sensitivity: internal
 source_type: reading
 source_ref:
   - "[[防彈筆記法-Esor]]"

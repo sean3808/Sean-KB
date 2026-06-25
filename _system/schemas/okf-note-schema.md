@@ -26,7 +26,6 @@
 | `domain` | work / pmba / ai / life / investment / parenting / career |
 | `lang` | 預設 zh-TW |
 | `confidence` | low / medium / high |
-| `sensitivity` | public / internal / private / confidential（治理見 CLAUDE.md） |
 | `source_type` | transcript / work-event / reading / class / idea |
 | `source_ref` | wikilink list 指向 `sources/` |
 | `notion_refs` | Notion page URL list（雙向異步引用） |
@@ -54,5 +53,5 @@
 
 ## 不進 Obsidian / 不進 _okf
 
-- 報價、月用量、發票、訂單狀態、出貨進度、每日 task、即時營運資料 → 不進 Obsidian。
-- private / confidential、raw transcript、未 review 的 inbox note → 不進 `_okf/`。
+- 報價、月用量、發票、訂單狀態、出貨進度、每日 task、即時營運資料 → 不進 Obsidian（會變動的營運狀態 vs 可複用知識的分層）。
+- raw transcript、未 review 的 inbox note → 不進 `_okf/`。

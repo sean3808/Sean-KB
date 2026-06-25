@@ -13,7 +13,6 @@ status: growing
 domain: pmba
 lang: zh-TW
 confidence: high
-sensitivity: internal
 source_type: idea
 source: 跨來源
 aliases:

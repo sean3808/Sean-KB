@@ -13,7 +13,6 @@ status: stable
 domain: productivity
 lang: zh-TW
 confidence: high
-sensitivity: internal
 source_type: reading
 aliases:
   - 防彈筆記法

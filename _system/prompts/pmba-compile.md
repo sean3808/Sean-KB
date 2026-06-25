@@ -21,7 +21,6 @@
 - 不要整理成逐字稿流水帳。
 - 每張 Concept note 只能有一個核心想法。
 - 每張 Case note 必須包含 context、事件、判斷、可複用洞察。
-- 若涉及同學、公司、老師的敏感資訊，請去識別化。
 - 請加上 OKF-compatible frontmatter（見 `_system/schemas/okf-note-schema.md`）。
 - 請標記哪些內容不應進 Obsidian。
 - 首堂課只 promote 3–5 張高品質卡，不貪多。
