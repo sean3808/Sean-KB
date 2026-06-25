@@ -15,7 +15,7 @@ sensitivity: internal
 source_type: class
 source_ref: ["[[SRC-L13-解決問題的領導力-上]]"]
 notion_refs: []
-aliases: [A037]
+aliases: [問解-A037]
 reviewed: true
 reviewed_at: 2026-06-25T21:40:00+08:00
 ---

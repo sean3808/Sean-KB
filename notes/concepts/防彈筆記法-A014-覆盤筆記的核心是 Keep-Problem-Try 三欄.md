@@ -19,7 +19,7 @@ source_type: reading
 source_ref:
   - "[[防彈筆記法-Esor]]"
 aliases:
-  - A014
+  - 防彈筆記法-A014
   - 覆盤筆記的核心是 Keep-Problem-Try 三欄
 reviewed: false
 reviewed_at:

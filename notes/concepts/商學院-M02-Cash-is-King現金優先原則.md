@@ -19,7 +19,7 @@ source_type: class
 source_ref:
   - "[[The Bottom Line 商學院-Lit]]"
 aliases:
-  - M02
+  - 商學院-M02
   - Cash is King 現金優先原則
 reviewed: false
 reviewed_at:

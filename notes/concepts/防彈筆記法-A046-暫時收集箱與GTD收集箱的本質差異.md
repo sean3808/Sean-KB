@@ -19,7 +19,7 @@ source_type: reading
 source_ref:
   - "[[防彈筆記法-Esor]]"
 aliases:
-  - A046
+  - 防彈筆記法-A046
   - 暫時收集箱與GTD收集箱的本質差異
 reviewed: false
 reviewed_at:
