@@ -1,3 +1,26 @@
+---
+type: Source
+title: 學員實作: GOOGLE
+description: The Bottom Line 商學院 學員實作: GOOGLE 課堂筆記素材
+resource: The Bottom Line 商學院（課堂筆記，2024–2025）
+tags: [the-bottom-line, 素材, 課堂筆記]
+timestamp: 2026-06-25T22:50:00+08:00
+id: pkm-20260625-src-bl-2
+status: stable
+domain: pmba
+lang: zh-TW
+confidence: high
+sensitivity: internal
+source: The Bottom Line 商學院
+source_type: class
+source_ref:
+  - "[[The Bottom Line 商學院-Lit]]"
+notion_refs: []
+aliases: []
+reviewed: false
+reviewed_at:
+---
+
 # 學員實作: GOOGLE
 
 [https://app.napkin.ai/page/CgoiCHByb2Qtb25lEiwKBFBhZ2UaJGQ2NTY5OTA1LWU4YTQtNGMyYS1iMWMzLTM5NWM5YzJmYjhjYQ](https://app.napkin.ai/page/CgoiCHByb2Qtb25lEiwKBFBhZ2UaJGQ2NTY5OTA1LWU4YTQtNGMyYS1iMWMzLTM5NWM5YzJmYjhjYQ)
