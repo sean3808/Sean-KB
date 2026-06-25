@@ -55,6 +55,23 @@
 - OKF export：`_system/prompts/okf-exporter.md`
 - OKF lint：`_system/prompts/okf-lint.md`
 
+## Obsidian Skills（操作本 vault 時優先使用）
+
+這是一個 Obsidian vault。處理 vault 內容前，先反射性考慮對應的 `obsidian:*` skill，
+不要只用通用 Read/Write 硬幹 Markdown。
+
+| Skill | 何時用（對映本 vault） | 關鍵用法 |
+|---|---|---|
+| `obsidian:obsidian-markdown` | **預設**。寫 / 改 `notes/`、`wiki/`、`maps/` 任何卡片 | wikilink `[[Note]]`、`[[Note\|別名]]`、embed `![[Note]]`、callout `> [!warning]`、`==highlight==`、frontmatter properties |
+| `obsidian:obsidian-cli` | 程式化讀 / 建 / 搜尋 note、批次操作、reload plugin | `obsidian read file=`、`obsidian create name= content= template=`、`obsidian search query= limit=`。**前提：Obsidian app 要開著** |
+| `obsidian:obsidian-bases` | `maps/` 做動態 note 視圖（依 `domain` / `status` / `sensitivity` / `type` 篩選聚合），取代手動維護清單 | `.base` 檔：`filters` / `formulas` / `views`（table / card） |
+| `obsidian:json-canvas` | `maps/` 視覺化 MOC、概念關係圖、流程圖 | `.canvas` 檔：`nodes`（text / file）+ `edges` |
+| `obsidian:defuddle` | `sources/` 收網路文章 / 文獻，轉乾淨 markdown（**取代 WebFetch**，非 .md URL） | `defuddle parse <url> --md -o sources/<...>.md`。前提：`npm i -g defuddle` |
+
+原則：寫卡片用 `obsidian-markdown` 語法（wikilink 是知識織網的核心）；批次 / 搜尋走 `obsidian-cli`；
+導航地圖優先用 `obsidian-bases`（動態，免手工維護）或 `json-canvas`（視覺）；外部素材入 `sources/` 用 `defuddle`。
+注意：export 到 `_okf/` 時 wikilink 要轉成標準 markdown link（見 `_system/prompts/okf-exporter.md`）。
+
 ## 排除項（本階段不做）
 
 - local LLM / Ollama（永久排除）。
