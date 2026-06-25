@@ -1,0 +1,2 @@
+# 行尾正規化：vault 內 markdown 一律 LF，消除 Windows CRLF 噪音（core.autocrlf=true 衝突）
+*.md text eol=lf
