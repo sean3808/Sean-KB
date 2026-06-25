@@ -42,7 +42,7 @@
 | Person | `notes/people/` | 老師、同學、作者、客戶角色 |
 | Literature | `notes/literature/` | 書、論文、文章、課堂教材 |
 | Playbook | `notes/concepts/` 或 `wiki/` | 可重複流程 |
-| Principle | `notes/life-principles/` | 個人生活原則 |
+| Principle | `notes/concepts/` | 個人生活原則（`type: Principle` + `domain: life`，不另開領域資料夾，見 issue #2） |
 | Map | `maps/` | MOC / LYT 導航 |
 | Source | `sources/` | 原始素材摘要或索引 |
 | Decision | Notion 為主，Obsidian 可萃取 | 長期決策與理由 |
