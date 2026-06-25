@@ -32,6 +32,12 @@ reviewed_at:
 初階萃取後的高品質內容保留在本 vault；fully raw 的講義 PDF 留外部。
 
 - **本 vault（`sources/books/防彈筆記法/`）**：5 章萃取 + Zettelkasten 卡片集（A001–A080）
+  - [[防彈筆記法-01-任務筆記核心原理]]
+  - [[防彈筆記法-02-任務成果與行動設計]]
+  - [[防彈筆記法-03-時間管理與誘因系統]]
+  - [[防彈筆記法-04-工作流程與系統架構]]
+  - [[防彈筆記法-05-習慣養成與精力保護]]
+  - [[防彈筆記法-Zettelkasten卡片集]]
 - **外部（fully raw，不進 vault）**：`D:\sean personal file\1_學習與進修\Knowledge-Atomized\防彈筆記法\個人數位生產力-防彈筆記法：課程講義.pdf`
 
 ## 萃取結果
