@@ -1,0 +1,14 @@
+# Obsidian per-machine UI state
+.obsidian/workspace.json
+.obsidian/workspace-mobile.json
+.obsidian/cache
+
+# Generated reports / logs (machine-local), but keep the dirs
+_system/lint-reports/*.json
+_system/logs/*
+!_system/logs/.gitkeep
+
+# OS / tmp
+.DS_Store
+Thumbs.db
+*.tmp
