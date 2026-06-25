@@ -8,7 +8,7 @@ tags: [the-bottom-line, moc, 商學, 決策, 金錢教育]
 timestamp: 2026-06-25T22:00:00+08:00
 
 # Sean custom fields
-id: pkm-20260625-map-001
+id: pkm-20260625-map-004
 status: growing
 domain: pmba
 lang: zh-TW
