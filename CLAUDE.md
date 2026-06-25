@@ -15,7 +15,7 @@
 ## Source of Truth（三層架構，定案）
 
 - **Obsidian-native notes 是知識 SoT**（`notes/`、`maps/`、`wiki/`）。
-- **`_okf/` 是 generated bundle**，由 AI / script 產出，可刪除重建，**不是第二套筆記**。
+- **`_okf/` 是 generated bundle**，由 AI / script 產出，可刪除重建，**不是第二套筆記**。**gitignored、不常駐**：要交付給 agent 時才由 `okf-exporter` 現生、用完即刪（issue #3 定案 B），平常不該出現在 vault。
 - **Notion 是行動 / 專案 / 決策控制檯**（任務、deadline、報價、出貨、客戶狀態）。
 
 判準：會變動的狀態留 Notion / Excel / ERP；能複用的洞察才進 Obsidian。
