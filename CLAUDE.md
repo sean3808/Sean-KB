@@ -86,3 +86,5 @@
 - local LLM / Ollama（永久排除）。
 - 向量庫 / RAG 當主路徑、graph view 當成功指標（本階段排除）。
 - Notion ↔ Obsidian 內容雙向全文同步（只做雙向異步引用）。
+
+> 復原進行中的工作前，先讀專案根目錄的 `session-continuity.md`（跨-agent session 交接狀態，由 /session-park 維護）。

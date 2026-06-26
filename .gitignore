@@ -23,3 +23,9 @@ Thumbs.db
 # OKF bundle = generated, ephemeral agent-export layer（issue #3 定案 B）
 # 不追蹤、不常駐；要交付給 agent 時才由 okf-exporter 現生、用完即刪
 _okf/
+
+# Python cache
+__pycache__/
+
+# 跨-agent session 交接狀態（transient，/session-park 維護，不進 git）
+session-continuity.md
