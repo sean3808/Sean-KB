@@ -27,5 +27,4 @@ _okf/
 # Python cache
 __pycache__/
 
-# 跨-agent session 交接狀態（transient，/session-park 維護，不進 git）
-session-continuity.md
+# 注意：session-continuity.md 刻意「不」gitignore（Sean 要它進 git，2026-06-26 覆寫 session-park 預設）
