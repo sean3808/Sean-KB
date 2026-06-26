@@ -74,6 +74,16 @@ source_type: idea
 
 三層框架（工具/流程/方法論）＋兩護欄（合意困難/生成效應）已寫入 SOP，方法論 SSOT＝`notion-pages/學習科學方法論.md`。
 
+## 6.6 KB 管理平衡研究（第二輪，how others manage KB）
+
+**地景**：兩陣營——(a) Claude+Obsidian+Karpathy（claude-obsidian 7.9k★／helloianneo 中文同方法論／ballred 1.5k★，=Sean 這條）；(b) 重 RAG/向量（khoj 35k★／siyuan 44k★，canon 排除）。Sean 的路成熟且站在永續側。
+
+**外部權威驗證 + 兩個新洞（已補進 SOP）**：
+1. **連 notes ≠ 連 knowledge**（zettelkasten.de）：放 link/tag 只連 notes，沒連知識——正中兩層護欄的 earned 測試。
+2. **earned 連結帶「一句 why」**（zettelkasten.de〈Backlinks are bad links〉）：裸 `[[link]]` 無 context＝無理由跟隨。→ SOP §3.1 補。
+3. **過度優化陷阱**（花在完善系統 > 用系統）＝最大 PKM 失敗模式。→ SOP §1 補「維護沒在產生學習就是跑偏」平衡護欄。
+4. 自動化軸：市場走 AI 摘要工廠/零摩擦；Sean **刻意加生成效應 gate**＝差異化（human curation＝premium）。
+
 ## 7. 來源
 
 - [claude-obsidian repo](https://github.com/AgriciDaniel/claude-obsidian)（skills/wiki-ingest・wiki-lint・wiki-fold、docs/methodology-modes-guide.md）
