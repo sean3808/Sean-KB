@@ -1,7 +1,7 @@
 ---
 type: Playbook
 title: Reader → kb-loop 狀態機與 Output Ports
-description: 把 Reader input 透過 /kb-loop 診斷場轉成可維護、可追蹤、可應用的 Sean-KB 工作流。承接維護＝學習 SOP；重點是狀態持久化、promote gate、output target，而不是新增一套摘要流程。
+description: 把 Reader input 透過 /kb-loop 診斷場轉成可維護、可追蹤、可應用的 Sean-KB 工作流的草案。承接維護＝學習 SOP；重點是 promote gate 與 output 出口，而不是新增一套摘要流程或每次必填的表。狀態持久化待 #7；本檔先當 promote 時參考，待父母篇實跑後再固化。
 timestamp: 2026-06-26T00:00:00+08:00
 status: draft
 domain: ai
@@ -10,6 +10,8 @@ domain: ai
 # Reader → kb-loop 狀態機與 Output Ports
 
 > 本檔是 `_system/prompts/maintenance-learning-loop.md` 的補充規格。它不取代 `/kb-loop`，而是把 `/kb-loop` 的結果變成可追蹤、可 review、可應用的狀態輸出。
+
+> **狀態：草案，未啟用為「每次必填」。** 本檔的狀態機與 `kb_loop_result` 契約是 **promote candidate 時才參考**的設計，不是每跑一次 `/kb-loop` 就要填一張表。理由：診斷場的核心是對話與內化，每次強制填表是**結構性無益摩擦**（違反合意困難護欄），也踩到本專案寫死防漂移的最大失敗模式——「花在完善系統 > 用系統」。**先跑、先學，系統才跟上**（對齊 SOP §7「先當文字守則、流程穩了再系統化」）。固化路線見 §7：用父母篇實跑 2–3 篇，看真的需要哪幾個狀態／欄位，再決定要不要寫死。狀態目前也**尚未持久化**（只在輸出中呈現，沒落地到檔／frontmatter／queue）；真正的持久化交給 #7 的 Bases dashboard。
 
 ## 0. 一句話
 
@@ -58,9 +60,9 @@ rejected
 | `archived` | 保留在 Reader/source，但不推進 | 結案 |
 | `rejected` | 判斷不值得保留或重複 | 結案 |
 
-## 3. `/kb-loop` 結尾固定輸出
+## 3. `kb_loop_result`（promote 時參考，非每次必填）
 
-每次 `/kb-loop` 結束，不一定要建卡，但必須輸出一段可複製、可回填、可 review 的結果：
+> 草案。**不是每跑一次 `/kb-loop` 就填整段**——日常收尾只要一句 output 出口提問即可（見 SKILL.md 步驟 6）。下列完整 block 是 **promote candidate 要 review／回填時**的參考結構；待父母篇實跑後再決定固化哪幾欄。
 
 ```yaml
 kb_loop_result:
@@ -118,9 +120,9 @@ kb_loop_result:
 
 ## 5. Output Ports
 
-每個 promote candidate 要盡量指向一個 output port。
+> 釐清兩個容易混淆的層次：`output_target`（§3 的 6 值 enum：decision／writing／case／playbook／teaching／not_yet）是**粗分類**——回答「這火花算哪一類用途」；下表的 **Lens 是操作模板**——回答「選定該用途後，產物長什麼樣、用哪個鏡頭加工」。一個 promote candidate 先標 `output_target`，再（需要時）套對應 Lens。兩者多對多，不必硬一對一。
 
-| Output Port | 用途 | 輸出格式 |
+| Output Port（Lens） | 用途 | 輸出格式 |
 |---|---|---|
 | PMBA Lens | 把課堂、案例、文章轉成管理學習資產 | 概念 → 課堂連結 → 我的工作案例 → 可討論問題 |
 | Export Logistics / Digital Transformation Lens | 把工作事件轉成流程改善、ERP、自動化、組織協調洞察 | 事件 → 流程瓶頸 → 權責/資訊流 → 自動化點 → MVP/SOP |
@@ -145,18 +147,18 @@ MOC answers: 我如何理解這個主題？
 Bases answers: 下一個該 review 什麼？
 ```
 
-## 7. 最小落地順序
+## 7. 最小落地順序（先跑，再固化）
 
-1. 先讓 `/kb-loop` 每次結束都輸出 `kb_loop_result`。
-2. 用 `session-continuity.md` 指定的父母篇跑一次完整流程。
-3. 只把通過 promote gate 的洞見進 Obsidian。
-4. 再視需要建立 Bases Promote Queue。
-5. 最後才補 evidence policy 與 snapshot 分級。
+1. **先**用 `session-continuity.md` 指定的父母篇實跑 2–3 篇診斷場（收尾只問一句 output 出口）。
+2. 從實跑中觀察：到底哪幾個狀態／欄位真的有用、哪些是噪音。
+3. **再**據此決定 `kb_loop_result` 要固化哪幾欄、狀態機要不要瘦身——而不是先寫死再硬套。
+4. 只把通過 promote gate 的洞見進 Obsidian。
+5. 流程穩了再建 Bases Promote Queue（#7），最後才補 evidence policy 與 snapshot 分級（#8）。
 
 ## 8. 驗收標準
 
-- [ ] `/kb-loop` 結尾可穩定輸出 `kb_loop_result`。
-- [ ] Reader item 能標記 `current_state` / `next_state`。
-- [ ] promote candidate 必須標記 `output_target`。
-- [ ] 至少用父母篇跑一次完整流程。
+- [ ] 至少用父母篇實跑一次完整診斷場流程（不是先填表，是先跑對話）。
 - [ ] 至少產出一個真實應用：文章大綱、育兒原則、PMBA case reflection、或 agent playbook。
+- [ ] 實跑後，能說出「哪幾個狀態／欄位該固化、哪些該砍」——再回頭收斂本草案。
+- [ ] promote candidate 有標 `output_target`（一句話即可）。
+- [ ] 全程沒有把 `/kb-loop` 變成每次填表的儀式。

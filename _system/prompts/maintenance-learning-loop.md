@@ -99,16 +99,16 @@ Reader source
 → AI 整理高價值候選連結
 → Sean 只審高價值連結 + 判斷是否沉澱
 → Obsidian / Sean-KB 沉澱（promote gate）
-→ 輸出 kb_loop_result（maintenance + output）
+→ 收尾順手問一句「這火花往哪用？」（output 出口）
 ```
 
 **禁止退化**為 `Reader → AI 摘要 → Obsidian`（看似有知識庫、其實沒內化）。
 
-Reader item 不必每次都 promote，但每次診斷場結束都要留下 `current_state`、`next_state`、`why_not_promoted_yet`、`output_target`，讓 input 可續跑、可 review、可應用。完整狀態機與 YAML contract 見 `_system/prompts/reader-kb-loop-state-machine.md`。
+Reader item 不必每次都 promote。**收尾保持輕**：問一句火花的 output 出口即可，不每次填表。狀態機與 `kb_loop_result` YAML 契約是 **promote 時才參考**的草案（見 `_system/prompts/reader-kb-loop-state-machine.md`，status: draft），等父母篇實跑 2–3 篇驗證後再決定固化哪幾欄——先跑、先學，系統才跟上（§7、平衡護欄）。
 
-## 5.1 Output target（應用出口）
+## 5.1 Output target（應用出口，promote 時才標）
 
-每個 promote candidate 要盡量指向至少一個 output target：
+火花的應用出口；promote candidate 盡量指向至少一個（純概念資產可 `not_yet`，但要說明為何值得長期保留）。**這是 promote 時的一句話判斷，不是每次診斷都要填的欄位。**
 
 | Output target | 用途 |
 |---|---|
@@ -124,7 +124,7 @@ Reader item 不必每次都 promote，但每次診斷場結束都要留下 `curr
 - **底層引擎**：防彈筆記法（成果定義／責任邊界／阻礙→對策／KPT）｜結構：Zettelkasten 扁平＋LYT MOC（MOC 互連用 `adjacent-MOCs`、每 MOC 補 `open-questions`）。
 - **存量 358 卡**：不批次硬連。連結跟著學習軌跡長——Sean 學/碰某主題時，AI 拉相關存量卡進診斷場順手串；背景掃出的候選只用「火花提問」一句話確認，不丟 diff 清單。
 - **工具**：Readwise CLI（read-only，issue #4 已通）／`notion-pages/`（Notion 正典本地副本，MCP 外科回寫）／`_okf`（需要時現生）。
-- **狀態與應用**：Reader input 狀態機與 `/kb-loop` 收尾輸出由 `_system/prompts/reader-kb-loop-state-machine.md` 管理；dashboard 待 #7 流程穩定後再做。
+- **狀態與應用**：Reader input 狀態機與 `kb_loop_result` 契約是 `_system/prompts/reader-kb-loop-state-machine.md` 的**草案**，promote 時才參考、待實跑驗證後再固化；dashboard 待 #7 流程穩定後再做。
 
 ## 7. 觸發時機（先定流程、不建排程）
 
