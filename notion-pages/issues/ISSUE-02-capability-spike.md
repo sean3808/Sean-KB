@@ -1,8 +1,10 @@
 # ISSUE-02：實證 Notion AI 實際 DB 操作能力
 
 **Labels:** `priority:high` `type:spike` `area:capability`
-**Status:** open
+**Status:** superseded（2026-06-30，官方文件取代實證大頭）
 **Blocks:** ISSUE-01
+
+> **更新（2026-06-30）**：原規劃用 API/MCP 實測能力，但「官方優先」原則下，[Notion Agent help](https://www.notion.com/help/notion-agent) + [Custom Agents help](https://www.notion.com/help/custom-agents) 已給權威能力清單；Sean 確認 Business + 3.0（全平台）→ operator 能力全開、Custom Agents 可用。線 B 實證縮成「公式那條官方自相矛盾」這一個小驗證，非阻塞。本 issue 降級 superseded。
 
 ## Context
 

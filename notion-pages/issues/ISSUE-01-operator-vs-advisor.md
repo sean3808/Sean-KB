@@ -1,9 +1,11 @@
 # ISSUE-01：Notion AI 定位 — operator vs advisor
 
 **Labels:** `priority:high` `type:decision` `area:system-prompt`
-**Status:** open
-**Depends on:** ISSUE-02（能力實證是本決策的事實前提）
+**Status:** done（Sean 放行 2026-06-30，已上傳 Notion）
+**Depends on:** ISSUE-02 — 由官方文件取代實證（Sean = Business + 3.0）
 **Blocks:** ISSUE-06
+
+> **決議（2026-06-30）**：選方案 C（按官方實測能力重畫邊界）。Notion 3.0 Agent（全平台狀態）+ Business 確認 Notion AI 本就是 operator。§2.1-7 由「尊重能力邊界（只給文字稿/教手動）」改寫為「能力邊界（operator）」：**能**建改頁面/欄位/屬性/關聯/視圖/公式、檔案灌 DB、分析摘要；**不能**建 DB 自動化/模板/rollup/按鈕、改權限/成員/帳單、留言。依據官方 [Notion Agent help](https://www.notion.com/help/notion-agent)。已 commit + 回寫 Notion。殘留：公式那條官方自相矛盾，可隨手實證（不擋本 issue）。
 
 ## Context
 
