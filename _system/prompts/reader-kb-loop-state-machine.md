@@ -85,13 +85,7 @@ kb_loop_result:
     why_not_promoted_yet:
     evidence_level: pointer | excerpt | snapshot | none
   output:
-    output_target:
-      - decision
-      - writing
-      - case
-      - playbook
-      - teaching
-      - not_yet
+    output_target:    # 選一或多：decision | writing | case | playbook | teaching | not_yet
     suggested_artifact:
     where_to_use:
     first_next_step:

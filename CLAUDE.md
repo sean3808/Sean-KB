@@ -64,6 +64,7 @@
 - PMBA 課後編譯：`_system/prompts/pmba-compile.md`
 - OKF export：`_system/prompts/okf-exporter.md`
 - OKF lint：`_system/prompts/okf-lint.md`
+- 維護＝學習迴圈（流程層 SSOT）：`_system/prompts/maintenance-learning-loop.md`（Reader 狀態機與 output ports 草案見 `_system/prompts/reader-kb-loop-state-machine.md`）
 
 ## Obsidian Skills（操作本 vault 時優先使用）
 
