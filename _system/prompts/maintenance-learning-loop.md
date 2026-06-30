@@ -9,11 +9,13 @@ domain: ai
 
 # Sean-KB 維護＝學習迴圈 SOP
 
-> 三層定位：**工具層**＝Readwise CLI/Skills/MCP（issue #4）｜**流程層**＝本檔（issue #5）｜**方法論層**＝Notion「學習科學方法論｜個人通用學習流程框架」（`notion-pages/學習科學方法論.md`，方法論 SSOT，理由回溯該頁）。
+> 三層定位：**工具層**＝Readwise CLI/Skills/MCP（issue #4）｜**流程層**＝本檔（issue #5）｜**方法論層**＝Notion「學習科學方法論｜個人通用學習流程框架」（`notion-pages/學習科學方法論.md`，方法論 SSOT，理由回溯該頁）。Reader input 狀態機與 output ports 見 `_system/prompts/reader-kb-loop-state-machine.md`。
 
 ## 0. 一句話
 
 **維護知識庫的迴圈，就是學習的迴圈。** 不是「AI 摘要工廠」，是「AI 建診斷場、Sean 做判斷與內化」。
+
+Sean-KB 的維護不是整理資料，而是讓 input 經過診斷場後產生火花；Sean-KB 的應用不是查筆記，而是把火花導向 decision、writing、case、playbook。
 
 ## 1. 鐵律（不可違反）
 
@@ -87,7 +89,7 @@ AI 產候選連結與診斷場；Sean 做高價值判斷與內化。
 
 第三層（特定狀況召喚）：交件/重大判斷前→steelman；複雜決策→個案法；卡關創新→第一性原理。
 
-## 5. Reader Library workflow（issue #5 正確版）
+## 5. Reader Library workflow（issue #5 / #6 正確版）
 
 ```
 Reader source
@@ -97,15 +99,32 @@ Reader source
 → AI 整理高價值候選連結
 → Sean 只審高價值連結 + 判斷是否沉澱
 → Obsidian / Sean-KB 沉澱（promote gate）
+→ 收尾順手問一句「這火花往哪用？」（output 出口）
 ```
 
 **禁止退化**為 `Reader → AI 摘要 → Obsidian`（看似有知識庫、其實沒內化）。
+
+Reader item 不必每次都 promote。**收尾保持輕**：問一句火花的 output 出口即可，不每次填表。狀態機與 `kb_loop_result` YAML 契約是 **promote 時才參考**的草案（見 `_system/prompts/reader-kb-loop-state-machine.md`，status: draft），等父母篇實跑 2–3 篇驗證後再決定固化哪幾欄——先跑、先學，系統才跟上（§7、平衡護欄）。
+
+## 5.1 Output target（應用出口，promote 時才標）
+
+火花的應用出口；promote candidate 盡量指向至少一個（純概念資產可 `not_yet`，但要說明為何值得長期保留）。**這是 promote 時的一句話判斷，不是每次診斷都要填的欄位。**
+
+| Output target | 用途 |
+|---|---|
+| `decision` | 工具選型、流程判斷、工作與生活決策 |
+| `writing` | 文章、報告、PMBA 作業、研究輸出 |
+| `case` | 工作事件、PMBA、家庭或職涯案例 |
+| `playbook` | 可重跑的 SOP / checklist / skill |
+| `teaching` | 對家人、同事、讀者說明某個概念 |
+| `not_yet` | 暫時只是候選概念，須說明為何值得保留 |
 
 ## 6. 與既有資產銜接
 
 - **底層引擎**：防彈筆記法（成果定義／責任邊界／阻礙→對策／KPT）｜結構：Zettelkasten 扁平＋LYT MOC（MOC 互連用 `adjacent-MOCs`、每 MOC 補 `open-questions`）。
 - **存量 358 卡**：不批次硬連。連結跟著學習軌跡長——Sean 學/碰某主題時，AI 拉相關存量卡進診斷場順手串；背景掃出的候選只用「火花提問」一句話確認，不丟 diff 清單。
 - **工具**：Readwise CLI（read-only，issue #4 已通）／`notion-pages/`（Notion 正典本地副本，MCP 外科回寫）／`_okf`（需要時現生）。
+- **狀態與應用**：Reader input 狀態機與 `kb_loop_result` 契約是 `_system/prompts/reader-kb-loop-state-machine.md` 的**草案**，promote 時才參考、待實跑驗證後再固化；dashboard 待 #7 流程穩定後再做。
 
 ## 7. 觸發時機（先定流程、不建排程）
 

@@ -2,7 +2,7 @@
 name: kb-loop
 description: >
   Sean-KB 的「維護＝學習」迴圈執行介面：把一篇 Reader 文章、一份新材料、或一個想學的主題，
-  透過蘇格拉底／費曼診斷對話消化進 vault，產出候選連結交 Sean 審。核心是診斷場、不是 AI 摘要工廠。
+  透過蘇格拉底／費曼診斷對話消化進 vault，產出候選連結與 output target 交 Sean 審。核心是診斷場、不是 AI 摘要工廠。
   Use when: Sean 說 /kb-loop、「跑診斷場」、「消化這篇」、「把這個學進來」、「處理 Reader」、「織網」、
   要把外部材料沉澱進 Sean-KB、或要對某主題做診斷式學習。
   Not for: 機械 lint（走 okf-lint）、OKF export（走 okf-exporter）、純檔案搜尋。
@@ -11,7 +11,8 @@ description: >
 # kb-loop — Sean-KB 維護＝學習迴圈
 
 > 完整流程、理由與方法論對照：`_system/prompts/maintenance-learning-loop.md`（流程層 SSOT）＋
-> `notion-pages/學習科學方法論.md`（方法論層 SSOT）。本檔是可觸發的精簡執行層。
+> `notion-pages/學習科學方法論.md`（方法論層 SSOT）。Reader input 狀態機與 output ports 是
+> **promote 時才參考的草案**，見 `_system/prompts/reader-kb-loop-state-machine.md`（status: draft，待實跑驗證後再固化）。本檔是可觸發的**精簡執行層**——保持輕，不在診斷場裡填表。
 
 ## 鐵律（不可違反）
 
@@ -34,7 +35,20 @@ AI 產候選連結與診斷場；Sean 做高價值判斷與內化。
 3. **診斷**：用蘇格拉底追問／費曼重述／steelman／案例遷移／source 對照，戳假設、跳躍、誤判、未連結處。
 4. **補洞**：診斷後才補背景、反例、AI 視角。
 5. **候選連結**：整理高價值候選交 Sean 審——**不硬接、不預綁某主題**。
-6. **沉澱**：Sean 判斷哪些值得進 `notes/`（promote gate）；已內化／無新知 → 不寫卡。
+6. **出口提問（輕量，一句話）**：收尾順手問「這火花往哪用？」——decision／writing／case／playbook／teaching，或暫時 `not_yet`。**只問一句、不填表**；目的是讓 input 導向應用、不淪為收藏。
+7. **沉澱**：Sean 判斷哪些值得進 `notes/`（promote gate）；已內化／無新知 → 不寫卡。
+
+## promote 時才走的 checklist（不是每次必填）
+
+> 診斷場保持輕——9 狀態機與 `kb_loop_result` YAML 契約是 **promote candidate 時才參考**的草案（見 `reader-kb-loop-state-machine.md`），**不是每跑一次就填一張表**。每次都填 = 結構性無益摩擦，違反合意困難護欄，也踩到「完善系統 > 用系統」這條最大失敗模式。
+
+要把某個火花 promote 進 `notes/` 前，自問：
+
+- Sean 先答／先重述了嗎？（沒有 → 生成效應不足，別 promote）
+- 至少跑過一輪診斷追問？
+- 有 Sean 自己的案例、反方或應用場景？
+- earned link 有沒有「一句 why」？沒有就用 tag／MOC，不連 wikilink。
+- 這火花有 output 出口嗎？（純漂亮摘要 → 留在 Reader，別進 Obsidian）
 
 ## 連結兩層護欄（反「為了連結而連結」）
 
