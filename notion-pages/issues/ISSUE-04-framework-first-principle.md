@@ -1,7 +1,9 @@
 # ISSUE-04：明確化「框架優先」設計原則（AI ≠ 人類的避免過度整理）
 
 **Labels:** `priority:low` `type:docs` `area:system-prompt`
-**Status:** open
+**Status:** cancelled（Sean 2026-06-30）
+
+> **決策（Sean 2026-06-30）**：不寫入此註記。Skill 是**執行面**，不需要對 AI 解釋「框架優先」或「避免過度整理」。「心法」是給人類看的——AI 不知道這層 meta 說明也不影響它執行；先給框架直接做即可。框架優先仍是隱性設計事實（System Prompt 本來就重結構），只是**不外顯成 prompt 文字**。本 issue 關閉、不落地。
 
 ## Context
 
