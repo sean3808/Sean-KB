@@ -4,10 +4,12 @@
 .obsidian/cache
 .obsidian/graph.json
 
-# Generated reports / logs (machine-local), but keep the dirs
+# Generated reports / logs / exports (machine-local), but keep the dirs
 _system/lint-reports/*.json
 _system/logs/*
 !_system/logs/.gitkeep
+_system/exports/*
+!_system/exports/.gitkeep
 
 # OS / tmp
 .DS_Store
