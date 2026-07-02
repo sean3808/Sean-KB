@@ -61,6 +61,7 @@
 
 ## Workflows
 
+- PMBA 課程循環（角色×時間軸總表，PMBA 落地正典）：`pmba/pmba-course-cycle-sop.md`（課後段細節：`pmba/pmba-post-class-learning-trace.md`）
 - PMBA 課後編譯：`_system/prompts/pmba-compile.md`
 - OKF export：`_system/prompts/okf-exporter.md`
 - OKF lint：`_system/prompts/okf-lint.md`
