@@ -25,16 +25,16 @@
 
 ## Issue 清單
 
-| # | 標題 | 優先 | 類型 | 相依 |
-|---|---|---|---|---|
-| 01 | Notion AI 定位：operator vs advisor | High | decision | ← 02 |
-| 02 | 實證 Notion AI 實際 DB 操作能力 | High | spike | blocks 01 |
-| 03 | 移除 Memories 自我更新，改 localized 預設準則 | Medium | enhancement | — |
-| 04 | 明確化「框架優先」設計原則（AI ≠ 人類避免過度整理） | Low | docs | — |
-| 05 | 操作層 vs 方法論層 邊界釐清 | Medium | discussion | — |
-| 06 | 策展防彈模組納入 Skill | Medium | content | ← 01 |
-| 07 | 防彈引擎 Skill 內容精準度修正 | Medium | bug | — |
-| 08 | 主控台範例日期去硬編碼 | Low | chore | — |
+| # | 標題 | 優先 | 類型 | 相依 | 狀態 |
+|---|---|---|---|---|---|
+| 01 | Notion AI 定位：operator vs advisor | High | decision | ← 02 | ✅ done（2026-06-30，operator） |
+| 02 | 實證 Notion AI 實際 DB 操作能力 | High | spike | blocks 01 | superseded（官方 3.0 文件取代實證） |
+| 03 | 移除 Memories 自我更新，改 localized 預設準則 | Medium | enhancement | — | ✅ done（2026-06-30） |
+| 04 | 明確化「框架優先」設計原則（AI ≠ 人類避免過度整理） | Low | docs | — | cancelled（2026-06-30） |
+| 05 | 操作層 vs 方法論層 邊界釐清 | Medium | discussion | — | ✅ done（2026-07-02，gh #13 實證收斂） |
+| 06 | 策展防彈模組納入 Skill | Medium | content | ← 01, 05 | open |
+| 07 | 防彈引擎 Skill 內容精準度修正 | Medium | bug | — | ✅ done（2026-06-30） |
+| 08 | 主控台範例日期去硬編碼 | Low | chore | — | ✅ done（2026-06-30） |
 
 ## 依賴關係
 
@@ -52,4 +52,4 @@
 
 ## 狀態
 
-全部 `open`。下一步建議：先做 **ISSUE-02（spike）**，事實出來後拍板 **ISSUE-01**。
+僅剩 **ISSUE-06（策展防彈模組）** open。ISSUE-05 於 2026-07-02 以財務管理 Day 1 完整迴圈（gh issue #13）實證收斂，其「會改變操作行為才載入」判準即為 ISSUE-06 的策展參照系——等 Sean 挑模組（建議序：異步協作 A054-057 ＞ 任務拆解三階段 A028-030 ＞ 系統四等級 A006）。
