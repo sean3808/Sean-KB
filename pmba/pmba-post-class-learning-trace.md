@@ -9,6 +9,7 @@ domain: pmba
 
 # PMBA 課後 learning trace → promote 完整流程（定案）
 
+> **上層編排**：本檔是 `pmba-course-cycle-sop.md`（session 循環總表）的「課後段」細節；T-n 預習、複習日、多堂循環與角色時間軸以總表為準。
 > 方法論依據：`notion-pages/學習科學方法論.md`（生成效應＋合意困難）；候選流程原則：gh issue #11；首次實證：gh issue #13（財務管理 Day 1）。
 > 術語定案：**learning trace**（課後提取軌跡），取代早期的「殘存記憶卡」。
 

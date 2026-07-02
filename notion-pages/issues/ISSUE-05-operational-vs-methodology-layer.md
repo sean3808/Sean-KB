@@ -67,4 +67,4 @@ Sean 否決並指出關鍵：**方法論層不完全適用 Notion AI，因為 No
 - [x] 判準一條（最小方法論原則）
 - [x] 操作層需內建的最小方法論清單（3 項）
 
-完整流程落地版見 `_system/prompts/pmba-post-class-learning-trace.md`。此 resolution 同時給出 ISSUE-06 的策展參照系：防彈模組入 Skill 的門檻＝「會改變操作行為」，與本判準同一條。
+完整流程落地版見 `pmba/pmba-course-cycle-sop.md`（時間軸總表）＋ `pmba/pmba-post-class-learning-trace.md`（課後段）。此 resolution 同時給出 ISSUE-06 的策展參照系：防彈模組入 Skill 的門檻＝「會改變操作行為」，與本判準同一條。

@@ -52,4 +52,4 @@ labels: kb-candidate, course, pmba
 - Comment 2/3：AI 對照 PLAUD 後的校正摘要（逐項標來源支持度）
 - Comment 3/3：Retrieval 題卡（含答案方向）＋轉卡方向＋promote 策略
 
-完整流程定案見 `_system/prompts/pmba-post-class-learning-trace.md`。
+完整流程定案見 `pmba/pmba-course-cycle-sop.md`（時間軸總表）與 `pmba/pmba-post-class-learning-trace.md`（課後段細節）。

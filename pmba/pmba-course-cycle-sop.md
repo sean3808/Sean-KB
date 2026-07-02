@@ -1,0 +1,63 @@
+---
+type: Playbook
+title: PMBA 課程循環 SOP（session 為單位的角色×時間軸總表）
+description: 以「session 循環」為單位的 PMBA 落地總 SOP：課程＝多堂連續 session（如財務管理 6/28→7/12），每堂課觸發一個 T-n~T+n 循環，循環之間重疊。定義 Sean／蒜頭（Notion AI）／ChatGPT Project／Claude Code 四角色在每個時間點的動作與產出。定案 2026-07-02。
+timestamp: 2026-07-02T21:30:00+08:00
+status: growing
+domain: pmba
+---
+
+# PMBA 課程循環 SOP（角色 × 時間軸總表）
+
+> **這是 PMBA 落地流程的傘狀正典（流程層 SSOT，依 ISSUE-05 邊界放 Sean-KB）。**
+> 分段細節：課後段 → `pmba-post-class-learning-trace.md`；方法論理由 → Notion「學習科學方法論」；行政（信件/作業/分組建檔）→ 蒜頭「臺大課程管理 Skill」；研究依據 → Notion「AI 協作型學習系統」設計藍圖。
+> 本 SOP 是操作層編排，發生衝突時：方法論衝突回學習科學頁，行政衝突回蒜頭 Skill，知識庫衝突回 Sean-KB CLAUDE.md。
+
+## 0. 核心模型：課程＝session 序列，不是單點
+
+- 一門課有多堂 session：S1, S2, …, Sk（例：財務管理 S1=6/28、S2=7/12）。
+- **每堂 session 觸發一個獨立循環**；循環以該堂上課日為 T0，向前 T-n、向後 T+n。
+- **循環會重疊**：S(n) 的複習段與 S(n+1) 的預習段常落在同一週 → 明文合併為「銜接複習」（§2 T-3）。
+- **多課並行**（如財報分析＋財務管理＋行銷）：每門課各自跑循環；跨課 interleaving 由 Anki 日常混練＋蒜頭主控台統一浮出到期項承擔，不另設跨課儀式。
+- 節奏參數：session 間隔 14 天 → 複習日＝T+7；間隔 7 天 → 複習日併入 T-2 銜接複習。**通則：複習日＝兩堂 session 的中點，由 T+1 時蒜頭寫入課程列「下次複習日」。**
+
+## 1. 角色一句話（誰不做什麼，跟誰做什麼一樣重要）
+
+| 角色 | 做 | 不做 |
+|---|---|---|
+| **Sean** | 一切 retrieval／立場／判斷／拍板 | 不在 retrieval 前碰 PLAUD／AI 摘要 |
+| **蒜頭**（Notion AI） | 操作層：場次、作業、提醒、複習日推進、Learning trace URL | 不碰 trace 內容、不代寫答案、不存知識 |
+| **ChatGPT Project** | 轉化：預習教練、PLAUD 對照校正、引導問題、作業陪練 | **不在拿到 PLAUD 對照源之前診斷 Sean 的 retrieval**；不直接寫入 Notion/Sean-KB |
+| **Claude Code** | promote operator：拆卡、織網、Anki 匯出、SOP 迭代 | 不代寫 retrieval 答案、不在 Sean 拍板前 promote |
+
+## 2. Session 循環總表（T0 = 該堂上課日）
+
+| 時間點 | Sean | 蒜頭 | ChatGPT | Claude Code | 產出／完成定義 |
+|---|---|---|---|---|---|
+| **T-3（銜接複習＋預習窗開）** | ①不看資料先答**上一堂題卡**（Anki/issue 題卡）②讀教材，30–60 min 預習 | 主控台浮出「T-3 內有課」＋該課待辦（教材、作業 due） | 預習教練（v2 §4.1）：**先要 Sean 講 3–5 句初判**，再給摘要/追問/反方/工作連結 | （可選）Sean 點名主題時，拉 vault 既有相關卡供預習 context | 預習卡進 Notion 課程頁內文；完成定義＝進教室前能用 2 分鐘講出主題、難題、我的初判 |
+| **T-1~T0 晨** | 看行程、帶物 | 交通/教室/場次提醒（課程頁內文場次表） | — | — | 無遺漏行政 |
+| **T0（課中）** | PLAUD 錄音＋只記判斷增量（新框架、反直覺點、好例子、改變想法的瞬間、待查點） | — | — | — | 課中粗筆記＋錄音 |
+| **T0 晚（T+0）** | **第一輪 retrieval：不看任何資料，寫/講殘存記憶** | — | **只收存，不回饋**（防污染：此時不校正、不摘要） | — | T+0 trace 原文 |
+| **T+1 晚** | ②第二輪 retrieval（仍不看資料）→ ③交 ChatGPT ④答引導問題 ⑤開 gh issue（template）body＋comments 1-3 | 課程列填 `Learning trace` URL＋`下次複習日`＝兩堂中點 | **拿 PLAUD 強化筆記當對照源**跑校正（標 PLAUD 支持/個人詮釋/AI 補強）→ 產引導問題 → 整理題卡候選 | — | gh issue（四層結構）；Notion 指標欄填妥 |
+| **T+2 ~ 複習日前** | Anki 零碎複習（通勤等） | — | — | — | 無硬性產出（緩衝段） |
+| **複習日（蒜頭浮出）** | ①不看資料答本課題卡→對照 ②挑一概念費曼一段 ③在 issue 補 comment（答錯處/新火花）④**拍板 review decision** | 複習完成→`下次複習日`推進到下堂 T-3（課程結束則 +30 天） | （可選）費曼聽眾＋追問 | **Sean 拍板 Promote 時執行 promote run**：拆卡→織網→diff 審→Anki 重匯 | 題卡答對率自評；decision 落 issue |
+| **T-3(n+1)** | 循環回到第一列（銜接複習＝上堂 spacing＋新堂 elaboration 同一時段解決） | | | | |
+| **課程結案（最後一堂的複習日）** | KPT 覆盤；清算該課所有 Keep-in-issue → 最終 promote/archive；挑工作應用/論文題目候選 | 課程列狀態→已完成；`下次複習日`＝+30（跨期最後一輪） | 結案覆盤陪練 | 結案 promote run＋課程 MOC 補 open-questions 收斂 | 課程資產六件套檢查：課程卡/概念卡/題卡/（有則）案例卡/工作應用候選/論文題目候選 |
+
+## 3. 鐵則（循環版，繼承 learning-trace SOP）
+
+1. **Retrieval 前不碰 PLAUD／AI 摘要**——T+0/T+1 兩輪提取先於一切對照（生成效應）。
+2. **ChatGPT 校正必須以 PLAUD 為對照源**，不得只憑 Sean 的輸出直接診斷（2026-06-28 實跑教訓：無對照源的診斷＝AI 憑空評分）。
+3. **未 promote 的內容不離開 issue**；promote 只在複習日之後、由 Sean 拍板（首堂課曾例外提前，屬流程定案需要，非常態）。
+4. **蒜頭只碰指標**（URL、日期、狀態），不碰內容。
+5. **漏掉 T+0 的降級模式**：只做 T+1 一輪，trace 註明；連 T+1 都漏→ PLAUD-first 補整理，所有轉出卡 `confidence: low` 並註明生成效應缺失。補救永遠優於跳過。
+
+## 4. 平行軌（不進 session 循環，避免混流）
+
+- **作業/分組/信件行政**：蒜頭「臺大課程管理 Skill」既有 SOP，觸發＝信件/交辦到達，與 session 循環互不等待。
+- **月度轉化**（設計藍圖）：每月一次，盤工作應用/論文題目池——資產化階段（61–90 天）啟用後掛入。
+- **工作應用 MVP**（如 F004 現金轉換週期）：觸發＝課程進到對應量化章節，走 Sean-KB output target `decision/case`。
+
+## 5. 本 SOP 的迭代規則
+
+每次課程循環跑完，若有角色「不確定下一步」或步驟被跳過 ≥ 2 次 → 開 gh issue 記 SOP 缺口，回本檔迭代（維護＝學習迴圈的自我應用）。變更需同步投影：蒜頭 Skill（操作段）與 ChatGPT Prompt v2（轉化段）——投影只放該角色自己那欄，不複製整表。
