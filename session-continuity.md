@@ -3,56 +3,55 @@ name: Session Continuity
 description: 冷啟動入口 — 現況、第一個動作、必讀 pointer
 type: project
 ---
-最後更新：2026-06-30（Notion AI 三頁本輪迭代落地一批，operator 定位完成；下一步＝ISSUE-05/06 或 Custom Agents 岔路）
+最後更新：2026-07-03（PMBA 課程循環 runbook v3 定案＋財務 Day 1 首次 promote 落地；下一步＝Sean 跑補漏掃描 → 7/9 複習日）
 
 > 本檔刻意進 git（Sean 2026-06-26 覆寫 session-park「gitignore」預設）。重寫後會顯示 modified，由 Sean 決定 commit 時機。
 
 ## TL;DR — 現況一行
 
-用**防彈卡網知識**迭代 **Notion AI 三頁**（System Prompt「My Notion AI」＋ 防彈引擎/主控台 Skill）：抓本地副本 → 防彈視角診斷出 8 issue → 卡網對一手 Esor PDF 抽核（**忠實、零失真**）→ 落地 ISSUE-01/03/07/08 並 MCP 回寫 Notion → 能力邊界對齊官方改成 **operator**。**下一步＝挑 ISSUE-05（操作層 vs 方法論層）或 ISSUE-06（策展防彈模組）落地，或談 Custom Agents 架構岔路**。
+PMBA 課程軌全線通車：財務管理 Day 1（6/28）跑完首次完整迴圈（T+0/T+1 retrieval → gh #13 → **promote 4 張卡＋fm- 號段導航層**）→ 流程定案為 **runbook v3**（`pmba/pmba-course-cycle-sop.md`，人機共讀：§0 相位判定程序＋角色卡＋降級表）→ Claude Code 職責封裝成 **`/pmba-cycle`** skill → Anki 工廠上線（#10 closed）→ 跨來源 earned links 首批 12 條。**下一步＝Sean 對 ChatGPT 跑補漏掃描（~7/5 前），7/9 複習日用 /pmba-cycle 接 promote。**
 
-## 本次收工快照（2026-06-30）
+## 本次收工快照（2026-07-03）
 
-- HEAD：`dd8329d`（chore: 註冊 playground plugin），已 push，origin 同步、working tree clean
-- 推進範圍：`b6e55a4` → `dd8329d`（本 session 5 commits，rebase 疊在遠端 PR #9 `1799454` 之上 — 兩邊檔案零重疊、無衝突）
-- 本輪 Notion 已實際回寫：My Notion AI §2.1-7（operator）/§6（Memories→預設準則）、防彈引擎 Skill 心法2-3、主控台範例
-- 完整 log 自己跑：`git log --oneline -10`
+- HEAD：`9bb3acb`，已 push、working tree clean、與 origin 同步
+- 本兩日推進：`656bd75`（Day 1 promote）→ `d6d57c8`（Anki 工廠）→ `ffb7740`（cycle SOP 初版＋ChatGPT prompt 迭代）→ `8f5eb01`（prompt 壓縮 3731 字）→ `de32a52`（跨來源 12 links）→ `6187ec3`/`4a9ffb4`（SOP 補漏窗＋複習日算法二迭）→ `c0edcf6`（**runbook v3**）→ `589aab4`（判準加「判斷框架」＋ `/pmba-cycle` skill）
+- Notion 已做：課程 DB 加 `下次複習日`（date）/`Learning trace`（URL）兩欄；財務管理列填 7/9＋issue #13 URL
+- gh 已做：#10 closed（Anki）；新開 **#14**（wiki/ 定位）**#15**（前綴正典衝突）**#16**（輸出端啟用軌道）；#12 補「33 張已驗證卡 reviewed 旗標未回寫」缺口 comment；#6/#7/#8 scope 對齊 comments
+- ISSUE-05 done（操作層/方法論層邊界，以 #13 實證收斂）；notion-pages/issues/INDEX 已同步（僅剩 ISSUE-06 open）
 
 ## 第一個動作（依情境分支）
 
-- **情境 A（預設：續 Notion AI 迭代）** → 讀 `notion-pages/issues/INDEX.md` 看 8-issue 狀態，挑 **ISSUE-06**（策展防彈模組進 Skill，卡網已驗證可信，等 Sean 挑模組：建議異步協作 A054-057 ＞ 任務拆解三階段 A028-030 ＞ 系統四等級 A006）或 **ISSUE-05**（操作層 vs 方法論層邊界，討論題）。流程：改 `notion-pages/` 本地副本 → 出 HTML diff 給 Sean 審 → MCP `update_content` 回寫 Notion → commit。**回寫前先 `notion-fetch` 拿精確 old_str**（tab 縮排逐字符匹配）。
-- **情境 B（Custom Agents 架構岔路）** → Sean 是 Business → Custom Agents 可用（自主、排程/事件觸發、能 update records/post/send）。談主控台自動開場、碎片自動升級是否從 System Prompt 指令改造成 Custom Agent。這是 ISSUE-05/06 背後的真正架構決定。官方：`https://www.notion.com/help/custom-agents`。
-- **情境 C（續 gh #12 卡網驗證）** → 剩 47 張防彈卡逐張對一手 PDF（方法論 SOP 寫在 issue #12 本文）。**主 agent 親自核、不派 researcher**（反污染，見 VERIFICATION 檔）。
-- **情境 D（舊 track：kb-loop 父母篇診斷場）** → `/kb-loop`，材料 Reader doc `01kvye9szayhpbx52jay7vw989`，剩 5 thread（診斷導向/輸出提前逼漏洞/問問題>分數/階段性下注/設計環境）。**生成效應鐵律：Sean 先答、不先摘要**。
-- **情境 E（改 vault 卡片/結構）** → 改既有 promoted note 前先出 git diff（CLAUDE.md Safety）。
+- **情境 A（預設：續 PMBA 循環）** → 先跑 `/pmba-cycle` Step 0 判相位。當前循環狀態：財務 Day 1 trace 完成於 7/2、**補漏掃描未做**（窗口 ~7/5，Sean 對 ChatGPT 跑「trace vs PLAUD 全文比對」→ 分揀 → 第二批題卡）→ 第二批落 issue #13 後我重匯 Anki → **7/9 複習日**（蒜頭浮出；Sean 答兩批題卡＋費曼＋待查證＋拍板）→ Promote 則跑 promote run → 7/10–11 預習 → **7/12 Day 2** 新循環。一切流程疑義回 `pmba/pmba-course-cycle-sop.md`（runbook v3，含 §0 判定程序與 §5 降級表）。
+- **情境 B（治理決策題，等 Sean 拍板）** → gh **#14**（wiki/ 三選一）、**#15**（前綴轉正，建議修 Notion 耐久決策入口 §8 一句，MCP 可代辦）、**#16**（輸出端三觸發器，事件驅動不催工）。
+- **情境 C（防彈卡驗證舊帳）** → gh #12 剩 47 張對一手 PDF（主 agent 親自核、反污染鐵則見 issue 本文）；另有「33 張已驗證卡 reviewed 旗標批次翻」等 Sean 授權（改 promoted note，先出 git diff）。
+- **情境 D（ISSUE-06 策展防彈模組）** → 判準已由 ISSUE-05 給定（「會改變操作行為」才入 Skill）；等 Sean 挑模組（建議序：異步協作 A054-057 ＞ 任務拆解 A028-030 ＞ 四等級 A006）。
+- **情境 E（Reader/隨材診斷場）** → `/kb-loop`（已補軌道邊界：PMBA 課程材料不走它）。舊 track 父母篇診斷場剩 5 thread。
 
 ## 必讀 Pointer
 
 agent-neutral（相對專案根）：
-- `./CLAUDE.md` — vault 結構/命名/note 規則正典 + Obsidian/Readwise 工具指引 + Safety
-- `./notion-pages/issues/INDEX.md` — **Notion AI 迭代 8-issue 追蹤**：狀態表、統一主軸（operator）、來源權威序（Esor 官方>vault 二手>Skill）
-- `./notion-pages/issues/VERIFICATION-bulletproof-cards.md` — 卡網一手 PDF 抽核帳 + **反污染鐵則（「子彈」是 Esor 原生詞、≠ Bullet Journal）**
-- `./notion-pages/README.md` — Notion 頁本地副本清單 + ntn 下載/MCP 回寫工作流
-- gh issue #12（`gh issue view 12`）— 剩 47 張卡待驗證 checklist + 驗證方法論 SOP
-- `./_system/prompts/maintenance-learning-loop.md` — 維護=學習迴圈 SOP（kb-loop track 用）
-- `git log --oneline -10` — 本輪完整推進
+- `./pmba/pmba-course-cycle-sop.md` — **PMBA 循環 runbook v3（本專案當前最重要正典）**：§0 今天該做什麼判定程序、§2 角色卡、§3 相位 checklist、§5 降級表、§8 版本紀錄
+- `./.claude/skills/pmba-cycle/SKILL.md` — Claude Code 執行層（promote run checklist＋Anki 重匯）
+- `./pmba/chatgpt_project_systemprompt.md` — ChatGPT Project Instructions 正典（3964 字/限 8000）
+- `./notion-pages/issues/INDEX.md` — Notion AI 迭代 8-issue 狀態（僅剩 06 open）
+- gh issue #13（`gh issue view 13`）— 財務 Day 1 learning trace 本體＋promote 紀錄
+- `./CLAUDE.md` — vault 結構/命名/Safety 正典（Workflows 段第一行有 runbook pointer）
 
 Claude Code auto-memory（絕對路徑；非 Claude agent 可略）：
 - `C:\Users\USER\.claude\projects\D--Sean-KB\memory\MEMORY.md` — 專案 index
-- `...\memory\sean-kb-sources.md` — 6 個 Notion 正典/配置頁 id（含 My Notion AI System Prompt）
-- `...\memory\promote-candidates.md` — 曾碰過的坑（PC-001~004；碰坑先翻這）
+- `...\memory\promote-candidates.md` — 曾碰過的坑（碰坑先翻這）
 
 ## 暫態注意事項（≤3）
 
-- CJK 檔名 repo 用腳本吃 `git diff --name-only` 要加 `-c core.quotepath=false`，否則漏中文檔（已記 PC-004）[owner: expire]
-- Obsidian 開著會把卡片重存成 CRLF → 假 modified 幻影；要清就 `git add --renormalize <檔>` [owner: expire]
-- 本輪審核走「本地改 → Python stdlib `difflib.HtmlDiff` 出 HTML diff → SendUserFile 給 Sean → 放行才 MCP 回寫」；playground 互動版也可（diff-review 模板）[owner: expire]
+- **Sean 有兩個手動貼板待確認**：①迭代後的 ChatGPT prompt 重貼 Project Instructions（判準新措辭版）②蒜頭投影 prompt（主控台「今日待複習/T-3 預習窗」＋課程管理 skill「下次複習日＝下堂−3」規則）[owner: Sean]
+- 補漏分揀判準定案：「會改變我的**決策、判斷框架**或工作方法嗎？」以 Sean 為準不以老師重點為準；未入選留 PLAUD＋issue，考試/作業走平行軌 [owner: expire]
+- Obsidian 開著會把卡片重存成 CRLF → 假 modified 幻影；stage 後零差異即幻影，直接 commit 正規化或忽略 [owner: expire]
 
 ## 未決事項
 
-- **ISSUE-05 操作層 vs 方法論層邊界**（討論題，未動）→ flag-Sean
-- **ISSUE-06 策展防彈模組**（卡網已驗證，等 Sean 挑哪些模組進 Skill）→ flag-Sean
-- **Custom Agents 架構岔路**（主控台/碎片升級 → Custom Agent？Business 已解鎖）→ flag-Sean
-- **gh #12：剩 47 張卡逐張對一手 PDF**（非阻塞，隨時續）
-- **可選**：28 張已驗證卡 `reviewed:false→true`（改 promoted note，先出 git diff）→ flag-Sean
-- **舊 track（kb-loop）**：父母篇診斷場剩 5 thread（情境 D）；方法論頁待辦 #2「Notion 課程流程側 SOP」未做 → flag-Sean
+- **補漏掃描**（Sean × ChatGPT，~7/5 前）→ 第二批題卡 → flag-me（重匯 Anki）
+- **7/9 複習日**：兩批題卡＋review decision；Promote → `/pmba-cycle` promote run
+- **gh #14/#15/#16** 三個決策/追蹤題 → flag-Sean
+- **#12**：47 張待驗證＋33 張 reviewed 旗標批次翻（等授權）
+- **ISSUE-06** 策展防彈模組（等 Sean 挑模組）
+- 舊 track（kb-loop）：父母篇診斷場剩 5 thread
