@@ -5,7 +5,8 @@ description: >
   透過蘇格拉底／費曼診斷對話消化進 vault，產出候選連結與 output target 交 Sean 審。核心是診斷場、不是 AI 摘要工廠。
   Use when: Sean 說 /kb-loop、「跑診斷場」、「消化這篇」、「把這個學進來」、「處理 Reader」、「織網」、
   要把外部材料沉澱進 Sean-KB、或要對某主題做診斷式學習。
-  Not for: 機械 lint（走 okf-lint）、OKF export（走 okf-exporter）、純檔案搜尋。
+  Not for: 機械 lint（走 okf-lint）、OKF export（走 okf-exporter）、純檔案搜尋、
+  PMBA 課程 session 材料（課後 learning trace／promote run 走 pmba/pmba-course-cycle-sop.md ＋ /pmba-cycle，不走本診斷場）。
 ---
 
 # kb-loop — Sean-KB 維護＝學習迴圈
