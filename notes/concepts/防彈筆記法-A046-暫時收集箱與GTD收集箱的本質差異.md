@@ -17,11 +17,12 @@ confidence: high
 source_type: reading
 source_ref:
   - "[[防彈筆記法-Esor]]"
+  - "Esor 講義 PDF 單元 3-1"
 aliases:
   - 防彈筆記法-A046
   - 暫時收集箱與GTD收集箱的本質差異
-reviewed: false
-reviewed_at:
+reviewed: true
+reviewed_at: 2026-06-30
 ---
 
 # 暫時收集箱與GTD收集箱的本質差異
