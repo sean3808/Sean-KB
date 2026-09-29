@@ -12,8 +12,8 @@ PR #19（AI-first ingestion）已 merge 進 main；下一步是開「agent 介�
 
 ## 本次收工快照（2026-09-30）
 
-- HEAD `f02e879`（`main`），領先 origin/main 1 commit（教訓候選，未 push）
-- working tree：Sean 既有未 commit 檔（問題解決 MOC、防彈 A007、兩份 sources）＋未追蹤（`_inbox/fable-five-year-letter…`、`sources/pmba/財務管理B 2026-06-28 上／下.md`）本輪未動；park 產生的 `CLAUDE.md`、`session-continuity.md`、`docs/current-status.md`、`.claude/promote-candidates.md` 待 commit
+- HEAD 與 origin/main 同步（`main`）
+- working tree：Sean 既有未 commit 檔（問題解決 MOC、防彈 A007、兩份 sources）＋未追蹤（`_inbox/fable-five-year-letter…`、`sources/pmba/財務管理B 2026-06-28 上／下.md`）本輪未動
 - 本輪推進：grill PR #19（31 題）→ 語意修正＋卡片盒補充＋lint／OKF 匯出修正，併入 Sean 7 月本機 commit，`--no-ff` merge（`245497f`），main 上 17 tests OK／lint 0 hard error
 - 決策紀錄：`notion-pages/耐久決策入口.md` 決策紀錄 2026/09/29 條（遠端待回寫）
 
@@ -39,6 +39,5 @@ PR #19（AI-first ingestion）已 merge 進 main；下一步是開「agent 介�
 
 ## 未決事項
 
-- 教訓候選 commit `f02e879` 與本次 park 的變更尚未 push／commit — Sean 決定時機。
-- ChatGPT Project Instructions 要重貼 `pmba/chatgpt_project_systemprompt.md`（PR #19 已改）；蒜頭投影 prompt（7/3 帶入）是否已套用仍未確認。
-- AI-first 之前開的 open issues 是否仍有效、要關閉或改寫：#4–#8（Reader track／Promote Queue）、#11、#13、#17（kb-candidate learning trace）、#12（防彈卡 47 張對 PDF 驗證）、#16；另 Joan 4 場課 PDF 萃取是否要當 Selected Source 交付。
+- 蒜頭投影 prompt（7/3 帶入：主控台複習窗＋「下次複習日＝下堂−3」）在 v2 下已不適用，Notion 端是否要改由 #18 一併處理。
+- Joan 4 場課 PDF 萃取：Sean 交付才算 Selected Source，目前未交付。
