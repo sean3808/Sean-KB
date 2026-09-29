@@ -58,7 +58,9 @@ def lint(vault):
                 if not data.get(field):
                     errors.append(f'{rel}: missing {field}')
             identity = data.get('id')
-            if identity:
+            if identity and not isinstance(identity, (str, int)):
+                errors.append(f'{rel}: invalid id (must be a string)')
+            elif identity:
                 if identity in ids:
                     errors.append(f'{rel}: duplicate id {identity} ({ids[identity]})')
                 ids[identity] = rel

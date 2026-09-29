@@ -33,7 +33,7 @@ domain: pmba
 - `trace_done`＝gh issue（learning trace）的 body＋comments 1-3 是否已完成
 - `sweep_done`＝補漏掃描是否已做（issue 是否有「漏網分揀」comment）
 
-**判定（由上而下，第一條命中即停）**：
+**判定（由上而下，第一條命中即停；只用於 Sean 已升級為 Silver／Gold 的課，見 §3 開頭）**：
 
 ```text
 1. today == T0                          → 相位＝課中（§3.3）
@@ -92,6 +92,8 @@ domain: pmba
 ---
 
 ## 3. 循環相位詳解
+
+> **v2 適用範圍**：每堂的預設完成只有 Bronze（課初回想上一堂＋課末 3 點＋1 疑問，見檔首）。§0 判定與以下 §3.1–3.9 的動作與「完成定義」，只在 Sean 選擇把某堂升級為 Silver／Gold 時適用；沒升級的課，learning trace issue、題卡、補漏、複習日都不是待辦，也不形成欠債。
 
 ### 3.1 預習窗（T-3 ~ T-1，銜接複習＋預習）
 

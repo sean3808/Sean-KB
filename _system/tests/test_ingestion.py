@@ -138,6 +138,19 @@ class IngestionContractTests(unittest.TestCase):
         self.assertEqual(actual['extra_future_field'], self.note['extra_future_field'])
         self.assertFalse(actual['reviewed'])
 
+    def test_export_body_link_keeps_anchor(self):
+        src = self.write('notes/concepts/test.md', self.note,
+                         body='見 [[other#Section 2|相關段落]] 與 [[other]]\n')
+        dst = self.vault / 'export.md'
+        exporter.export_one(src, dst, {'test', 'other'})
+        body = dst.read_text(encoding='utf-8')
+        self.assertIn('[相關段落](./other.md#Section%202)', body)
+        self.assertIn('[other](./other.md)', body)
+
+    def test_non_scalar_id_is_reported_not_crash(self):
+        self.note['id'] = ['a', 'b']
+        self.assertTrue(any('invalid id' in e for e in self.errors()))
+
     def test_anki_standard_answer_is_independent_of_learning_gate(self):
         self.assertEqual(extract_qa_pairs('## Retrieval 題卡\nQ: Why?\nA: Sourced answer.\n'),
                          [('Why?', 'Sourced answer.')])

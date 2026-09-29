@@ -15,6 +15,7 @@ import sys
 import argparse
 from pathlib import Path
 from datetime import datetime
+from urllib.parse import quote
 
 import yaml
 
@@ -28,7 +29,7 @@ PROGRESS_FILE = VAULT / ".subagent-output/okf-export/progress.md"
 
 # ─────────────── Regex patterns ───────────────
 # Obsidian wikilink: [[fname#anchor|alias]] or [[fname|alias]] or [[fname#anchor]] or [[fname]]
-WIKILINK_RE = re.compile(r"\[\[([^\]|#\n]+?)(?:#[^\]|\n]*?)?(?:\|([^\]\n]+?))?\]\]")
+WIKILINK_RE = re.compile(r"\[\[([^\]|#\n]+?)(?:#([^\]|\n]*?))?(?:\|([^\]\n]+?))?\]\]")
 # Obsidian embed: ![[fname#anchor]] or ![[fname]]
 EMBED_RE = re.compile(r"!\[\[([^\]|#\n]+?)(?:#[^\]|\n]*?)?\]\]")
 # Callout opener: > [!type] optional title
@@ -101,10 +102,12 @@ def convert_wikilink_to_text(m: re.Match) -> str:
 def convert_wikilink_to_link(m: re.Match, concept_stems: set, counter: list) -> str:
     """Convert a wikilink match to markdown link or plain text (for body)."""
     fname = m.group(1).strip()
-    alias = m.group(2)
+    anchor = m.group(2)
+    alias = m.group(3)
     display = alias.strip() if alias else fname
     if fname in concept_stems:
-        return f"[{display}](./{fname}.md)"
+        fragment = f"#{quote(anchor.strip())}" if anchor else ""
+        return f"[{display}](./{fname}.md{fragment})"
     else:
         counter[0] += 1
         return display
