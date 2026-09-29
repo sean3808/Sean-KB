@@ -17,12 +17,12 @@ LINK = re.compile(r'\[\[([^\]\n]+)\]\]')
 
 
 def frontmatter(text):
-    match = re.match(r'\A---\r?\n(.*?)\r?\n---(?:\r?\n|$)', text, re.S)
+    match = re.match(r'\A---\r?\n(.*?)\r?\n---(?:\r?\n|$)', text, re.DOTALL)
     if not match:
         raise ValueError('missing YAML frontmatter')
     data = yaml.safe_load(match.group(1))
     if not isinstance(data, dict):
-        raise ValueError('frontmatter must be a mapping')
+        raise TypeError('frontmatter must be a mapping')
     return data
 
 
@@ -41,7 +41,7 @@ def lint(vault):
             text = path.read_text(encoding='utf-8-sig')
             try:
                 data = frontmatter(text)
-            except (ValueError, yaml.YAMLError) as exc:
+            except (ValueError, TypeError, yaml.YAMLError) as exc:
                 # Raw source text (transcript, scraped posts) lives in sources/ without metadata;
                 # its Source note carries the metadata. It stays a valid link target.
                 if folder == 'sources' and not text.startswith('---'):

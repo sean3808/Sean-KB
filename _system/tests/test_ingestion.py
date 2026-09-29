@@ -8,9 +8,10 @@ from pathlib import Path
 import yaml
 
 sys.path.insert(0, str(Path(__file__).resolve().parents[1] / 'scripts'))
-from lint_ingestion import lint
+
 import okf_export_concepts as exporter
 from export_anki import extract_qa_pairs
+from lint_ingestion import lint
 
 
 class IngestionContractTests(unittest.TestCase):
@@ -18,21 +19,21 @@ class IngestionContractTests(unittest.TestCase):
         self.tmp = tempfile.TemporaryDirectory()
         self.addCleanup(self.tmp.cleanup)
         self.vault = Path(self.tmp.name)
-        self.source = dict(
-            type='Source', title='Selected textbook', description='Synthetic fixture',
-            timestamp='2026-09-29T18:53:23+08:00', id='src-test', resource='local:fixture.pdf',
-            ingestion_version=1, generated_by='ai', source_status='integrated', selected_by='sean',
-            selection_basis='sean-provided', selection_evidence='Fixture: Sean asked to ingest this textbook.',
-            source_version='fixture-v1', document_quality=dict(text='good', structure='good', tables='none', ocr=False),
-            parsing_strategy='tree', source_tree=[dict(node_id='ch-1', parent_id=None, heading='Chapter 1',
-                section='Chapter 1', page_range=[1, 120], summary='Synthetic chapter coverage.')])
-        self.note = dict(
-            type='Concept', title='Reusable claim', description='One independent claim.',
-            timestamp='2026-09-29T18:53:23+08:00', id='note-test', ingestion_version=1,
-            generated_by='ai', claim_origin='source', reviewed=False,
-            source_ref=['[[sources/textbook]]'], source_evidence=[dict(source='[[sources/textbook]]',
-                source_version='fixture-v1', node_id='ch-1', section='Chapter 1', page_range=[2, 3],
-                evidence_pointer='local:fixture.pdf#page=2')])
+        self.source = {
+            'type': 'Source', 'title': 'Selected textbook', 'description': 'Synthetic fixture',
+            'timestamp': '2026-09-29T18:53:23+08:00', 'id': 'src-test', 'resource': 'local:fixture.pdf',
+            'ingestion_version': 1, 'generated_by': 'ai', 'source_status': 'integrated', 'selected_by': 'sean',
+            'selection_basis': 'sean-provided', 'selection_evidence': 'Fixture: Sean asked to ingest this textbook.',
+            'source_version': 'fixture-v1', 'document_quality': {'text': 'good', 'structure': 'good', 'tables': 'none', 'ocr': False},
+            'parsing_strategy': 'tree', 'source_tree': [{'node_id': 'ch-1', 'parent_id': None, 'heading': 'Chapter 1',
+                'section': 'Chapter 1', 'page_range': [1, 120], 'summary': 'Synthetic chapter coverage.'}]}
+        self.note = {
+            'type': 'Concept', 'title': 'Reusable claim', 'description': 'One independent claim.',
+            'timestamp': '2026-09-29T18:53:23+08:00', 'id': 'note-test', 'ingestion_version': 1,
+            'generated_by': 'ai', 'claim_origin': 'source', 'reviewed': False,
+            'source_ref': ['[[sources/textbook]]'], 'source_evidence': [{'source': '[[sources/textbook]]',
+                'source_version': 'fixture-v1', 'node_id': 'ch-1', 'section': 'Chapter 1', 'page_range': [2, 3],
+                'evidence_pointer': 'local:fixture.pdf#page=2'}]}
 
     def write(self, path, data, body=''):
         target = self.vault / path
