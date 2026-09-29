@@ -140,12 +140,14 @@ class IngestionContractTests(unittest.TestCase):
 
     def test_export_body_link_keeps_anchor(self):
         src = self.write('notes/concepts/test.md', self.note,
-                         body='見 [[other#Section 2|相關段落]] 與 [[other]]\n')
+                         body='見 [[other#Section 2|相關段落]] 與 [[other]] 與 [[other#^block01|jump]]\n')
         dst = self.vault / 'export.md'
         exporter.export_one(src, dst, {'test', 'other'})
         body = dst.read_text(encoding='utf-8')
         self.assertIn('[相關段落](./other.md#Section%202)', body)
         self.assertIn('[other](./other.md)', body)
+        self.assertIn('[jump](./other.md)', body)
+        self.assertNotIn('%5E', body)
 
     def test_non_string_id_is_reported_not_crash(self):
         for bad in (['a', 'b'], True, 7):

@@ -106,7 +106,8 @@ def convert_wikilink_to_link(m: re.Match, concept_stems: set, counter: list) -> 
     alias = m.group(3)
     display = alias.strip() if alias else fname
     if fname in concept_stems:
-        fragment = f"#{quote(anchor.strip())}" if anchor else ""
+        # Heading anchors survive export; block ids (^id) are stripped from bodies below, so link the note only.
+        fragment = f"#{quote(anchor.strip())}" if anchor and not anchor.strip().startswith("^") else ""
         return f"[{display}](./{fname}.md{fragment})"
     else:
         counter[0] += 1
