@@ -12,7 +12,7 @@ description: >
 ## Step 0 — 按任務分流
 
 - **交教材／case／PLAUD／learning trace 給 Sean-KB**：立即跑下方 ingestion，不查日期、不等待學習相位或另開候審 issue。
-- **詢問今天學什麼／複習／結案**：讀 `pmba/pmba-course-cycle-sop.md`，取台北日期（`date`／`Get-Date` 配合時區），查本課 T0／T0next 與 learning trace，依 §0 判相位。資料不足只詢問缺的學習排程資訊，不擋已授權 ingestion。
+- **詢問今天學什麼／複習／結案**：預設只有 Bronze（課初回想上一堂＋課末 3 點＋1 疑問，runbook 檔首）；只有 Sean 已把該堂升級 Silver／Gold 時，才讀 `pmba/pmba-course-cycle-sop.md`，取台北日期（`date`／`Get-Date` 配合時區），查本課 T0／T0next 與 learning trace，依 §0 判相位。資料不足只詢問缺的學習排程資訊，不擋已授權 ingestion。
 - **重匯 Anki**：執行下方命令。只讀 `notes/concepts/` 的「Retrieval 題卡」Q/A；issue 內尚未落卡的題不會匯出，不宣稱已包含。
 
 ## Ingestion run
