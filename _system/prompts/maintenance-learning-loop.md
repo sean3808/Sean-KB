@@ -77,7 +77,7 @@ earned 測試：走這條 link 能否產生「單看其中一張卡得不到」�
 
 AI 可直接完成正式 graph 的新增卡、links、MOC，以及既有卡的 **Additive Update**：只追加 frontmatter（來源、evidence、aliases、MOC 歸屬）或在文末追加連結，不改動任何既有句子。自行檢查完整 diff 後 commit，保留 Git 版本軌跡；人工 PR／發布審查按當次任務要求，不是逐卡 ingestion gate。
 
-**Rewrite**（改寫或刪除既有卡的任何既有句子、刪除整張卡）一律先讓 Sean 看 diff。Sean 在場時當場呈現；不在場時不動卡片，把擬議修改（目標卡、原句、新句、理由、證據）記為該 Source 的一筆 Exception，下次 session 一次呈現，批准後才套用。
+**Rewrite**（改寫或刪除既有卡的任何既有句子、刪除整張卡）一律先讓 Sean 看 diff。Map（MOC）屬導航，新增、調整或重組都不算 Rewrite。Sean 在場時當場呈現；不在場時不動卡片，把擬議修改（目標卡、原句、新句、理由、證據）記為該 Source 的一筆 Exception，下次 session 一次呈現，批准後才套用。
 
 以下情況也請 Sean 判斷：
 
@@ -91,7 +91,7 @@ AI 可直接完成正式 graph 的新增卡、links、MOC，以及既有卡的 *
 
 **只暫停有疑慮的 mutation，繼續處理不受影響內容。** 新書主張 A、Sean Principle 主張 not-A 時，保留新來源的 A，建立有理由的 contradiction／comparison link，原 Principle 不覆寫。來源完成安全整合後可 integrated 並留 open exception；如果關鍵章節無法解析則停在最後已完成階段，不偽報完成。
 
-Exception 記在該 source 的 `## Exceptions`（模板欄位見狀態機），一個問題一筆、只提一次最小問題。通常不建 GitHub issue；需要持續討論且任務允許時才用 issue pointer。`reviewed: false`、卡數多、Sean 忙、沒做費曼都不是 exception。
+Exception 記在該 source 的 `## Exceptions`（模板欄位見狀態機），一個問題一筆、只提一次最小問題。Exception 只住在 Source 內：不另開 GitHub issue，也不開分支暫存擬議修改。`reviewed: false`、卡數多、Sean 忙、沒做費曼都不是 exception。
 
 ## 5. Document Quality 與 Raw policy
 

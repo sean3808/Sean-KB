@@ -14,6 +14,7 @@ import yaml
 
 STATES = ('selected', 'ingested', 'indexed', 'atomicized', 'integrated')
 LINK = re.compile(r'\[\[([^\]\n]+)\]\]')
+HTML_COMMENT = re.compile(r'<!--.*?-->', re.DOTALL)
 
 
 def frontmatter(text):
@@ -58,7 +59,7 @@ def lint(vault):
                 if not data.get(field):
                     errors.append(f'{rel}: missing {field}')
             identity = data.get('id')
-            if identity and not isinstance(identity, (str, int)):
+            if identity is not None and not isinstance(identity, str):
                 errors.append(f'{rel}: invalid id (must be a string)')
             elif identity:
                 if identity in ids:
@@ -87,7 +88,8 @@ def lint(vault):
     legacy = 0
     for rel, (data, text) in docs.items():
         # Body + metadata file targets, including legacy source_ref. Do not invent missing links.
-        for target in sorted(set(LINK.findall(text))):
+        # HTML comments (template guidance) are not rendered by Obsidian, so their links are not links.
+        for target in sorted(set(LINK.findall(HTML_COMMENT.sub('', text)))):
             if not resolve(f'[[{target}]]'):
                 errors.append(f'{rel}: unresolved/ambiguous wikilink [[{target}]]')
         if 'ingestion_version' not in data:

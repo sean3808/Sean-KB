@@ -29,7 +29,7 @@ OKF v0.1 的最低要求仍是非空 `type`，unknown fields 必須保留。本�
 | `reviewed` / `reviewed_at` | 可選，歷史人工／既有驗證紀錄；不是入庫或 export gate，也不代表來源所有主張是 Sean 立場；AI 不自行翻為 true |
 | `ingestion_version` | 新 pipeline 產物填 `1`；舊卡不批次強制遷移 |
 | `generated_by` | ai / sean / mixed；只表示產生方式，不是品質等級 |
-| `claim_origin` | source / ai-inference / sean；新衍生 note 必填，預設 source。若混合，拆卡或逐段明示歸因，勿把 AI 推論包成來源原話 |
+| `claim_origin` | source / ai-inference / sean；新衍生 note 必填，預設 source。若混合，拆卡或逐段明示歸因，勿把 AI 推論包成來源原話。AI 二手素材（如 ChatGPT 校正稿）追得回一手原文才標 source 並引用原文，否則 ai-inference |
 | `stance_evidence` | 僅 claim_origin: sean 必填：Sean 明示主張的指示／紀錄定位；選書或 reviewed 不足以證明個人主張 |
 
 ## Note types 與位置

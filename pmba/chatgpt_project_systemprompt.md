@@ -25,7 +25,7 @@ Obsidian 是長期知識庫（課程卡/概念卡/案例卡/人物卡/論文題�
 
 ### 2.4 Learning trace 與 exception review
 
-GitHub Issues 可按需保存學習軌跡或真正例外，不再是每張卡的候審區。Sean 提供來源＝approved source；選書不等於認同所有主張，不能把來源觀點寫成 Sean believes。
+GitHub Issues 可按需保存學習軌跡或真正例外，不再是每張卡的候審區。我明確交給 Sean-KB 的來源即 Selected Source（已選定，不需再批准）；選書不等於認同所有主張，不能把來源觀點寫成 Sean believes。
 
 - 普通 ingestion 不建立 promote_candidate／waiting_for_sean queue，也不要求 Sean 先摘要、答題或費曼。
 - learning trace template 保存 recall／來源校正／題卡與學習進度；AI 可寫有來源的標準答案，不得冒充我已回憶／內化。

@@ -73,7 +73,7 @@ type: project
 ## 第一個動作（依情境分支）
 
 - **情境 F（最新：Joan KB curator gate）** → 入口 `maps/joan-MOC.md` → 先讀脊椎 `Joan-M00-那把尺`，走一遍 21 張 pattern 卡。22 張全 `reviewed:false`，Sean review git diff 決定 promote（改 `reviewed:true`）／cull。**特別裁決**：4 張單源卡 `P08 替代成本`／`P10 客訴痛點`／`P11 B2B流程轉譯`／`P16 Discovery/Session`（單則貼文拆多子場景，判斷可否接受，或降級）。未成卡的高價值深度文在 `.subagent-output/joan-batch2/`。**2 commit 未 push，Sean 定 push 時機**。另 4 場課 PDF 未萃取（Sean 指示本輪只做舉一反十）。
-- **情境 A（預設：續 PMBA 循環）** → 先跑 `/pmba-cycle` Step 0 判相位。已知：財務 Day 1 trace 完成 7/2、**7/9 複習日**（Sean 答兩批題卡＋費曼＋待查證＋拍板；Promote 則跑 promote run）→ 7/10–11 預習 → **7/12 Day 2** 新循環。先確認補漏掃描第二批題卡是否已落 issue #13（是 → 重匯 Anki）。流程疑義一律回 `pmba/pmba-course-cycle-sop.md`（runbook v3）。
+- **情境 A（預設：續 PMBA 循環）** → 先跑 `/pmba-cycle` Step 0 判相位。已知：財務 Day 1 trace 完成 7/2、**7/9 複習日**（Sean 答兩批題卡＋費曼＋待查證＋拍板）→ 7/10–11 預習 → **7/12 Day 2** 新循環。先確認補漏掃描第二批題卡是否已落 issue #13（是 → 重匯 Anki）。流程疑義一律回 `pmba/pmba-course-cycle-sop.md`（現行 v4＋v2 執行層）。
 - **情境 B（防彈卡驗證舊帳）** → gh #12 剩 47 張對一手 PDF：主 agent 親自核、反污染鐵則見 issue 本文；每張驗完**當場**翻 reviewed 旗標（SOP 已補此措辭）。
 - **情境 C（Reader track 啟動）** → #6 是主 issue：用〈父母篇〉等材料實跑 2–3 篇 `/kb-loop` 診斷場（舊 track 剩 5 thread），再回頭收斂 `_system/prompts/reader-kb-loop-state-machine.md` 草案。#7（Bases dashboard）、#8（evidence policy）都排它後面。
 - **情境 D（輸出端事件觸發）** → #16：財務課進到營運資金量化 → CCC MVP 子 issue；人脈知識事件 → people/ 首卡。事件驅動，不催工。
@@ -82,8 +82,8 @@ type: project
 ## 必讀 Pointer
 
 agent-neutral（相對專案根）：
-- `./pmba/pmba-course-cycle-sop.md` — **PMBA 循環 runbook v3（當前最重要正典）**：§0 今天該做什麼判定程序、§2 角色卡、§5 降級表
-- `./.claude/skills/pmba-cycle/SKILL.md` — Claude Code 執行層（promote run checklist＋Anki 重匯）
+- `./pmba/pmba-course-cycle-sop.md` — PMBA 學習 runbook v4（執行層以 2026-08-28 v2 為準，見檔首；完整改寫待 #18）
+- `./.claude/skills/pmba-cycle/SKILL.md` — PMBA 教材 ingestion、學習排程查詢、Anki 重匯
 - `./pmba/chatgpt_project_systemprompt.md` — ChatGPT Project Instructions 正典
 - gh issue #13（`gh issue view 13 --comments`）— 財務 Day 1 learning trace 本體＋promote 紀錄
 - `./notion-pages/issues/INDEX.md` — Notion AI 迭代 issue 狀態（僅剩 ISSUE-06 open）
@@ -101,9 +101,8 @@ Claude Code auto-memory（絕對路徑；非 Claude agent 可略）：
 
 ## 未決事項
 
-- **Joan KB promote pass**（本 session 新增，最優先）→ 22 張思維卡待 Sean 判斷 promote／cull；4 張單源卡待裁決；候選池 `.subagent-output/joan-batch2/`；2 commit（`a06793b`,`d69f45a`）未 push，等 Sean 拍板；4 場課 PDF（GPT三層駕馭術/0625/0810/Vibe Coding）待日後萃取
-- **補漏掃描完成與否**（窗 ~7/5）→ flag-Sean：第二批題卡落 #13 了嗎？是 → 我重匯 Anki（7/9 前要就位）
-- **7/9 複習日**：兩批題卡＋review decision；Promote → `/pmba-cycle` promote run
+- ~~Joan KB promote pass~~（2026-09-29 結案：AI-first 取消 promote 關卡，Sean 核准連同 PR #19 push）；4 場課 PDF（GPT三層駕馭術/0625/0810/Vibe Coding）待日後萃取
+- ~~補漏掃描／7/9 複習日~~（2026-09-29 失效：PMBA 改 v2，未升級 Silver／Gold 的課不形成待辦）
 - **#12**：47 張待驗證（等排程，主 agent 親核）
 - **ISSUE-06**：策展防彈模組（等 Sean 挑）
 - Reader track（#6/#7/#8）：等父母篇實跑啟動

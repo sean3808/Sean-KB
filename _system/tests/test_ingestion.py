@@ -147,9 +147,19 @@ class IngestionContractTests(unittest.TestCase):
         self.assertIn('[相關段落](./other.md#Section%202)', body)
         self.assertIn('[other](./other.md)', body)
 
-    def test_non_scalar_id_is_reported_not_crash(self):
-        self.note['id'] = ['a', 'b']
-        self.assertTrue(any('invalid id' in e for e in self.errors()))
+    def test_non_string_id_is_reported_not_crash(self):
+        for bad in (['a', 'b'], True, 7):
+            self.note['id'] = bad
+            self.assertTrue(any('invalid id' in e for e in self.errors()), bad)
+
+    def test_source_note_template_with_comments_left_in_passes_lint(self):
+        template = (Path(__file__).resolve().parents[2] / 'templates/source-note.md').read_text(encoding='utf-8')
+        data = yaml.safe_load(template.split('---\n', 2)[1])
+        data.update(title='Filled', description='Filled from template.', timestamp='2026-09-30T09:00:00+08:00',
+                    id='src-from-template', resource='local:fixture.pdf',
+                    selection_evidence='Fixture: Sean handed this over.')
+        self.write('sources/from-template.md', data, body=template.split('---\n', 2)[2])
+        self.assertEqual(lint(self.vault)['hard_errors'], [])
 
     def test_non_string_node_ids_are_reported_not_crash(self):
         self.source['source_tree'][0]['node_id'] = ['ch-1']

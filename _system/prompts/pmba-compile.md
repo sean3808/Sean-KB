@@ -4,7 +4,7 @@
 
 先讀 `maintenance-learning-loop.md`、`reader-kb-loop-state-machine.md` 與 `_system/schemas/okf-note-schema.md`，執行共用 selected → ingested → indexed → atomicized → integrated。
 
-輸入按實際提供使用：教材、逐字稿、課堂標註、Sean reflection；Notion 目標／deadline 僅有需要時參照，不是必填。AI 自行 research 到但未被 Sean 指定納入的來源只作 transient evidence，不永久入庫。
+輸入按實際提供使用：教材、逐字稿、課堂標註、Sean reflection；Notion 目標／deadline 僅有需要時參照，不是必填。AI 自行 research 到但未被 Sean 指定納入的來源只作 transient evidence，不永久入庫。ChatGPT 校正稿等 AI 二手素材依 SOP §0 歸因：追得回 PLAUD／教材原文的主張引用原文，追不回標 `ai-inference`，只有明示為 Sean 詮釋的段落可作 Sean 立場。
 
 請完成：
 
