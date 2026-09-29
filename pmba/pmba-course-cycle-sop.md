@@ -10,6 +10,8 @@ domain: pmba
 # PMBA 課程循環 Runbook
 
 > **v4 邊界**：本檔的日期／retrieval／費曼只管理 Sean 主動學習。Sean 提供教材即完成 Source Selection，AI 當下依 `_system/prompts/pmba-compile.md` 完成 ingestion，不等待本表相位、learning trace 或逐卡批准。Knowledge ingestion ≠ personal learning。
+>
+> **執行層以 2026-08-28 v2 為準**（Notion「AI 時代下為在職 PMBA 學生打造具實證基礎的 AI 協作型學習系統」頁首：Bronze＝課初回想上一堂＋課末 3 點＋1 疑問；Silver／Gold 按需升級）。本檔以下的多相位流程只作 Silver／Gold 深加工參考，整份改寫待 issue #18。Gold 不含 Obsidian 卡或 promote：進不進 Sean-KB 只看 Source Selection。
 
 > **正典地位**：PMBA 落地流程的傘狀 SSOT（依 ISSUE-05 邊界放 Sean-KB）。時間軸與相位規則**只**住在本檔——其他文件（課後段細節、蒜頭 Skill、ChatGPT prompt）是本檔的分段細節或投影，衝突時以本檔為準。
 > **給人類讀者**：查學習排程時先看 §0 判定程序找到今天的相位，再跳 §3 對應小節照 checklist 做。
@@ -70,7 +72,6 @@ domain: pmba
 
 ### 2.1 Sean（Source curator 與主動學習者）
 - **做**：Source Selection、個人立場與真正 exception；主動學習時的 retrieval／重述／選練重點。
-- **不做**：retrieval 前不碰 PLAUD／AI 摘要（T+0→T+1 之間是生成效應保護區）。
 - **學習建議**：每堂課 T+0 一輪殘存記憶提取；可按注意力調整或跳過，不影響知識入庫（§5）。
 
 ### 2.2 蒜頭（Notion AI｜操作層＝時鐘＋門牌）
@@ -140,7 +141,7 @@ domain: pmba
   - [ ] ChatGPT：機械比對——拿 issue trace 全文對照 **PLAUD 強化筆記全文**，列出「trace 未覆蓋的高價值點」清單（無益摩擦，AI 代勞）
   - [ ] Sean：逐點分揀「值得補／放掉」。判準一句話：**這個點會改變我的決策、判斷框架或工作方法嗎？** 不會就放掉，不做完整性補課（「判斷框架」覆蓋不直接對應操作、但改變「怎麼想」的概念——如財報慣性；判準錨定 Sean 而非老師重點的理由與三種歸宿見 2026-07-03 定案：學習未選練的內容仍可由 AI 依已選定來源整合，考試／作業另走平行軌）
   - [ ] 值得補的走**微循環**：Sean 讀該段 PLAUD／教材 → **自己重述一遍** → ChatGPT 校正 →將學習紀錄與題卡補入 trace（是否發 comment 依當次授權）。學習練習：**自己重述後再對照 AI 校正**（漏網點從未被編碼，「先讀」不違反生成效應，但重述不能省）
-  - [ ] Claude Code：有來源的題卡寫入正式 concept 的「Retrieval 題卡」後重跑 `python _system/scripts/export_anki.py`；exporter 只讀 vault，不讀 issue
+  - [ ] Claude Code：有來源的題卡寫入正式 concept 的「Retrieval 題卡」後重跑 `uv run python _system/scripts/export_anki.py`；exporter 只讀 vault，不讀 issue
 - 這是 Sean 按需補學的窗口，不要求全文親讀；AI 的 source coverage 與 Sean 的記憶覆蓋分開。
 - **完成定義**：漏網分揀清單＋第二批候選落 issue；Anki 已更新。
 
@@ -174,7 +175,7 @@ domain: pmba
 
 ## 4. 鐵則（每條附理由）
 
-1. **Retrieval 前不碰 PLAUD／AI 摘要**——保護區＝T+0 到 T+1 校正前。理由：先看答案會把「重新熟悉」誤認為「學會」（生成效應）。
+1. **（2026-09-29 移除）生成效應保護區**：原「T+0 到 T+1 校正前不碰 PLAUD／AI 摘要」不再是鐵則。理由：v2 以課初／課末各一次 retrieval 取代 T+0/T+1；教材入庫後的卡可能先於 retrieval 出現在 vault，保護區已無法也不再需要守。
 2. **ChatGPT 校正必以 PLAUD 為對照源**，不得只憑 Sean 的輸出診斷。理由：無對照源的診斷＝AI 憑空評分（2026-06-28 實跑教訓）。
 3. **Sean 提供來源即已核准入庫**，AI 可直接完成正式知識整合，不等待 issue／複習日；提取檢驗只評估 Sean 的學習。
 4. **蒜頭只碰指標**（URL、日期、狀態）。理由：操作層存內容會分裂 SSOT（ISSUE-05 邊界）。
@@ -208,7 +209,6 @@ domain: pmba
 | **補漏掃描** | trace vs PLAUD 全文的機械比對＋人工分揀，撈回「重要但沒 recall 出來」的知識點 |
 | **微循環** | 漏網點的最小生成迴圈：讀→自己重述→AI 校正 |
 | **銜接複習** | 上一堂的深複習與下一堂預習合併在同一時段（複習日＝下堂 T-3 的自然結果） |
-| **promote run** | ingestion run 的舊命令別名；Source Selection 後 AI 拆卡→去重→織網→MOC→lint→自審 diff→按任務 commit／PR，不需逐卡拍板 |
 | **earned link** | 通過「合看產生單卡得不到的理解」測試、帶一句 why 的跨卡連結；反義＝批次相似度硬連 |
 
 ## 8. 迭代規則與版本紀錄

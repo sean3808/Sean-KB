@@ -50,10 +50,10 @@ Independent skill dry-run 結果：沒有阻塞四情境的規則矛盾。尤其
 
 - 保留 Obsidian knowledge SoT、Zettelkasten、LYT／MOC、flat concepts、earned links、OKF、Notion control plane 與 Git。
 - 不改既有 note ID、路徑、檔名與 reviewed 值；舊資料仍是正式知識，新 provenance/lifecycle 在實質處理時依證據補足，不捏造資料或批次翻旗標。
-- 保留 maintenance-learning-loop／Reader 檔案路徑與 promote run 舊命令別名，導向新 pipeline。
+- 保留 maintenance-learning-loop／Reader 檔案路徑；「promote run」別名已移除（見下方 review 修正）。
 - reviewed／Sean 學習進度不影響 export；OKF 最低 consumer contract 未加強，unknown fields 保留。
 - concept-only OKF exporter 不封裝整份 Source Tree。現有 bundle 的來源定位仍依賴原 vault／external source；完整 references packaging 留給 exporter workflow 按需處理。
-- Notion 文件只改 repo 本地副本；未回寫遠端、未重貼 ChatGPT Project Instructions、未改遠端 issue 狀態。
+- Notion 文件只改 repo 本地副本（review 修正後已改以遠端最新版為基底）；未回寫遠端、未重貼 ChatGPT Project Instructions、未改遠端 issue 狀態。
 
 ## Risks / trade-offs 與未來接口
 
@@ -63,3 +63,19 @@ Independent skill dry-run 結果：沒有阻塞四情境的規則矛盾。尤其
 - 外部來源可能失效或無存取權，記錄 locator 與版本仍需實際可讀來源。大 PDF／錄音／完整版權教材留外部；Private 不使 repo 適合所有 binary。
 - 未來 PageIndex／tree retrieval 可把 parser 輸出映射至 source_tree.node_id／parent_id／locator，並由 source_evidence.node_id 接 graph；需保留版本與穩定 identity、驗證新 parser 後再接入。本次未新增 PageIndex、vector DB 或自動化服務 dependency。
 - Source Selection 永遠不能由 retrieval adapter 或 web research 自動繞過。Sean 選來源不等於採納所有 normative claims。
+
+## 2026-09-29 Sean review 修正（grill session）
+
+| 修正 | 內容 |
+|---|---|
+| 安全線 | Additive Update（只加 frontmatter／文末連結）直接 commit；Rewrite（改寫／刪除既有句子）先給 Sean 看 diff，不在場記為 Source Exception；取代原「高價值 note」模糊門檻 |
+| 正典分工 | 撤回「repo 規則高於 Notion 快照」；決策 SSOT 仍是 Notion，repo 只管知識與流程 |
+| Notion 本地副本 | 原 PR 改在過期副本上（漏遠端 2026/06/26、06/27、07/06 三筆決策）；改以遠端最新版為基底，決策只追加、被取代原文保留並標註 |
+| Selected Source | 限「明確交給 KB 的動作」；可存取（Reader 收藏、Drive、PLAUD app）不算；ChatGPT 二手素材的歸因規則 |
+| promote 別名 | 移除 skill 觸發詞與流程文件中的相容別名 |
+| PMBA | 執行層以 2026-08-28 v2 為準；移除生成效應保護區；Gold 不含 Obsidian 卡；完整改寫留 issue #18 |
+| 卡片盒原則 | 忠實轉述＋Sean 加工只進 Sean 立場卡；dedup 只合併相同主張；多來源卡前綴＝首次入庫命名空間；「章節 → 卡片」目錄只在 Source Navigation 維護一份 |
+| 指令 | Python 一律 `uv run`（需 PyYAML 者加 `--with pyyaml`） |
+| 術語 | 新增 `CONTEXT.md` |
+
+修正後驗證紀錄在該次 commit 訊息；上方「執行結果」表為原 PR 當時紀錄。

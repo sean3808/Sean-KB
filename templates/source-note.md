@@ -31,7 +31,10 @@ source_tree: []           # indexed 起依 schema 建 node_id / parent_id / head
 <!-- 作者／版本／外部位置、是否二手、Sean 選擇的範圍；大 PDF 不 commit -->
 
 ## Source Navigation
-<!-- 依 source_tree 導向原文章節；短文一個 root 也足夠 -->
+<!-- 本來源唯一的「章節 → 卡片」目錄；依 source_tree 順序，每個 node 一行：
+- 第 2 章 營運資金（p.21–38）
+  - [[財務管理-F005-…|現金轉換週期]]：一句說明該卡在此章的角色
+短文一個 root 也足夠。不另建單一來源 MOC。 -->
 
 ## Integration
 
@@ -44,4 +47,4 @@ source_tree: []           # indexed 起依 schema 建 node_id / parent_id / head
 ## Exceptions
 
 無。
-<!-- 有真正例外時才記 id / status / reason / affected / evidence / safe_action / question / resolution -->
+<!-- 有真正例外時才記 id / status / reason / affected / evidence / safe_action / question / resolution；Rewrite 另附 target / before / after -->

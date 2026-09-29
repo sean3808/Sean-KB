@@ -51,8 +51,9 @@ Source 從 `templates/source-note.md` 起底；AI 填 metadata，Sean 不需填�
 | safe_action | 已完成的非破壞性處理 |
 | question | Sean 需決定的一個最小問題 |
 | resolution | Sean 決定、依據與日期；未決留空 |
+| target / before / after | 僅 Rewrite：目標卡、原句、擬議新句（刪除則 after 留空）；批准後才套用到卡片 |
 
-無例外填「無」。來源無法讀取先記技術阻塞與可行下一步；不把它改名成人工消化需求。能保留雙方觀點就先整合；不確定是否合併時，相關變更暫停，其他內容繼續。
+無例外填「無」。Sean 在場時直接呈現 Rewrite diff，不必先落成 Exception。來源無法讀取先記技術阻塞與可行下一步；不把它改名成人工消化需求。能保留雙方觀點就先整合；不確定是否合併時，相關變更暫停，其他內容繼續。
 
 ## 4. Reader 入口與 output ports
 
@@ -68,4 +69,4 @@ Sean 明確指定 Reader item／一批收藏納入即 selected；AI 自找文章
 - 既有 Source 沒 lifecycle 不代表未授權，也不冒稱已 indexed/integrated。下次處理時依實際證據補欄位，保留原 ID、路徑與 links。
 - 舊 captured／triaged／shortlisted 不能直接假定 selected；有 Sean 指定證據才接續 pipeline。舊 diagnosis／promote_candidate 有 Source Selection 證據者，依成果映射到實際階段，不等待學習完成。
 - 舊 promoted 需確認 dedup／links／MOC／coverage 才標 integrated；archived／rejected 不自動復活。
-- 舊「promote run」命令視為 ingestion 的相容別名，不要求再做逐卡批准；新的 learning trace 不是 ingestion queue。
+- 「promote」已無對應動作：入庫即 ingestion run；learning trace 只是學習紀錄，不是 ingestion queue。

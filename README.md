@@ -6,7 +6,7 @@ Sean 的長期個人知識庫：**Human-curated, AI-processed knowledge system**
 
 - **架構**：Obsidian Knowledge SoT + Notion action/project control plane + `_okf/` OKF exchange layer + filesystem agents + Git。
 - **心法**：Zettelkasten、semantic atomic notes、flat concepts、LYT／MOC、earned links。
-- **Human Gate**：Sean 主動指定／提供／匯入／要求納入即 selected；AI 自找且未指定納入的文章只能作 transient research evidence，不永久 ingest。
+- **Human Gate**：Sean 以明確動作交給 Sean-KB（放進 repo／`_inbox/`、指示點名納入）即 selected；Sean 只是可存取（Reader 收藏、Drive 資料夾）或 AI 自找的資料只能作 transient research evidence，不永久 ingest。
 - **Personal stance**：收錄來源不代表 Sean 同意其全部主張；個人 Principle／Decision 需明示依據。
 - **Learning**：retrieval、generation effect、Feynman、Socratic 保留為主動學習方法，與 ingestion 分開。
 
@@ -18,7 +18,7 @@ selected → ingested → indexed → atomicized → integrated
 
 AI 先理解整份文件與 heading hierarchy，再萃取可複用知識；不按頁拆卡。Source Tree 回答「原文在哪」，Knowledge Graph 回答「概念如何關聯」。每筆新知識可循 source_ref／source_evidence 回到來源版本與 section／page／evidence pointer。
 
-一般新增、非破壞性修訂與 links／MOC 由 AI 完成、lint、自審 diff。只在衝突 Sean personal principle、解析品質不足、重大矛盾、不確定合併／新建、個人立場歸因或高風險刪改時 exception review；其他內容繼續處理。
+新增卡、links／MOC 與既有卡的 Additive Update（只追加 frontmatter 或文末連結）由 AI 完成、lint、自審 diff 後直接 commit。改寫或刪除任何既有句子（Rewrite）、衝突 Sean personal principle、解析品質不足、重大矛盾、不確定合併／新建或個人立場歸因時走 exception review；其他內容繼續處理。術語見 [CONTEXT.md](CONTEXT.md)。
 
 ## 目錄
 
@@ -47,9 +47,8 @@ Raw PDF／錄音／大 binary／完整版權教材預設 external/local/Drive；
 - [Case A–D 驗收](_system/validation/ai-first-ingestion.md)：重構的情境 walkthrough 與驗證限制。
 
 ```bash
-# 使用既有 PyYAML 依賴；沒有時可用 uv run --with pyyaml python ...
-python _system/scripts/lint_ingestion.py
-python -m unittest discover -s _system/tests
+uv run --with pyyaml python _system/scripts/lint_ingestion.py
+uv run --with pyyaml python -m unittest discover -s _system/tests
 ```
 
 目前是 agent-executed workflow，沒有背景服務或自動抓取器；Sean 交給 agent 執行後，AI 自行跑完安全範圍，不再逐卡等待人工。未來 PageIndex／Tree-based retrieval 可接 Source Tree node IDs／locators，本次不新增該 dependency。

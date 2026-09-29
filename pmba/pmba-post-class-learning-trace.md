@@ -33,6 +33,6 @@ domain: pmba
 
 ## Ingestion 的獨立完成條件
 
-來源可解析、Source Tree／provenance 齊全、semantic atomicity、dedup／reconcile、earned links 與 MOC 完成、lint／完整 diff 自審通過。題卡可附於 concept 的「Retrieval 題卡」段（Q:／A:），再執行 `python _system/scripts/export_anki.py`。
+來源可解析、Source Tree／provenance 齊全、semantic atomicity、dedup／reconcile、earned links 與 MOC 完成、lint／完整 diff 自審通過。題卡可附於 concept 的「Retrieval 題卡」段（Q:／A:），再執行 `uv run python _system/scripts/export_anki.py`。
 
 無首堂固定卡數上限；無 Sean 先重述／複習日拍板前置；AI-generated 不自動降 confidence。大 PDF／錄音等留外部 pointer，真正解析或立場衝突才走 exception review。

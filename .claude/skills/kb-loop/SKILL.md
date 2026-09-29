@@ -24,11 +24,11 @@ description: >
 3. 先理解全文結構，重建 headings／Source Tree／section summaries；章節覆蓋不完整就如實記錄，不能只讀摘要冒稱全書完成。
 4. 做 semantic atomicity：一個可複用主張一張，保留條件、限制；按內容選 Concept／Principle／Case／Literature／Playbook 等 type。300 頁不等於 300 張卡。
 5. 查 title／aliases／既有 MOC 並讀相關卡，dedup／reconcile；新卡或更新卡都填 source_ref／source_evidence。一般來源不變成 Sean 個人立場。
-6. 直接建立 earned wikilinks，附近留一句 why；同主題關係用 tags／MOC。更新既有 MOC，真正新領域才新建，不每 source 建孤立 MOC。
+6. 直接建立 earned wikilinks，附近留一句 why；同主題關係用 tags／MOC。更新既有跨來源 MOC，真正新領域才新建；來源的「章節 → 卡片」目錄寫在 Source Note 的 Source Navigation，不另建單一來源 MOC。
 7. 依 content-lint prompt 做機械＋語意自審、檢查完整 diff，更新 Source 的 Integration／Exceptions 與 source_status，保留 Git trail。正常一路到 integrated，不等 Sean 消化。
 8. 回報新建／更新／重用、provenance、MOC、驗證與例外。遵循本次任務的 commit／PR 邊界，不自行 merge。
 
-只暫停真正例外的 mutation（SOP §4），其餘繼續；不覆寫 Sean Principle，不批次刪大改高價值既有卡。舊 promote run 只是相容入口，無新人工 Gate。
+既有卡只做 Additive Update；改寫或刪除既有句子走 SOP §4 Rewrite（Sean 不在場時記為 Source Exception）。只暫停真正例外的 mutation，其餘繼續；不覆寫 Sean Principle。
 
 ## 3. Personal learning（按需）
 
