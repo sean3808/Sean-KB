@@ -19,7 +19,7 @@ from datetime import datetime
 import yaml
 
 # ─────────────── Paths ───────────────
-VAULT = Path("D:/Sean_KB")
+VAULT = Path(__file__).resolve().parents[2]
 SRC_DIR = VAULT / "notes/concepts"
 DST_DIR = VAULT / "_okf/concepts"
 LOG_FILE = VAULT / "_okf/log.md"
@@ -94,9 +94,8 @@ def dump_frontmatter(data: dict) -> str:
 
 def convert_wikilink_to_text(m: re.Match) -> str:
     """Convert a wikilink match to plain text (for frontmatter)."""
-    fname = m.group(1).strip()
-    alias = m.group(2)
-    return alias.strip() if alias else fname
+    # Preserve the target + fragment, not the display alias: provenance must survive export.
+    return m.group(0)[2:-2].split("|", 1)[0].strip()
 
 
 def convert_wikilink_to_link(m: re.Match, concept_stems: set, counter: list) -> str:

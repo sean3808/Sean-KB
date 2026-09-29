@@ -1,3 +1,5 @@
+> **歷史紀錄，非現行 ingestion 規則（2026-09-29）**：下文保留當時研究／決策／驗證事實；其中 Sean 先消化、逐卡 promote／approve、AI 只產候選等 Gate 已被 `_system/prompts/maintenance-learning-loop.md` 取代。原文仍可引用為歷史，不能作為 agent 執行規則；reviewed 既有值不改。
+
 # ISSUE-05：操作層 vs 方法論層 邊界釐清
 
 **Labels:** `priority:medium` `type:discussion` `area:architecture`

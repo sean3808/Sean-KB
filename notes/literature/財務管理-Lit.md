@@ -29,7 +29,7 @@ reviewed_at:
 
 ## 素材位置
 
-- **Learning trace（候審區）**：GitHub Issue #13（T+0/T+1 雙輪 retrieval＋PLAUD 對照＋AI 校正＋題卡）；索引卡見 [[財務管理-Day1-learning-trace]]。
+- **Learning trace（歷史學習紀錄）**：GitHub Issue #13（T+0/T+1 雙輪 retrieval＋PLAUD 對照＋AI 校正＋題卡）；索引卡見 [[財務管理-Day1-learning-trace]]。
 - **Fully-raw**（PLAUD 逐字稿、投影片）：留外部原始位置，不進 vault（Safety 規則）。
 - **操作層**（課表、作業、複習日）：Notion 課程 DB（見 notion_refs 主控台）。
 
@@ -44,4 +44,4 @@ Day 1 promote 4 張原子卡（2026-07-02，源自 issue #13 的轉卡方向）�
 
 ## 課堂主線備忘（未轉卡，留待後續 trace 累積）
 
-基本財務結構（流動／固定資產、負債／股權）、代理問題（股東／債權人／管理階層）、股利政策反映發展狀態、股東報酬像買權 vs 債權人偏穩定——這批在 issue #13 comments 有完整 trace，等第二堂課主線延續再決定是否轉卡。
+基本財務結構（流動／固定資產、負債／股權）、代理問題（股東／債權人／管理階層）、股利政策反映發展狀態、股東報酬像買權 vs 債權人偏穩定——這批在 issue #13 comments 有完整 trace，此處保留 2026-07-02 的待辦脈絡；下次處理來源時由 AI 依新 ingestion SOP 決定拆卡／整合，不等待第二堂或 Sean 消化。

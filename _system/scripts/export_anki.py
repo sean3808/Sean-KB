@@ -4,7 +4,7 @@ import re
 from pathlib import Path
 
 
-VAULT = Path(r"D:\Sean_KB")
+VAULT = Path(__file__).resolve().parents[2]
 NOTES_DIR = VAULT / "notes" / "concepts"
 EXPORT_DIR = VAULT / "_system" / "exports"
 OUTPUT_FILE = EXPORT_DIR / "anki-cards.txt"

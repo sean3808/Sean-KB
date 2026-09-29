@@ -14,8 +14,8 @@
    - resource
    - tags
    - timestamp
-4. 可以保留 Sean custom fields，但不得刪除未知欄位。
-5. 若資料不足以成為 OKF concept，請輸出 reject reason。
+4. 保留 Sean custom fields 與所有未知欄位，尤其 source_ref、source_evidence、source_version、node_id、section、page_range、evidence_pointer、claim_origin／stance_evidence；轉換 wikilink 不能丟失 target／anchor 或只剩 alias。
+5. 正式 AI note 與人工 note 同等可 export，不以 reviewed 或 Sean 是否學過篩選。若缺來源支持，列出具體 evidence 問題，不造人工消化 Gate。
 6. 每次 export 後更新 `_okf/log.md`。
 
 輸入：
@@ -27,3 +27,5 @@
 - OKF concept path
 - OKF markdown content
 - warnings
+
+`okf_export_concepts.py` 是既有 concept-only exporter，並不封裝整份 Source Tree。若交付需能離線追溯來源，按需把 referenced Source／Literature 索引加入 `_okf/references/` 並使用 mapping table；外部 raw 只帶 resource pointer，不複製 binary。未提供 references 的 concept bundle 要明示仍依賴原 vault／外部來源。

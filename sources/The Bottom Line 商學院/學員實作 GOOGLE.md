@@ -1,7 +1,7 @@
 ---
 type: Source
-title: 學員實作: GOOGLE
-description: The Bottom Line 商學院 學員實作: GOOGLE 課堂筆記素材
+title: "學員實作: GOOGLE"
+description: "The Bottom Line 商學院 學員實作: GOOGLE 課堂筆記素材"
 resource: The Bottom Line 商學院（課堂筆記，2024–2025）
 tags: [the-bottom-line, 素材, 課堂筆記]
 timestamp: 2026-06-25T22:50:00+08:00

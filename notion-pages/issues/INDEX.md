@@ -3,6 +3,8 @@
 > 本次迭代的本質：**用 Sean-KB 專案的系統資產（防彈卡片網 / 跨來源 MOC / 學習科學方法論層）回頭檢視並迭代 Notion AI 的三頁配置。**
 > 不是同步兩邊時間序，不是補全知識——是讓 Notion AI 更符合「心法方向」。
 
+> **2026-09-29**：此批 issue 為歷史迭代；05 的「方法論＝入腦與入庫」已拆分，見共用 ingestion SOP。06 策展 Notion 操作 skill 不等於 knowledge ingestion Gate；本次未修改遠端 issue 狀態。
+
 ## 統一主軸（迭代的北極星）
 
 > **Notion AI = 結構化的「操作層」operator；框架內建為預設準則；狀態 localize 進專案文件，而非靠 AI 自我改記憶。**

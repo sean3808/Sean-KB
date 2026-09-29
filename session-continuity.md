@@ -1,11 +1,23 @@
 ---
 name: Session Continuity
-description: 冷啟動入口 — 現況、第一個動作、必讀 pointer
+description: AI-first ingestion 重構 handoff；舊學習排程保留為歷史
 type: project
 ---
-最後更新：2026-07-03（PMBA 課程循環 runbook v3 定案＋財務 Day 1 首次 promote 落地；下一步＝Sean 跑補漏掃描 → 7/9 複習日）
+最後更新：2026-09-29（AI-first ingestion 架構重構；feature branch，完成後停 PR 待 Sean review）
 
-> 本檔刻意進 git（Sean 2026-06-26 覆寫 session-park「gitignore」預設）。重寫後會顯示 modified，由 Sean 決定 commit 時機。
+## 現況與第一個動作
+
+- 核心決策：Sean 提供素材給 Sean-KB 即完成 Source Selection；AI 自動處理、原子化、去重、provenance、earned links、MOC 與 lint。無逐卡／逐 link 人工批准或先消化 Gate。
+- Knowledge ingestion 與 personal learning 分開；PMBA、Reader 共用 pipeline，學習／複習保留獨立流程。
+- 接手先看 `git status --short --branch`、`README.md`、`CLAUDE.md`、`AGENTS.md`、`_system/prompts/maintenance-learning-loop.md`、`_system/schemas/okf-note-schema.md`。
+- 新來源：`/kb-loop` 或 `/pmba-cycle` 直接 ingestion；只有查學習排程才讀 PMBA runbook 的相位程序。不要拿 7 月的日期當今日待辦。
+- 驗證入口：`python _system/scripts/lint_ingestion.py`、`python -m unittest discover -s _system/tests`；Case A–D 與已知限制見 `_system/validation/ai-first-ingestion.md`。
+- 本次只修改 repo；Notion 本地修訂未回寫、ChatGPT Project Instructions 未重貼。未改 visibility、未 merge。
+- 既有 note ID／檔名／reviewed 值保留；新欄位逐次補齊。AI 不把歷史未驗證內容假標為已驗證。
+
+## 歷史 handoff（2026-07-03；不是現行操作指令）
+
+以下保留當時事實；其中 promote gate、等 Sean 授權逐卡或舊日期動作已由上方規則取代。遠端 issue 的當前狀態需另查，不推定仍 open。防彈原文反污染提醒仍可參考。
 
 ## TL;DR — 現況一行
 

@@ -8,12 +8,12 @@ status: dormant
 
 # Sean-KB Wiki Index
 
-LLM Wiki 層：由 AI 維護的領域 wiki 頁面，從 `notes/` promoted notes 織網而來。
+LLM Wiki 層：由 AI 維護的領域 wiki 頁面，從 `notes/` 正式 notes 織網而來。
 這裡是 progressive disclosure 的導航入口，不放原始素材。
 
 > [!info] Dormant（issue #14 定案，2026-07-06）
 > wiki 層目前休眠。與 `maps/` 的分工：**MOC＝連結地圖（導航層），wiki＝敘事性綜述文章（合成層）**。
-> 生成觸發條件（任一成立，由 AI 起草 wiki 頁供 Sean 審）：
+> 生成觸發條件（任一成立，由 AI 依共用 ingestion／provenance 規則維護；真正例外才請 Sean 判斷）：
 > 1. 某主題橫跨 ≥3 個 MOC，需要跨來源敘事綜述
 > 2. 單一 MOC 超過 ~30 張卡，連結清單已不足以承載理解
 >
