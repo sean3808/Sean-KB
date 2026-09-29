@@ -33,7 +33,8 @@ def link_target(value):
 
 def lint(vault):
     errors, warnings = [], []
-    docs, by_stem, ids = {}, defaultdict(list), {}
+    docs, by_stem, ids, targets = {}, defaultdict(list), {}, set()
+    raw = 0
     for folder in ('notes', 'sources', 'maps', 'wiki'):
         for path in sorted((vault / folder).rglob('*.md')):
             rel = path.relative_to(vault).as_posix()
@@ -41,9 +42,17 @@ def lint(vault):
             try:
                 data = frontmatter(text)
             except (ValueError, yaml.YAMLError) as exc:
-                errors.append(f'{rel}: {exc}')
+                # Raw source text (transcript, scraped posts) lives in sources/ without metadata;
+                # its Source note carries the metadata. It stays a valid link target.
+                if folder == 'sources' and not text.startswith('---'):
+                    raw += 1
+                    targets.add(rel)
+                    by_stem[path.stem].append(rel)
+                else:
+                    errors.append(f'{rel}: {exc}')
                 continue
             docs[rel] = (data, text)
+            targets.add(rel)
             by_stem[path.stem].append(rel)
             for field in ('type', 'title', 'description', 'timestamp'):
                 if not data.get(field):
@@ -60,7 +69,7 @@ def lint(vault):
             return None
         if '/' in target:
             path = f'{target}.md'
-            return path if path in docs else None
+            return path if path in targets else None
         matches = by_stem.get(target, [])
         return matches[0] if len(matches) == 1 else None
 
@@ -165,7 +174,7 @@ def lint(vault):
         resolved_refs = set()
         for ref in refs:
             path = resolve(ref)
-            if not path or not path.startswith('sources/') or docs[path][0].get('type') != 'Source':
+            if not path or path not in docs or not path.startswith('sources/') or docs[path][0].get('type') != 'Source':
                 errors.append(f'{rel}: source_ref must resolve to Source in sources/: {ref}')
             else:
                 resolved_refs.add(path)
@@ -196,6 +205,8 @@ def lint(vault):
             errors.append(f'{rel}: source_ref missing matching evidence')
     if legacy:
         warnings.append(f'{legacy} legacy documents lack ingestion_version; retain as formal knowledge, migrate on touch (no manual review queue).')
+    if raw:
+        warnings.append(f'{raw} raw source texts in sources/ have no frontmatter; metadata belongs in their Source note.')
     return {'checked': len(docs), 'hard_errors': errors, 'warnings': warnings}
 
 

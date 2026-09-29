@@ -107,6 +107,20 @@ class IngestionContractTests(unittest.TestCase):
         self.assertEqual(result['hard_errors'], [])
         self.assertEqual(len(result['warnings']), 1)
 
+    def test_raw_source_text_is_link_target_but_not_a_source(self):
+        raw = self.vault / 'sources/transcript.md'
+        raw.parent.mkdir(parents=True, exist_ok=True)
+        raw.write_text('逐字稿原文，無 frontmatter。\n', encoding='utf-8')
+        self.source['source_tree'][0]['evidence_pointer'] = '[[transcript]]'
+        self.assertEqual(self.errors(), [])
+        self.write('notes/concepts/linker.md', {k: self.note[k] for k in
+                   ('type', 'title', 'description', 'timestamp')} | {'id': 'linker'}, body='見 [[transcript]]\n')
+        self.assertEqual(lint(self.vault)['hard_errors'], [])
+        self.note['source_ref'] = ['[[sources/transcript]]']
+        self.assertTrue(any('source_ref must resolve' in e for e in self.errors()))
+        (self.vault / 'notes/concepts/bare.md').write_text('no frontmatter\n', encoding='utf-8')
+        self.assertTrue(any('bare.md: missing YAML frontmatter' in e for e in lint(self.vault)['hard_errors']))
+
     def test_duplicate_id_detected(self):
         self.write('notes/concepts/duplicate.md', self.note)
         self.assertTrue(any('duplicate id' in e for e in self.errors()))
