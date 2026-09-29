@@ -195,8 +195,12 @@ def lint(vault):
                 covered.add(path)
                 source = docs[path][0]
                 tree = source.get('source_tree') or []
-                nodes = {n.get('node_id') for n in tree if isinstance(n, dict)} if isinstance(tree, list) else set()
-                if nodes and entry.get('node_id') not in nodes:
+                nodes = ({n['node_id'] for n in tree if isinstance(n, dict) and isinstance(n.get('node_id'), str)}
+                         if isinstance(tree, list) else set())
+                node_ref = entry.get('node_id')
+                if node_ref is not None and not isinstance(node_ref, str):
+                    errors.append(f'{rel}: evidence node_id must be a string')
+                elif nodes and node_ref not in nodes:
                     errors.append(f'{rel}: evidence node_id not in source tree')
                 if not source.get('resource'):
                     errors.append(f'{rel}: provenance Source missing resource')

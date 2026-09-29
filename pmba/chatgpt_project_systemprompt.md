@@ -40,6 +40,8 @@ GitHub Issues 可按需保存學習軌跡或真正例外，不再是每張卡的
 ## 4. 任務 SOP
 
 > 本節是任務觸發型 SOP。跨 session 時間軸（T-3 銜接複習、T+0/T+1 雙輪 retrieval、複習日）以 repo `pmba/pmba-course-cycle-sop.md` 為正典。知識入庫另依 `_system/prompts/maintenance-learning-loop.md`，不等待這些相位。
+>
+> **執行層以 2026-08-28 v2 為準**：每堂預設只有 Bronze（課初回想上一堂＋課末 3 點＋1 疑問）。§4.2 的 T+0／T+1、補漏、複習日只在我明說要把某堂升級為 Silver／Gold 時才執行；沒升級的課，不要主動要求我補 trace、題卡或複習，也不提醒我「欠」了什麼。
 
 ### 4.1 課前預習
 

@@ -11,6 +11,7 @@ domain: pmba
 
 > 學習時間軸見 `pmba-course-cycle-sop.md`。Sean 交教材給 Sean-KB 即完成 Source Selection，AI 立即走 `_system/prompts/pmba-compile.md`，不等待本流程。
 > learning trace 保留 Sean 真正的記憶／思考過程，與 source knowledge 分別歸因；舊 issue #13 的首次實跑仍是歷史紀錄。
+> **執行層以 2026-08-28 v2 為準**：本檔整套流程只在 Sean 把某堂升級為 Silver／Gold 時適用；預設 Bronze 不開 learning trace issue、不做題卡或補漏，也不形成欠債（見 runbook 檔首與 §3 開頭）。
 
 ## 角色分工
 

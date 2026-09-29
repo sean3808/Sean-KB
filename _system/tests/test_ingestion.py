@@ -151,6 +151,13 @@ class IngestionContractTests(unittest.TestCase):
         self.note['id'] = ['a', 'b']
         self.assertTrue(any('invalid id' in e for e in self.errors()))
 
+    def test_non_string_node_ids_are_reported_not_crash(self):
+        self.source['source_tree'][0]['node_id'] = ['ch-1']
+        self.note['source_evidence'][0]['node_id'] = ['ch-1']
+        errors = self.errors()
+        self.assertTrue(any('string node_id' in e for e in errors))
+        self.assertTrue(any('evidence node_id must be a string' in e for e in errors))
+
     def test_anki_standard_answer_is_independent_of_learning_gate(self):
         self.assertEqual(extract_qa_pairs('## Retrieval 題卡\nQ: Why?\nA: Sourced answer.\n'),
                          [('Why?', 'Sourced answer.')])
