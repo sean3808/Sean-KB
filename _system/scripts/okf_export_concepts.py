@@ -10,11 +10,11 @@ Usage:
   uv run --no-project --with pyyaml python okf_export_concepts.py
 """
 
+import argparse
 import re
 import sys
-import argparse
-from pathlib import Path
 from datetime import datetime
+from pathlib import Path
 from urllib.parse import quote
 
 import yaml
@@ -202,7 +202,7 @@ def build_index(src_files: list[Path]) -> str:
     lines = [
         "# OKF Concepts Index",
         "",
-        f"Generated: {datetime.now().strftime('%Y-%m-%d')}  ",
+        f"Generated: {datetime.now().astimezone().strftime('%Y-%m-%d')}  ",
         f"Total: {len(src_files)} concept documents",
         "",
     ]
@@ -212,9 +212,6 @@ def build_index(src_files: list[Path]) -> str:
         lines.append(f"## {prefix} ({len(files)} cards)")
         lines.append("")
         for f in files:
-            # Try to extract title from stem
-            parts = f.stem.split("-", 2)
-            title = parts[2] if len(parts) >= 3 else f.stem
             lines.append(f"- [{f.stem}](./{f.name})")
         lines.append("")
 
@@ -225,7 +222,7 @@ def build_index(src_files: list[Path]) -> str:
 
 
 def append_log(n: int) -> None:
-    date_str = datetime.now().strftime("%Y-%m-%d")
+    date_str = datetime.now().astimezone().strftime("%Y-%m-%d")
     entry = f"\n## {date_str}\n\n- Exported {n} concept docs from notes/concepts → _okf/concepts\n"
     with open(LOG_FILE, "a", encoding="utf-8", newline="\n") as f:
         f.write(entry)
@@ -270,7 +267,7 @@ def main() -> None:
     errors = []
 
     with open(PROGRESS_FILE, "a", encoding="utf-8", newline="\n") as pf:
-        pf.write(f"\n## Run {datetime.now().strftime('%Y-%m-%d %H:%M')}\n\n")
+        pf.write(f"\n## Run {datetime.now().astimezone().strftime('%Y-%m-%d %H:%M')}\n\n")
         for src in src_files:
             dst = DST_DIR / src.name
             try:
@@ -279,7 +276,7 @@ def main() -> None:
                 exported += 1
                 pf.write(f"{src.name} | done\n")
                 pf.flush()
-            except Exception as e:
+            except Exception as e:  # noqa: BLE001 - batch export logs each file's failure and continues
                 errors.append((src.name, str(e)))
                 pf.write(f"{src.name} | ERROR: {e}\n")
                 pf.flush()
