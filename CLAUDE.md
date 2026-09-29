@@ -110,3 +110,4 @@
 - Notion ↔ Obsidian 內容雙向全文同步（只做雙向異步引用）。
 
 > 復原進行中的工作前，先讀專案根目錄的 `session-continuity.md`（跨-agent session 交接狀態，由 /session-park 維護）。
+> 本專案踩過的坑：`.claude/promote-candidates.md`（`/lesson-lookup` Step 0 先查；由 `/promote-lesson` drain）。穩態快照：`docs/current-status.md`。
