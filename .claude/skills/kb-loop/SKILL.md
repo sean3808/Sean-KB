@@ -1,64 +1,37 @@
 ---
 name: kb-loop
 description: >
-  Sean-KB 的「維護＝學習」迴圈執行介面：把一篇 Reader 文章、一份新材料、或一個想學的主題，
-  透過蘇格拉底／費曼診斷對話消化進 vault，產出候選連結與 output target 交 Sean 審。核心是診斷場、不是 AI 摘要工廠。
-  Use when: Sean 說 /kb-loop、「跑診斷場」、「消化這篇」、「把這個學進來」、「處理 Reader」、「織網」、
-  要把外部材料沉澱進 Sean-KB、或要對某主題做診斷式學習。
-  Not for: 機械 lint（走 okf-lint）、OKF export（走 okf-exporter）、純檔案搜尋、
-  PMBA 課程 session 材料（課後 learning trace／promote run 走 pmba/pmba-course-cycle-sop.md ＋ /pmba-cycle，不走本診斷場）。
+  Sean-KB 的 AI-first ingestion 與按需學習入口。Sean 指定／提供／匯入／要求納入的素材直接通過 Source Selection，
+  AI 完成 structure-first 解析、semantic atomic decomposition、dedup、earned links、MOC 與 lint。
+  Use when: /kb-loop、「放進 Sean-KB」、「處理這篇 Reader」、「匯入這份教材」、「織網」，或要求診斷式學習。
+  PMBA 教材可走同一 ingestion；課程學習排程／Anki 走 /pmba-cycle。純 export／lint 用對應 prompts。
 ---
 
-# kb-loop — Sean-KB 維護＝學習迴圈
+# kb-loop — AI-first ingestion / personal learning
 
-> 完整流程、理由與方法論對照：`_system/prompts/maintenance-learning-loop.md`（流程層 SSOT）＋
-> `notion-pages/學習科學方法論.md`（方法論層 SSOT）。Reader input 狀態機與 output ports 是
-> **promote 時才參考的草案**，見 `_system/prompts/reader-kb-loop-state-machine.md`（status: draft，待實跑驗證後再固化）。本檔是可觸發的**精簡執行層**——保持輕，不在診斷場裡填表。
+讀取 `_system/prompts/maintenance-learning-loop.md`（流程正典）、`reader-kb-loop-state-machine.md`（狀態與恢復）及 `_system/schemas/okf-note-schema.md`。
 
-## 鐵律（不可違反）
+## 1. 判斷任務與 Source Selection
 
-```
-AI 產候選連結與診斷場；Sean 做高價值判斷與內化。
-人不手工拉所有線；人只審哪些線真的有意義。
-連結預設可疑，回 source 判斷。
-```
+- Sean 指定給 Sean-KB 的來源：記錄實際 selection evidence，直接 selected，不再問逐卡批准。
+- Sean 只要求研究／學習，或 AI 自行找到文章：只作 transient evidence，不能永久入庫、也不建 repo 候審 queue。Reader feed／整個 Library 不因可讀取就自動獲授權。
+- Sean 主動要求費曼／Socratic／retrieval：走 §3；若同時交辦入庫，兩條流程獨立進行。
 
-兩條護欄：
-- **生成效應**：永遠 **Sean 先講／先答／先重述，AI 才補與改**。禁止先丟摘要。
-- **合意困難**：每個自動化先問「這是無益摩擦（找資料/排版/初步解釋→可去）還是學習必要摩擦（提取/自我解釋/判斷→必留）？」AI 只去前者。
+## 2. Ingestion run
 
-**觸發判準（要不要跑診斷場）＝基礎穩不穩**：基礎穩（新答案卡進既有理解、能自驗）→ 快答即可，**別硬跑診斷場**；無基礎／基礎可疑（放不上既有基礎、或錯了也不會察覺）→ 才跑診斷場。詳見 SOP §1。
+1. 檢查 Git 狀態與既有 source ID／resource／版本，避免重跑造重複卡。
+2. 用 `templates/source-note.md` 建／更新 Source；取得內容、評估 document quality。raw binary 預設留外部，repo 放 pointer。
+3. 先理解全文結構，重建 headings／Source Tree／section summaries；章節覆蓋不完整就如實記錄，不能只讀摘要冒稱全書完成。
+4. 做 semantic atomicity：一個可複用主張一張，保留條件、限制；按內容選 Concept／Principle／Case／Literature／Playbook 等 type。300 頁不等於 300 張卡。
+5. 查 title／aliases／既有 MOC 並讀相關卡，dedup／reconcile；新卡或更新卡都填 source_ref／source_evidence。一般來源不變成 Sean 個人立場。
+6. 直接建立 earned wikilinks，附近留一句 why；同主題關係用 tags／MOC。更新既有跨來源 MOC，真正新領域才新建；來源的「章節 → 卡片」目錄寫在 Source Note 的 Source Navigation，不另建單一來源 MOC。
+7. 依 content-lint prompt 做機械＋語意自審、檢查完整 diff，更新 Source 的 Integration／Exceptions 與 source_status，保留 Git trail。正常一路到 integrated，不等 Sean 消化。
+8. 回報新建／更新／重用、provenance、MOC、驗證與例外。遵循本次任務的 commit／PR 邊界，不自行 merge。
 
-## 執行步驟
+既有卡只做 Additive Update；改寫或刪除既有句子走 SOP §4 Rewrite（Sean 不在場時記為 Source Exception）。只暫停真正例外的 mutation，其餘繼續；不覆寫 Sean Principle。
 
-1. **最小刺激**：給材料的一句核心或一個切入問，**不摘要**。
-2. **逼生成**：要 Sean 先用自己的話回應／套真實場景（PMBA／出口物流／IT／育兒）。
-3. **診斷**：用蘇格拉底追問／費曼重述／steelman／案例遷移／source 對照，戳假設、跳躍、誤判、未連結處。
-4. **補洞**：診斷後才補背景、反例、AI 視角。
-5. **候選連結**：整理高價值候選交 Sean 審——**不硬接、不預綁某主題**。
-6. **出口提問（輕量，一句話）**：收尾順手問「這火花往哪用？」——decision／writing／case／playbook／teaching，或暫時 `not_yet`。**只問一句、不填表**；目的是讓 input 導向應用、不淪為收藏。
-7. **沉澱**：Sean 判斷哪些值得進 `notes/`（promote gate）；已內化／無新知 → 不寫卡。
+## 3. Personal learning（按需）
 
-## promote 時才走的 checklist（不是每次必填）
+Sean 想學某主題時，可讓他先重述／先答，再做 Socratic、Feynman、steelman、案例遷移與 source 對照；基礎穩時可快答，不硬上診斷場。
 
-> 診斷場保持輕——9 狀態機與 `kb_loop_result` YAML 契約是 **promote candidate 時才參考**的草案（見 `reader-kb-loop-state-machine.md`），**不是每跑一次就填一張表**。每次都填 = 結構性無益摩擦，違反合意困難護欄，也踩到「完善系統 > 用系統」這條最大失敗模式。
-
-要把某個火花 promote 進 `notes/` 前，自問：
-
-- Sean 先答／先重述了嗎？（沒有 → 生成效應不足，別 promote）
-- 至少跑過一輪診斷追問？
-- 有 Sean 自己的案例、反方或應用場景？
-- earned link 有沒有「一句 why」？沒有就用 tag／MOC，不連 wikilink。
-- 這火花有 output 出口嗎？（純漂亮摘要 → 留在 Reader，別進 Obsidian）
-
-## 連結兩層護欄（反「為了連結而連結」）
-
-- **導航層**（tag／MOC／adjacent-MOC）：categorical，可大方連。
-- **知識層**（note↔note wikilink）：**必須 earned**——「走這條線有沒有產生單卡得不到的理解？」沒有就別連，用 tag/MOC。
-- 多數卡是主題內、無跨域連結，**正常**。跨域連結稀少珍貴，等它冒出來，不製造。
-
-## 邊界
-
-- 不退化成 `Reader → AI 摘要 → Obsidian`。
-- 修改既有 promoted note 前先出 Git diff（vault Safety 規則）。
-- 排程化不在本 skill；本 skill 是互動式診斷場執行。
+保護盲測時不先展示答案，但 AI 可平行完成來源處理。AI 可產有來源的標準答案，不能冒充 Sean 已經回答／內化。學習的進度、output target、題卡數量都不阻塞 ingestion；不建立逐卡／逐 link approve checklist。

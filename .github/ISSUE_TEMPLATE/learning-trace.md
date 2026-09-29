@@ -1,55 +1,34 @@
 ---
-name: 課後 learning trace（kb-candidate）
-about: PMBA 課後 retrieval trace 候選稿。body 只放 index＋精簡候選稿＋review decision；完整 trace 分段放 comments。
-title: "[kb-candidate][course] <課程名> Day <N>｜T+1 learning trace"
-labels: kb-candidate, course, pmba
+name: 課後 learning trace
+about: 按需保存 PMBA recall、來源校正與題卡；不是 knowledge ingestion 候審 queue。
+title: "[learning-trace][course] <課程名> Day <N>"
+labels: course, pmba
 ---
-
-## 候選卡片類型
-
-`course` / `learning-trace` / `work-transfer-candidate`
-
-這不是正式 Obsidian 卡片，也不是永久筆記；這是 <課程名> Day <N> 的 T+1 校正版 learning trace 候選稿。
 
 ## 來源與脈絡
 
-來源：<YYYY-MM-DD> <課程名> Day <N> 課後學習流程。
+<課程／日期／source pointer；若已入庫，連回 Source note>
 
-材料鏈（依 issue #11 方法論）：
-1. T+0 課後當晚，不看資料的殘存記憶 retrieval
-2. T+1 第二輪 retrieval（仍不看資料）
-3. PLAUD 強化摘要
-4. AI 對照後的校正與引導問題
-5. Sean 對引導問題的回答
+Sean 提供來源給 Sean-KB 即完成 Source Selection。AI 依共用 SOP 整合知識，不等待此 issue、個人消化或 Promote 拍板。
 
-## 核心主張
+## 原始 recall 與校正
 
-> <一句話：這堂課的主線命題>
+<Sean recall 保持原貌；校正分 source 支持／Sean 詮釋／AI 推論；不足處不猜>
 
-## T+1 校正版摘要候選
+## Retrieval 題卡
 
-<各概念一段；標明「PLAUD 支持」vs「個人詮釋」vs「AI 校正補強」>
+<問題與有來源的標準答案；不假裝 Sean 已作答>
 
-## Retrieval 題卡候選
+## 學習進度
 
-<Q 列表；標準答案方向放 comment 3>
+<已練習、想補學、reflection；不作入庫狀態>
 
-## 待查證事項
+## 例外（若有）
 
-- <投影片原始表述、正式教材對照、待量化項目…>
-
-## Review decision
-
-- [ ] Reject
-- [ ] Keep in issue
-- [ ] Needs source
-- [ ] Promote
+<僅重大來源矛盾、個人原則衝突、無法可靠解析或高風險 mutation；連回 Source 的 Exceptions，不複製全套 queue>
 
 ---
 
-**Comments 分段約定**（本體太長放不進 body，分三段保存）：
-- Comment 1/3：Sean T+1 原始 retrieval trace（生成效應第一手紀錄）
-- Comment 2/3：AI 對照 PLAUD 後的校正摘要（逐項標來源支持度）
-- Comment 3/3：Retrieval 題卡（含答案方向）＋轉卡方向＋promote 策略
+長 trace 可按需分 comments：原始 recall／來源校正／題卡與反思。無「Reject／Keep in issue／Promote」逐卡 Gate。
 
-完整流程定案見 `pmba/pmba-course-cycle-sop.md`（時間軸總表）與 `pmba/pmba-post-class-learning-trace.md`（課後段細節）。
+學習流程見 `pmba/pmba-course-cycle-sop.md` 與 `pmba/pmba-post-class-learning-trace.md`；ingestion 見 `_system/prompts/maintenance-learning-loop.md`。

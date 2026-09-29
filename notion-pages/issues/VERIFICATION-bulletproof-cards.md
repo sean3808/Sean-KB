@@ -1,3 +1,5 @@
+> **歷史紀錄，非現行 ingestion 規則（2026-09-29）**：下文保留當時研究／決策／驗證事實；其中 Sean 先消化、逐卡 promote／approve、AI 只產候選等 Gate 已被 `_system/prompts/maintenance-learning-loop.md` 取代。原文仍可引用為歷史，不能作為 agent 執行規則；reviewed 既有值不改。
+
 # 防彈卡網萃取驗證帳（一手 PDF 抽核）
 
 > 對應 Sean 指示「先跨一輪卡網驗證再迭代」。由主 agent **親自**執行（不派 researcher，因高頻術語「子彈/防彈」雙向污染風險）。

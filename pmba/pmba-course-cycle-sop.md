@@ -1,17 +1,21 @@
 ---
 type: Playbook
 title: PMBA 課程循環 Runbook（session 為單位的角色×時間軸正典）
-description: PMBA 落地流程的傘狀正典（流程層 SSOT）。課程＝多堂連續 session，每堂觸發一個 T-n~T+n 循環；本檔定義 Sean／蒜頭／ChatGPT／Claude Code 四角色在每個相位的動作、產出與完成定義，並提供「今天該做什麼」判定程序與降級路徑。v3（2026-07-03）runbook 化。
-timestamp: 2026-07-03T12:00:00+08:00
+description: PMBA 落地流程的傘狀正典（流程層 SSOT）。課程＝多堂連續 session，每堂觸發一個 T-n~T+n 循環；本檔定義 Sean／蒜頭／ChatGPT／Claude Code 四角色在每個相位的動作、產出與完成定義，並提供「今天該做什麼」判定程序與降級路徑。v4（2026-09-29）拆分 knowledge ingestion 與 personal learning。
+timestamp: 2026-09-29T18:53:23+08:00
 status: stable
 domain: pmba
 ---
 
 # PMBA 課程循環 Runbook
 
+> **v4 邊界**：本檔的日期／retrieval／費曼只管理 Sean 主動學習。Sean 提供教材即完成 Source Selection，AI 當下依 `_system/prompts/pmba-compile.md` 完成 ingestion，不等待本表相位、learning trace 或逐卡批准。Knowledge ingestion ≠ personal learning。
+>
+> **執行層以 2026-08-28 v2 為準**（Notion「AI 時代下為在職 PMBA 學生打造具實證基礎的 AI 協作型學習系統」頁首：Bronze＝課初回想上一堂＋課末 3 點＋1 疑問；Silver／Gold 按需升級）。本檔以下的多相位流程只作 Silver／Gold 深加工參考，整份改寫待 issue #18。Gold 不含 Obsidian 卡或 promote：進不進 Sean-KB 只看 Source Selection。
+
 > **正典地位**：PMBA 落地流程的傘狀 SSOT（依 ISSUE-05 邊界放 Sean-KB）。時間軸與相位規則**只**住在本檔——其他文件（課後段細節、蒜頭 Skill、ChatGPT prompt）是本檔的分段細節或投影，衝突時以本檔為準。
-> **給人類讀者**：先看 §0 判定程序找到今天的相位，再跳 §3 對應小節照 checklist 做。
-> **給 AI agent**：§0 是確定性演算法（輸入三個日期→輸出相位）；§2 角色卡定義你的職責與禁區；§3 每相位有明確的觸發／動作／產出／完成定義。不要憑記憶臆測流程，一律回本檔查。
+> **給人類讀者**：查學習排程時先看 §0 判定程序找到今天的相位，再跳 §3 對應小節照 checklist 做。
+> **給 AI agent**：學習排程使用 §0 判定程序；ingestion 直接走共用 SOP。§0 是相位判定程序（輸入三個日期→輸出相位）；§2 角色卡定義你的職責與禁區；§3 每相位有明確的觸發／動作／產出／完成定義。不要憑記憶臆測流程，一律回本檔查。
 >
 > 文件鏈：課後段深度細節 → `pmba/pmba-post-class-learning-trace.md`｜方法論理由 → Notion「學習科學方法論」頁｜課程行政（信件/作業/分組建檔）→ 蒜頭「臺大課程管理 Skill」｜vault 卡片規則 → repo `CLAUDE.md`｜研究依據 → Notion「AI 協作型學習系統」設計藍圖。
 
@@ -29,7 +33,7 @@ domain: pmba
 - `trace_done`＝gh issue（learning trace）的 body＋comments 1-3 是否已完成
 - `sweep_done`＝補漏掃描是否已做（issue 是否有「漏網分揀」comment）
 
-**判定（由上而下，第一條命中即停）**：
+**判定（由上而下，第一條命中即停；只用於 Sean 已升級為 Silver／Gold 的課，見 §3 開頭）**：
 
 ```text
 1. today == T0                          → 相位＝課中（§3.3）
@@ -46,7 +50,7 @@ domain: pmba
 
 **狀態查詢處**（本檔無狀態，狀態活在）：
 - Notion 課程 DB（`collection://2964dadb-14ce-4eaf-81b2-75dc0fc019d7`）：`下次複習日`（date）、`Learning trace`（URL）、課程頁內文場次表
-- GitHub issues（label `kb-candidate` + `course`）：trace 本體與 review decision
+- GitHub issues（label `course`／`pmba`，標題 `[learning-trace]`）：trace 本體與學習進度；查歷史紀錄時也納入舊 `kb-candidate` label，不把它視為入庫 queue。
 - `_system/exports/anki-cards.txt`：現行 Anki 題卡（重生成：`uv run python _system/scripts/export_anki.py`）
 
 ---
@@ -66,10 +70,9 @@ domain: pmba
 
 ## 2. 角色卡（誰不做什麼，跟誰做什麼一樣重要）
 
-### 2.1 Sean（學習者本體，一切判斷的 owner）
-- **做**：所有 retrieval／立場／重述／分揀／review decision／promote 拍板。
-- **不做**：retrieval 前不碰 PLAUD／AI 摘要（T+0→T+1 之間是生成效應保護區）。
-- **最小義務**：每堂課 T+0 一輪殘存記憶提取。其他一切可降級補救（§5）。
+### 2.1 Sean（Source curator 與主動學習者）
+- **做**：Source Selection、個人立場與真正 exception；主動學習時的 retrieval／重述／選練重點。
+- **學習建議**：每堂課 T+0 一輪殘存記憶提取；可按注意力調整或跳過，不影響知識入庫（§5）。
 
 ### 2.2 蒜頭（Notion AI｜操作層＝時鐘＋門牌）
 - **做**：主控台浮出到期提醒（複習日、T-3 有課）；課程列維護 `Learning trace` URL 與 `下次複習日`（T+1 填＝下堂−3；複習完成推進到再下堂−3；結案 +30）；行政 SOP（信件→課程 DB、作業/分組建檔，見其 Skill）。
@@ -78,17 +81,19 @@ domain: pmba
 
 ### 2.3 ChatGPT Project（轉化層＝校正器＋考官＋陪練）
 - **做**：T+1 校正（**必以 PLAUD 為對照源**，逐項標「PLAUD 支持／個人詮釋／AI 補強」）；補漏窗機械比對＋微循環校正；T-3 預習教練（先要 Sean 講初判）；作業/個案/論文陪練（其 prompt §4）。
-- **不做**：T+0 只收存不回饋；無 PLAUD 對照源不診斷；不直接寫 Notion/Sean-KB；不產出成品摘要取代 Sean 的重述。
+- **不做**：T+0 只收存不回饋；無 PLAUD 對照源不診斷；學習模式不冒充 Sean 重述；有 repo 寫入能力且來源已選定時，可依 ingestion SOP 寫入正式知識。沒有能力則交接 agent，不再向 Sean 要內容批准。
 - **被喚起時**：其 Project Instructions（`pmba/chatgpt_project_systemprompt.md` 為正典）已含投影；時間軸疑義回本檔。
 
-### 2.4 Claude Code（Sean-KB 側＝promote operator＋工廠維護者）
-- **做**：promote run（拆卡→織網→git diff 給 Sean 審→commit）；Anki 匯出（每次題卡變動後重跑）；vault 體檢；本檔迭代（§8）。
-- **不做**：不代寫 retrieval 答案；不在 Sean 拍板前 promote；改既有 promoted note 一律先出 git diff（CLAUDE.md Safety）。
-- **被喚起時**：先讀 `session-continuity.md`，再依本檔 §0 判相位。
+### 2.4 Claude Code／filesystem agent（知識工程與工廠維護）
+- **做**：收到 Sean-selected source 即解析、index、原子化、去重、織網、MOC、lint、自審 diff、Git 留痕；題卡更新後 Anki 匯出；vault 體檢。
+- **不做**：不冒充 Sean 的 recall／個人立場；不把來源處理等到複習日。高風險 mutation 走共用 exception review。
+- **被喚起時**：先讀 handoff；ingestion 直接跑共用 SOP，只有問學習排程才用 §0。
 
 ---
 
 ## 3. 循環相位詳解
+
+> **v2 適用範圍**：每堂的預設完成只有 Bronze（課初回想上一堂＋課末 3 點＋1 疑問，見檔首）。§0 判定與以下 §3.1–3.9 的動作與「完成定義」，只在 Sean 選擇把某堂升級為 Silver／Gold 時適用；沒升級的課，learning trace issue、題卡、補漏、複習日都不是待辦，也不形成欠債。
 
 ### 3.1 預習窗（T-3 ~ T-1，銜接複習＋預習）
 
@@ -104,12 +109,12 @@ domain: pmba
 ### 3.2 行政準備（T-1 ~ T0 晨）
 
 - **蒜頭**：交通/教室/場次/攜帶物提醒（課程頁內文場次表與待辦）。
-- **完成定義**：無遺漏行政。其他角色無動作。
+- **完成定義**：無遺漏行政。其他學習角色無動作；已授權 ingestion 可繼續。
 
 ### 3.3 課中（T0）
 
 - **Sean only**：PLAUD 錄音＋**只記判斷增量**——新框架、反直覺點、同學好例子、自己改變想法的瞬間、待查點。不追求完整筆記。
-- **AI 全體**：無動作（不建議課中讓 AI 干擾主注意力）。
+- **學習互動**：不打斷課中主注意力；AI 可處理已提供素材。
 - **產出**：課中粗筆記＋錄音。
 
 ### 3.4 T+0（課後當晚）——第一輪 retrieval
@@ -124,28 +129,28 @@ domain: pmba
 - **動作序（順序不可倒）**：
   - [ ] Sean：第二輪 retrieval（仍不看資料）→ 交 ChatGPT
   - [ ] ChatGPT：**先取得 PLAUD 強化筆記當對照源**（沒有就開口要），跑校正——逐項標「PLAUD 支持／Sean 個人詮釋／AI 補強」→ 產 3–6 題引導問題（Sean 先答再對照）→ 整理 retrieval 題卡候選
-  - [ ] Sean：開 gh issue（template「課後 learning trace（kb-candidate）」）：body＝index＋T+1 校正版候選稿＋review decision；comment 1/3＝原始 trace、2/3＝PLAUD 校正、3/3＝題卡與轉卡方向
+  - [ ] Sean：開 gh issue（template「課後 learning trace」）：body＝index＋校正摘要＋學習進度；comment 1/3＝原始 trace、2/3＝PLAUD 校正、3/3＝題卡與轉卡方向
   - [ ] 蒜頭：課程列填 `Learning trace`＝issue URL、`下次複習日`＝下堂−3
 - **完成定義**：issue 四層結構齊、Notion 兩欄填妥。
-- **T+1 之後生成效應保護區結束**——你已暴露於校正內容，後續讀材料自由。
+- T+1 之後讀材料自由（生成效應保護區已於 2026-09-29 移除，見 §4 第 1 條）。
 
 ### 3.6 補漏窗（T+2 ~ T+4，或 trace 完成日 +2 內）——coverage sweep
 
-> Recall 卡片**天生不覆蓋** 8 小時高密度課程的全部知識點——這是設計不是缺陷（vault 不做完整性練習）。但「沒 recall 出來」有兩種：**不重要**（放掉）與**重要但沒編碼成功**（需要第二輪）。本相位是分揀機制。
-> **為什麼排這裡不排複習日**（2026-07-03 二迭，修正首版錯誤）：生成效應保護區只到 T+1；漏網的 ~90% 在 T+2–T+4 殘餘記憶還溫，重讀是「再學習」（savings effect），拖到 T+11 近乎陌生材料。愈早掃、第二批題卡愈早進 Anki。
+> Recall 卡片**天生不覆蓋** 8 小時高密度課程的全部知識點——這是設計不是缺陷（學習不做完整性練習；AI ingestion 另行檢查來源全篇覆蓋）。但「沒 recall 出來」有兩種：**不重要**（放掉）與**重要但沒編碼成功**（需要第二輪）。本相位是分揀機制。
+> **為什麼排這裡不排複習日**（2026-07-03 二迭，修正首版錯誤；當時仍有生成效應保護區，2026-09-29 已移除）：保護區只到 T+1；漏網的 ~90% 在 T+2–T+4 殘餘記憶還溫，重讀是「再學習」（savings effect），拖到 T+11 近乎陌生材料。愈早掃、第二批題卡愈早進 Anki。
 
 - **動作序**：
   - [ ] ChatGPT：機械比對——拿 issue trace 全文對照 **PLAUD 強化筆記全文**，列出「trace 未覆蓋的高價值點」清單（無益摩擦，AI 代勞）
-  - [ ] Sean：逐點分揀「值得補／放掉」。判準一句話：**這個點會改變我的決策、判斷框架或工作方法嗎？** 不會就放掉，不做完整性補課（「判斷框架」覆蓋不直接對應操作、但改變「怎麼想」的概念——如財報慣性；判準錨定 Sean 而非老師重點的理由與三種歸宿見 2026-07-03 定案：老師重點未進 vault 者留 PLAUD＋issue 可檢索，考試/作業走平行軌讀 PLAUD）
-  - [ ] 值得補的走**微循環**：Sean 讀該段 PLAUD／教材 → **自己重述一遍** → ChatGPT 校正 →（成卡候選）append issue comment「第二批候選」＋題卡。鐵則：**讀完必須自己重述，不接受 AI 成品摘要**（漏網點從未被編碼，「先讀」不違反生成效應，但重述不能省）
-  - [ ] Claude Code：第二批題卡落 issue 後重跑 `uv run python _system/scripts/export_anki.py`，兩批一起進零碎複習
-- **這也是 Sean 親自全文讀 PLAUD 的首次也是唯一一次**；教材在此讀「PLAUD 不清楚處」即可。
+  - [ ] Sean：逐點分揀「值得補／放掉」。判準一句話：**這個點會改變我的決策、判斷框架或工作方法嗎？** 不會就放掉，不做完整性補課（「判斷框架」覆蓋不直接對應操作、但改變「怎麼想」的概念——如財報慣性；判準錨定 Sean 而非老師重點的理由與三種歸宿見 2026-07-03 定案：學習未選練的內容仍可由 AI 依已選定來源整合，考試／作業另走平行軌）
+  - [ ] 值得補的走**微循環**：Sean 讀該段 PLAUD／教材 → **自己重述一遍** → ChatGPT 校正 →將學習紀錄與題卡補入 trace（是否發 comment 依當次授權）。學習練習：**自己重述後再對照 AI 校正**（漏網點從未被編碼，「先讀」不違反生成效應，但重述不能省）
+  - [ ] Claude Code：有來源的題卡寫入正式 concept 的「Retrieval 題卡」後重跑 `uv run python _system/scripts/export_anki.py`；exporter 只讀 vault，不讀 issue
+- 這是 Sean 按需補學的窗口，不要求全文親讀；AI 的 source coverage 與 Sean 的記憶覆蓋分開。
 - **完成定義**：漏網分揀清單＋第二批候選落 issue；Anki 已更新。
 
 ### 3.7 緩衝段（補漏窗後 ~ 複習日前）
 
 - **Sean**：只做 Anki 零碎複習（兩批題卡，通勤等）。**刻意不做別的**——間隔本身就是機制，留白是設計。
-- 其他角色無動作。無硬性產出。
+- 其他學習角色無動作；已授權 ingestion 可繼續。無硬性產出。
 
 ### 3.8 複習日（＝下堂 T-3；蒜頭浮出「今日待複習」）
 
@@ -154,33 +159,29 @@ domain: pmba
   - [ ] 挑一個概念做費曼（講給沒背景的人聽；ChatGPT 可當聽眾＋追問）
   - [ ] issue「待查證事項」對教材/投影片逐項查證
   - [ ] issue 補 comment：答錯處、新火花、查證結果
-  - [ ] **拍板 review decision**：Reject / Keep in issue / Needs source / **Promote**
-- **Sean 拍板 Promote 時（Claude Code 執行 promote run）**：
-  - [ ] 新來源首次 promote：建 literature note＋source 索引卡＋MOC＋獨立 pkm-id 號段
-  - [ ] 依 issue comment 3 的轉卡方向拆原子卡（一卡一想法；AI 補強處 `confidence: medium` 並註明）
-  - [ ] 織網：對存量卡跑 earned 候選連結（判準＝合看產生單卡得不到的理解；連結旁必帶一句 why；不做批次相似度硬連）
-  - [ ] git diff 給 Sean 審 → 過了才 commit → 重跑 Anki 匯出
+  - [ ] 記錄還想複習／已掌握的重點；個人立場若改變，明示理由
+- **AI**：來源尚未整合則依共用 ingestion SOP 接續；已整合則把新的 Sean reflection 與有來源的校正增量補入，真正例外才請判斷。自審 diff 並重匯有變更的題卡。
 - **蒜頭**：複習完成 → `下次複習日`推進到再下堂 −3（結案則 +30）。
 - **同日接著開下堂預習窗**（§3.1，先複習再預習）。
-- **完成定義**：兩批題卡答對率自評落 issue；decision 落 issue。
+- **完成定義**：學習紀錄與待練重點保存；不以答對率決定入庫資格。
 
 ### 3.9 課程結案（最後一堂的複習日）
 
-- [ ] Sean：KPT 覆盤；清算該課所有 Keep-in-issue → 最終 promote／archive
-- [ ] Claude Code：結案 promote run＋課程 MOC 的 open-questions 收斂
+- [ ] Sean：KPT 覆盤；整理還想複習的主題與個人 reflection
+- [ ] Claude Code：確認已選定 sources 的 ingestion／exceptions，收斂課程 MOC 的 open-questions
 - [ ] 蒜頭：課程列狀態→已完成；`下次複習日`＝+30（跨期最後一輪深提取）
 - [ ] 資產六件套檢查：課程卡／概念卡／題卡／（有則）案例卡／工作應用候選／論文題目候選
-- **完成定義**：該課在 issue 層無懸置項；可回收資產已入 vault 或明確放掉。
+- **完成定義**：已選定 sources 的處理完成或有具體技術／例外阻塞；學習待練不阻塞 vault。
 
 ---
 
 ## 4. 鐵則（每條附理由）
 
-1. **Retrieval 前不碰 PLAUD／AI 摘要**——保護區＝T+0 到 T+1 校正前。理由：先看答案會把「重新熟悉」誤認為「學會」（生成效應）。
+1. **（2026-09-29 移除）生成效應保護區**：原「T+0 到 T+1 校正前不碰 PLAUD／AI 摘要」不再是鐵則。理由：v2 以課初／課末各一次 retrieval 取代 T+0/T+1；教材入庫後的卡可能先於 retrieval 出現在 vault，保護區已無法也不再需要守。
 2. **ChatGPT 校正必以 PLAUD 為對照源**，不得只憑 Sean 的輸出診斷。理由：無對照源的診斷＝AI 憑空評分（2026-06-28 實跑教訓）。
-3. **未 promote 的內容不離開 issue**；promote 只在複習日、由 Sean 拍板。理由：未經提取檢驗的內容進 vault＝知識黑洞。
+3. **Sean 提供來源即已核准入庫**，AI 可直接完成正式知識整合，不等待 issue／複習日；提取檢驗只評估 Sean 的學習。
 4. **蒜頭只碰指標**（URL、日期、狀態）。理由：操作層存內容會分裂 SSOT（ISSUE-05 邊界）。
-5. **漏網點微循環必含 Sean 重述**，不接受 AI 成品摘要。理由：重述是漏網點的第一次生成，省掉＝白讀。
+5. **選擇做微循環時保留 Sean 重述**，AI 提供有來源的標準答案作對照；AI 的來源萃取不需等這個練習。
 6. **補救永遠優於跳過**（具體降級路徑見 §5）。理由：斷鏈一次不致命，養成「漏了就整段放棄」的習慣才致命。
 
 ## 5. 降級與例外處理
@@ -188,12 +189,12 @@ domain: pmba
 | 情境 | 處置 | 代價標記 |
 |---|---|---|
 | 漏做 T+0 | 只做 T+1 一輪，trace 註明「單輪」 | 無（可接受） |
-| T+0/T+1 都漏 | PLAUD-first 補整理＋盡快做一輪遲到 retrieval | 轉出卡一律 `confidence: low`＋註明生成效應缺失 |
+| T+0/T+1 都漏 | PLAUD-first 補整理＋盡快做一輪遲到 retrieval | 僅記學習未測；知識 confidence 依證據，不因漏練降級 |
 | trace 拖延（如實際 T+4 才完成） | 照做不追究；補漏窗改錨「trace 完成日 +2 內」 | 無 |
 | 補漏窗錯過 | 併入複習日（掃描步驟插在題卡 retrieval 之後） | 漏網點屆時近乎陌生，微循環耗時較長 |
 | 複習日錯過 | 蒜頭下次主控台仍會浮出（日期已過即到期）；補做即可，做完才推進日期 | 間隔拉長，答對率預期下降——照答，錯的就是訊號 |
 | 課程改期 | 蒜頭依新場次表重算 `下次複習日`＝新下堂 −3 | 無 |
-| 密集週次（間隔 ≤7 天） | 相位自然壓縮：補漏 T+2~3、複習日 T+4；**每輪沉澱量調小，寧可少而牢** | 無 |
+| 密集週次（間隔 ≤7 天） | 相位自然壓縮：補漏 T+2~3、複習日 T+4；**每輪練習量調小**，AI ingestion 不受題卡配額限制 | 無 |
 
 ## 6. 平行軌（不進 session 循環，避免混流）
 
@@ -210,10 +211,11 @@ domain: pmba
 | **補漏掃描** | trace vs PLAUD 全文的機械比對＋人工分揀，撈回「重要但沒 recall 出來」的知識點 |
 | **微循環** | 漏網點的最小生成迴圈：讀→自己重述→AI 校正 |
 | **銜接複習** | 上一堂的深複習與下一堂預習合併在同一時段（複習日＝下堂 T-3 的自然結果） |
-| **promote run** | Claude Code 把 issue 候選稿轉成 vault 正式卡的操作：拆卡→織網→diff 審→commit→Anki 重匯 |
 | **earned link** | 通過「合看產生單卡得不到的理解」測試、帶一句 why 的跨卡連結；反義＝批次相似度硬連 |
 
 ## 8. 迭代規則與版本紀錄
+
+舊版本列為歷史紀錄，已取消的 ingestion gate 不再生效。
 
 **迭代規則**：任何角色「不確定下一步」或同一步驟被跳過 ≥2 次 → 開 gh issue 記缺口 → 回本檔迭代 → 同步投影（蒜頭 Skill 操作段、ChatGPT prompt 轉化段——投影只放該角色自己那欄，不複製整表）。
 
@@ -223,3 +225,4 @@ domain: pmba
 | v2 | 2026-07-03 | 補漏掃描機制新增（初排複習日） | Sean 提問「教材/PLAUD/ChatGPT 何時回讀」——SOP 只覆蓋了 recall 側，coverage 側全缺 |
 | v2.1 | 2026-07-03 | 補漏掃描提前至 T+2~T+4；複習日算法統一「下堂−3」 | 兩個設計錯誤：①生成效應保護區只到 T+1，掃描排 T+11 讓漏網 90% 白白衰減 ②「兩堂中點」在變動節奏下語意含糊，錨定下堂才永不越界 |
 | v3 | 2026-07-03 | runbook 化：判定程序（§0）、角色卡、相位 checklist、降級表、名詞表、版本紀錄 | 表格單元格塞流程＝人掃不動、agent 拆不開；「今天該做什麼」必須是可計算的程序，不是散文 |
+| v4 | 2026-09-29 | Source Selection 後 AI-first ingestion，與學習相位分流 | 不讓 Sean 注意力成為 ingestion bottleneck；來源品質與學習進度分開 |

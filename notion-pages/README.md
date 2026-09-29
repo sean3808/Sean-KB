@@ -1,13 +1,15 @@
 # notion-pages — Notion 正典頁本地工作副本
 
 Notion 上的專案重點無法在本地直接操作；這裡放**相關 Notion 頁的本地副本**，
-讓 Claude Code 直接在 repo 內讀寫。改完後用 **Notion MCP** 回去做外科手術式修改（不覆寫整頁）。
+讓 Claude Code 直接在 repo 內讀寫。repo 修訂不等於遠端已更新；只有明確交辦同步時才用 **Notion MCP** 定點回寫（不覆寫整頁）。
+
+**待回寫（2026-09-29）**：`耐久決策入口.md`（2026/09/29 決策＋「已取代」標註）、`學習科學方法論.md`（適用範圍標註）已以遠端最新版為基底修訂，等 Notion MCP 恢復後外科手術式回寫。決策 SSOT 仍是 Notion；ingestion 流程正典＝`../_system/prompts/maintenance-learning-loop.md`。
 
 ## 工作流
 
-1. **下載**（批次）：`ntn pages get <page-id> > "<檔名>.md"`
-2. **在本地編輯**：直接改下面的 `.md`
-3. **回寫 Notion**（外科手術）：Notion MCP `update_content`（`old_str`/`new_str` 定點替換），**不要整頁覆寫**
+1. **下載**（批次）：`ntn pages get <page-id> > "<檔名>.md"`。**每次動手前都先重拉**：本地副本常落後遠端（2026-09 曾因此在過期副本上改寫，漏掉 3 筆遠端決策）。
+2. **在本地編輯**：直接改下面的 `.md`；決策只往後追加，被取代的原文保留並標註，不改寫歷史
+3. **另有明確同步交辦時，回寫 Notion**（外科手術）：Notion MCP `update_content`（`old_str`/`new_str` 定點替換），**不要整頁覆寫**
 
 ## 已追蹤頁（核心 + Backlog）
 

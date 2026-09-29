@@ -1,60 +1,39 @@
 ---
 type: Playbook
-title: PMBA 課後 learning trace → promote 完整流程（定案）
-description: 課後殘存記憶提取到 Obsidian promote 的端到端 SOP。定案於 2026-07-02，實證來源＝財務管理 Day 1（issue #13）首次完整跑通。術語定案：learning trace（取代「殘存記憶卡」）。
-timestamp: 2026-07-02T20:30:00+08:00
+title: PMBA 課後 learning trace（獨立學習軌）
+description: 保留 T+0/T+1 recall、來源校正、題卡與深複習；learning trace 不再是知識入庫／promote Gate。
+timestamp: 2026-09-29T18:53:23+08:00
 status: stable
 domain: pmba
 ---
 
-# PMBA 課後 learning trace → promote 完整流程（定案）
+# PMBA 課後 learning trace（獨立學習軌）
 
-> **上層編排**：本檔是 `pmba-course-cycle-sop.md`（session 循環總表）的「課後段」細節；T-n 預習、複習日、多堂循環與角色時間軸以總表為準。
-> 方法論依據：`notion-pages/學習科學方法論.md`（生成效應＋合意困難）；候選流程原則：gh issue #11；首次實證：gh issue #13（財務管理 Day 1）。
-> 術語定案：**learning trace**（課後提取軌跡），取代早期的「殘存記憶卡」。
+> 學習時間軸見 `pmba-course-cycle-sop.md`。Sean 交教材給 Sean-KB 即完成 Source Selection，AI 立即走 `_system/prompts/pmba-compile.md`，不等待本流程。
+> learning trace 保留 Sean 真正的記憶／思考過程，與 source knowledge 分別歸因；舊 issue #13 的首次實跑仍是歷史紀錄。
+> **執行層以 2026-08-28 v2 為準**：本檔整套流程只在 Sean 把某堂升級為 Silver／Gold 時適用；預設 Bronze 不開 learning trace issue、不做題卡或補漏，也不形成欠債（見 runbook 檔首與 §3 開頭）。
 
-## 角色分工（ISSUE-05 邊界的落地版）
+## 角色分工
 
-| 角色 | 負責 | 不負責 |
-|---|---|---|
-| Sean | T+0/T+1 retrieval（不看資料）、回答引導問題、review decision、promote 拍板 | — |
-| ChatGPT Project | 課後轉化：對照 PLAUD 校正、產引導問題、標註來源支持度 | 寫入 Notion／Obsidian |
-| GitHub Issue | **候審區**：body＝index＋候選稿＋decision；comments＝完整 trace 分段 | 知識本體（不長期承載已驗證知識） |
-| Notion（蒜頭） | 操作層：課表、作業、**下次複習日**、issue URL 指標 | 保存 trace 內容 |
-| Claude Code | **promote operator**：拆卡、織網（對存量卡跑 earned 候選連結）、lint、git diff 給 Sean 審、Anki 匯出 | 代寫 retrieval 答案 |
+| 角色 | 負責 |
+|---|---|
+| Sean | 選來源；主動學習時 recall、費曼、個人立場與 reflection |
+| ChatGPT／學習 agent | 以實際教材／PLAUD 校正，提供標準答案、問題與回饋，不冒充 Sean 答案 |
+| GitHub Issue／對話 | 按需保存 learning trace；不是每張 knowledge card 的候審 queue |
+| Notion | 課表、作業、複習日與 trace URL；不承擔長期 knowledge SoT |
+| Filesystem agent | 對 Sean-selected sources 自動 index、原子化、去重、links、MOC、lint 與版本紀錄 |
 
-## 流程
+## Sean 主動學習時的流程
 
-```text
-課後當晚（T+0）：Sean 不看資料做殘存記憶 retrieval
-  ↓
-T+1：第二輪 retrieval（仍不看資料）→ 保生成效應
-  ↓
-開 GitHub Issue（template: 課後 learning trace）
-  body＝index＋T+1 校正版候選稿＋review decision
-  comment 1/3＝原始 retrieval trace
-  comment 2/3＝AI 對照 PLAUD 校正（標明 PLAUD 支持 vs 個人詮釋）
-  comment 3/3＝retrieval 題卡＋轉卡方向＋promote 策略
-  ↓
-Notion 課程列：填「下次複習日」＋ issue URL（操作層只放指標）
-  ↓
-Review decision（Sean）：Reject / Keep in issue / Needs source / Promote
-  ↓
-Promote（Claude Code 執行，Sean 審 git diff）：
-  1. 新來源首次 promote：建 literature note＋source 索引卡＋MOC＋獨立 pkm-id 號段
-  2. 依 comment 3 轉卡方向拆原子卡（一卡一想法；AI 校正補強處 confidence 降 medium 並註明）
-  3. 織網：對存量卡跑 earned 候選連結（連結旁必帶一句 why），跨來源接進主題 MOC
-  4. 題卡內嵌卡片「## Retrieval 題卡」段（Q:／A: 格式）
-  5. git diff 給 Sean review 後才算落地
-  ↓
-Anki 匯出：uv run python _system/scripts/export_anki.py → _system/exports/ → Sean 匯入 Anki
-  ↓
-複習雙軌：Notion 複習日＝深度複習（retrieval＋費曼）；Anki＝零碎時間輕複習
-```
+1. T+0 不看資料 recall；AI 只確認收到，避免先餵答案。
+2. T+1 第二輪 recall，再以實際 PLAUD／教材對照；沒有對照源不得憑空評分。
+3. 標明 source 支持／Sean 詮釋／AI 推論，產引導問題與有來源的標準答案。
+4. 按需保存 trace：body＝index＋校正摘要＋學習進度，comments 分 recall／校正／題卡（只有明確交辦時才對外寫入）。
+5. 補漏掃描與深複習按 runbook；學習待練項不變成 waiting_for_sean ingestion backlog。
+6. 若學習產生新的明示 Sean reflection／personal framework，可帶 stance_evidence 納入；來源主張仍歸因來源。
 
-## 鐵則
+## Ingestion 的獨立完成條件
 
-- **未校正的 trace 不直接進 Obsidian**；未 promote 的內容不離開 issue。
-- **AI 不代寫 retrieval 答案**——題卡答案必須來自 Sean 跑過的迴圈（生成效應）。
-- Fully-raw（PLAUD 逐字稿、投影片）留外部，vault 只放指標。
-- 課堂主線未延續前不貪多轉卡（首堂 3–5 張上限，對齊 pmba-compile 規則）。
+來源可解析、Source Tree／provenance 齊全、semantic atomicity、dedup／reconcile、earned links 與 MOC 完成、lint／完整 diff 自審通過。題卡可附於 concept 的「Retrieval 題卡」段（Q:／A:），再執行 `uv run python _system/scripts/export_anki.py`。
+
+無首堂固定卡數上限；無 Sean 先重述／複習日拍板前置；AI-generated 不自動降 confidence。大 PDF／錄音等留外部 pointer，真正解析或立場衝突才走 exception review。

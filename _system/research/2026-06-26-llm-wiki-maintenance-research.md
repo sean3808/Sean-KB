@@ -8,6 +8,8 @@ domain: ai
 source_type: idea
 ---
 
+> **歷史紀錄，非現行 ingestion 規則（2026-09-29）**：下文保留當時研究／決策／驗證事實；其中 Sean 先消化、逐卡 promote／approve、AI 只產候選等 Gate 已被 `_system/prompts/maintenance-learning-loop.md` 取代。原文仍可引用為歷史，不能作為 agent 執行規則；reviewed 既有值不改。
+
 # Sean-KB 維護流程研究（草案，未拍板）
 
 > 狀態：研究結論已收斂為可執行 SOP → **`_system/prompts/maintenance-learning-loop.md`**（流程層 SSOT）。方法論 SSOT＝`notion-pages/學習科學方法論.md`。本檔保留為蒐證與收斂過程紀錄。
