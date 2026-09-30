@@ -21,6 +21,7 @@ aliases:
 adjacent-MOCs:
   - "[[決策-MOC]]"
   - "[[The Bottom Line 商學院-MOC]]"
+  - "[[總體金融與美元流動性-MOC]]"
 reviewed: false
 reviewed_at:
 ---
@@ -28,7 +29,7 @@ reviewed_at:
 # 財務管理 MOC
 
 > 課程入口：[[財務管理-Lit]]｜learning trace 候審區：[[財務管理-Day1-learning-trace]]（GitHub Issue #13）
-> 相鄰地圖：[[決策-MOC]]（煞車系統已接入決策陷阱區）、[[The Bottom Line 商學院-MOC]]（價值與現金主題同源）
+> 相鄰地圖：[[決策-MOC]]（煞車系統已接入決策陷阱區）、[[The Bottom Line 商學院-MOC]]（價值與現金主題同源）、[[總體金融與美元流動性-MOC]]（整個金融體系的資金與利率；F007 的 r 在那裡對上期限溢價）
 
 ## 一、財務的角色：煞車與量尺
 

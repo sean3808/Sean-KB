@@ -1,0 +1,79 @@
+---
+type: Concept
+title: Fed 資產負債表：負債端是美元，資產端是美債與 MBS
+description: 美元（流通現鈔與銀行準備金）是 Fed 的負債，財政部的 TGA 與逆回購也在負債端；資產端以美國公債和房貸抵押證券（MBS）兩大項為主。讀 H.4.1 就是讀美元從哪裡來、停在哪裡。
+resource: 'local:課程 2026 0907 台大PMBA GT001 SIMON.pdf#page=9'
+tags: [大局勢, Fed, 資產負債表, 美元流動性, pmba]
+timestamp: 2026-09-30T11:30:13+08:00
+id: pkm-20260930-gt-g003
+status: seed
+domain: pmba
+source: 臺大 PMBA 大局勢
+lang: zh-TW
+confidence: high
+source_type: class
+source_ref:
+  - '[[大局勢-GT001-導論]]'
+source_evidence:
+  - source: '[[大局勢-GT001-導論]]'
+    source_version: 'GT001 簡報 SHA256 C8342C3E22D1…（引用 Fed H.4.1，2026-09-03 發布）'
+    node_id: s-fedbs
+    section: 粗談 FED B/S
+    page_range: [9, 10]
+    evidence_pointer: 'local:課程 2026 0907 台大PMBA GT001 SIMON.pdf#page=9'
+  - source: '[[大局勢-GT001-導論]]'
+    source_version: '逐字稿 SHA256 55B6D0A69AB7…'
+    node_id: t-fed-onrrp
+    section: 逐字稿 00:39:51–00:41:02
+    evidence_pointer: 'transcript#00:39:51'
+  - source: '[[大局勢-GT001-導論]]'
+    source_version: '逐字稿 SHA256 55B6D0A69AB7…'
+    node_id: t-review
+    section: 逐字稿 02:13:21–02:17:07（H.4.1 導讀）
+    evidence_pointer: 'transcript#02:13:21'
+  - source: '[[大局勢-GT001-導論]]'
+    source_version: '逐字稿 SHA256 55B6D0A69AB7…'
+    node_id: t-fedprofit
+    section: 逐字稿 02:25:06–02:26:50
+    evidence_pointer: 'transcript#02:25:06'
+notion_refs: []
+aliases:
+  - 大局勢-G003
+  - Fed B/S
+  - H.4.1
+mocs:
+  - '[[總體金融與美元流動性-MOC]]'
+ingestion_version: 1
+generated_by: ai
+claim_origin: source
+---
+
+# Fed 資產負債表：負債端是美元，資產端是美債與 MBS
+
+## 核心想法
+美元是 Fed 的負債：流通現鈔與銀行存在 Fed 的準備金都在 Fed 的負債端；財政部在 Fed 的帳戶（TGA）和隔夜逆回購（ON RRP）也在負債端。資產端最大的兩項是美國公債與房貸抵押證券（MBS）。所以看 Fed 的資產負債表，就是看美元從哪裡被創造、目前停在哪幾個帳戶。 ^claim
+
+## 展開 / 理由
+- **H.4.1 數字（簡報 p9–10，單位百萬美元，截至 2026-09-02 的週平均）**：
+  - 資產端：直接持有證券 6,465,275，其中美國公債 4,549,343、MBS 1,913,585。
+  - 負債端：流通現鈔 2,479,541；逆回購 365,043；TGA 967,935；銀行準備金 2,894,531。
+- **美債是財政部的負債，卻被 Fed 放在資產端**：財政部發債（IOU），Fed 持有這些債、再以自己的負債（美元）支應。講者稱之為「以債養債」。
+- **MBS 占約 1.9 兆美元**，講者用它說明房地產對美國金融體系同樣關鍵（逐字稿 02:14:04）。
+- **付息差別**：現鈔不付息，準備金要付息給銀行；Fed 的盈餘上繳財政部（02:26:50）。講者說現鈔是央行「最好的負債」。
+- 讀表的方式是看各項的**增減**：負債端哪個帳戶在長、哪個在縮，決定銀行體系的準備金多寡（見 [[大局勢-G004-財政部發債先把準備金抽到TGA支出時再放回|G004]]、[[大局勢-G006-ON RRP是Fed向非銀行收水的蓄水池|G006]]）。
+
+## 證據 / 來源
+- 簡報 p9–10 直接翻拍 Fed H.4.1（2026-09-03 發布）表 1；簡報標示的原始出處為 https://www.federalreserve.gov/releases/h41/20260903/h41.pdf（本次未直接下載，數字取自簡報翻拍）。
+- 逐字稿 00:39:51：「你知道你們的美元是在哪裡發出的嗎？負債端，美元是聯準會的負債。」
+- 逐字稿 02:14:04：「聯準會的資產負債表，它的資產裡面有兩項非常重要，一項是……美國長短期債券，另外一項是……MBS 債券，這個跟房地產有關。」
+
+## 相關概念
+- [[大局勢-G001-每項金融資產都是另一方的負債]]（G003 是 G001 最關鍵的一個實例：美元同時是 Fed 的負債、持有人的資產）
+- [[大局勢-G005-美元霸權的代價是美國必須輸出美元]]（Fed 負債端的美元要流到全世界，才有 G005 的霸權結構）
+
+## Retrieval 題卡
+Q: 美元在 Fed 資產負債表的哪一端？Fed 資產端最大的兩項是什麼？
+A: 美元（流通現鈔、銀行準備金）是 Fed 的負債，TGA 與 ON RRP 也在負債端；資產端最大兩項是美國公債與 MBS（房貸抵押證券）。
+
+## 待追問
+- 第 4 週「從 Fed 立場解析美元流動性」會怎麼解讀準備金 vs TGA vs 逆回購三者的此消彼長？
