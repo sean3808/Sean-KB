@@ -34,3 +34,18 @@ type: feedback
     **殘留的 `.git/*.lock` 會讓 commit 靜默卡住好幾個月**：`index.lock` 與 `refs/heads/<branch>.lock` 可能同時殘留（Sean-KB 兩個都停在 2026-07-19，
     之後 Sean 一直沒成功 commit）。`git status` 照常可讀，只有寫入才報 `Unable to create ... .lock: File exists`。
     處置：確認 lock 是 0 byte、時間久遠、沒有 git 行程在跑（`tasklist | grep git`），再刪；刪一個後重試若報另一個 lock，用 `find .git -name "*.lock"` 一次找齊；刪完跑 `git fsck --no-dangling`。 `[Sean-KB 2026-09]`
+
+## PC-003
+- status: pending
+- origin: local-new
+- hit_count: 1
+- last_hit: 2026-09-30
+- target_hint: domain_pack
+- domain: claude-code
+- source_project: Sean-KB
+- date: 2026-09-30
+- canonical: `_system/prompts/maintenance-learning-loop.md` §5
+- draft: |
+    **Windows 本機 Read 工具讀 PDF 需要 pdftoppm，沒裝就直接報錯**：圖片型 PDF（掃描檔、簡報轉存）因此看不到內容。
+    處置：`uv run --with pymupdf` 把每頁轉 PNG 到 scratchpad，再用 Read 逐頁讀圖（不必裝 poppler）。
+    訊號：PyMuPDF 取到的每頁文字只有頁尾幾十字 → 內容全在圖裡。 `[Sean-KB 2026-09]`

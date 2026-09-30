@@ -79,3 +79,16 @@ Independent skill dry-run 結果：沒有阻塞四情境的規則矛盾。尤其
 | 術語 | 新增 `CONTEXT.md` |
 
 修正後驗證紀錄在該次 commit 訊息；上方「執行結果」表為原 PR 當時紀錄。
+
+
+## 2026-09-30 首次真實素材驗收（Case A 型：大局勢 GT001）
+
+Sean 交三檔（圖片型簡報 13 頁、PLAUD 逐字稿、PLAUD 強化筆記）後不再操作；一路 selected → integrated，產出 14 張卡＋新領域 MOC，commit `0ea0acf`。來源紀錄：`sources/pmba/大局勢-GT001-導論.md`（Integration 段有覆蓋、未拆卡理由與驗證）。
+
+| 驗證 | 結果 |
+|---|---|
+| `uv run --with pyyaml python _system/scripts/lint_ingestion.py` | 446 份，0 hard errors |
+| `uv run --with pyyaml python -m unittest discover -s _system/tests` | 17 tests OK |
+| `uv run python _system/scripts/export_anki.py` | check() passed，17 張（新增 14） |
+
+真實素材暴露、已寫回文件的缺口：圖片型 PDF 無法直接讀（→ `maintenance-learning-loop.md` §5 轉圖指令）、多檔 Source 與逐字稿 pointer 格式（→ schema Source Tree contract）、一堂課素材包的存放與證據角色、後續週次的命名空間與種子卡深化、題卡格式契約（→ `pmba-compile.md`）。Case B–D 仍無真實素材。

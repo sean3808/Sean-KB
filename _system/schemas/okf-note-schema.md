@@ -63,7 +63,7 @@ document_quality:
   text: good            # good / partial / poor / unknown
   structure: good       # good / partial / poor / unknown
   tables: partial       # good / partial / poor / unknown / none
-  ocr: false            # true = 內容經 OCR；不是「需要 OCR」
+  ocr: false            # true = 內容來自 OCR 或頁面圖像判讀；不是「需要 OCR」
 parsing_strategy: tree   # tree / structure-text / repair；indexed 起必填
 ```
 
@@ -94,7 +94,8 @@ source_tree:
 - node ID 在該 source 內唯一且穩定；父節點必須存在，不可成環；ID 不以可變標題當唯一 identity。
 - `heading`、`summary` 必填；至少具備 `section`／`page_range`／`evidence_pointer` 其中一種定位。
 - `page_range` 為含首尾的正整數二元組；PDF 預設檔案實體頁序（1-based）。若印刷頁碼不同，寫進 `section`，不混用。
-- 無頁碼文章用實際 heading／HTML anchor；逐字稿可用時間碼 pointer；絕不發明頁碼。`resource`＋locator 應能返回原文。
+- 無頁碼文章用實際 heading／HTML anchor；逐字稿用 `transcript#hh:mm:ss`，並在 Source 正文寫明 transcript 指哪個檔；絕不發明頁碼。`resource`＋locator 應能返回原文。
+- 多檔 Source（如簡報＋逐字稿）的 `local:<檔名>#page=N` 以 `resource` 所在資料夾為基準；各構件的完整路徑列在 Source 正文。
 - 頁數、節點數不是 card quota。tree summary 是 navigation，不等於概念卡。
 
 ## Atomic note provenance（新 pipeline 必備）

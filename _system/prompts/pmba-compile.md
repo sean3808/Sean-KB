@@ -16,4 +16,28 @@
 6. 排除任務／營運狀態；無可複用新知時重用既有卡、保留 Source index 並記理由。
 7. content lint、自審 diff、寫回來源進度，回報成果及真正例外。
 
+## 一堂課的素材包（簡報＋逐字稿＋PLAUD）
+
+一堂課＝一個 Source：`sources/pmba/<課名>-<週代碼>-<主題>.md`，`resource` 放簡報在課程資料夾的絕對路徑，三個構件與 SHA256 列在 `## 來源與範圍` 的表格。完整範例：`sources/pmba/大局勢-GT001-導論.md`。
+
+| 構件 | 證據角色 | 存放 |
+|---|---|---|
+| 老師簡報 | 主張與數字的依據 | 課程資料夾，不入 repo |
+| 逐字稿 | 補因果解釋與口語例子；數字、人名、術語以簡報為準，轉錄錯亂的值寫「講者口述、未核實」 | 從 Downloads 複製到課程資料夾；講者要求錄音不外流時留在課程資料夾 |
+| PLAUD 強化筆記 | 導航與交叉核對；「(AI 補充)」段標 `ai-inference` | 原文複製為 `sources/pmba/<課名> <日期> PLAUD.md`（raw，無 frontmatter） |
+
+- 圖片型簡報的讀法與 `ocr` 記法見 `maintenance-learning-loop.md` §5；pointer 格式見 schema 的 Source Tree contract。
+- 講者的結論框（如「SIMON 的結論」）是講者的判斷：`claim_origin: source`，正文寫成「講者認為」。
+- 課程行政、進度表、講者自稱不負責的時點預測留在 source_tree 摘要，不作卡。
+
+### 同一門課的後續週次
+
+- 一門課一個命名空間：檔名前綴＝課名，`id` 號段整門課固定（大局勢＝`-gt-`），卡號跨週連續編。
+- 課程 MOC 以領域命名，第一週建立後各週沿用；新週次的卡加進既有章節。
+- 導論週的卡是種子：先讀前幾週卡的「待追問」，本週有答案時另建深化卡，再在種子卡文末追加連結（Additive）。種子卡既有句子需要修正時走 SOP §4 Rewrite。
+
+### Retrieval 題卡
+
+每張 PMBA 卡的 `## Retrieval 題卡` 放 1 題，格式是 `_system/scripts/export_anki.py` 的契約：單行 `Q: `、單行 `A: `（冒號後一個空格，答案寫在同一行）。A 依來源寫標準答案。frontmatter 填 `source: 臺大 PMBA <課名>`，它會成為 Anki tag。
+
 不以 learning trace／複習日／GitHub issue 拍板作為 ingestion gate。Sean 想學時另走 PMBA learning runbook；不把「待學」寫成「待入庫」。

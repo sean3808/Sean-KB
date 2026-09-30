@@ -1,10 +1,10 @@
 ---
 name: pmba-cycle
 description: >
-  PMBA 的 AI-first 教材 ingestion、學習相位查詢與 Anki 匯出入口。
-  Use when: /pmba-cycle、「教材放進 KB」、「重匯 Anki」、
-  「PMBA 今天該做什麼」、「複習日到了」、「課程結案」。Sean 提供來源即完成人工 Gate，不等複習或逐卡拍板。
-  正典為 pmba/pmba-course-cycle-sop.md；一般 Reader ingestion／診斷場也可用 /kb-loop。
+  PMBA 的教材 ingestion、學習相位查詢與 Anki 匯出入口。
+  Use when: /pmba-cycle、交課堂素材（簡報／逐字稿／PLAUD）或教材要放進 KB、「重匯 Anki」、
+  「PMBA 今天該做什麼」、「複習日到了」、「課程結案」。
+  ingestion 正典 _system/prompts/pmba-compile.md；學習排程正典 pmba/pmba-course-cycle-sop.md；一般 Reader ingestion 用 /kb-loop。
 ---
 
 # pmba-cycle — ingestion 與學習排程分流
@@ -17,7 +17,7 @@ description: >
 
 ## Ingestion run
 
-1. 讀 `_system/prompts/pmba-compile.md`、`maintenance-learning-loop.md`、schema；記錄 Sean 指定來源的 evidence，無逐卡 Gate。
+1. 讀 `_system/prompts/pmba-compile.md`（含一堂課素材包與後續週次慣例）、`maintenance-learning-loop.md`、schema；記錄 Sean 指定來源的 evidence，無逐卡 Gate。同一門課的後續週次，先讀該課既有 Source 與 MOC。
 2. 取得完整素材、評估品質、建立 Source Tree／index，依語意原子化；只有一份 120 頁 PDF 也可開始，不要求 Sean 的 retrieval、感受、Notion deadline 或摘要。
 3. 對照現有卡 dedup／reconcile，建立 source_ref＋source_evidence；按來源可靠度設 confidence，不因 AI 產出或 Sean 未答題而降級。
 4. 原則／框架說清楚 source vs AI inference vs Sean stance。新來源衝突 Sean Principle 時保留雙方與 comparison link，原則不覆寫。

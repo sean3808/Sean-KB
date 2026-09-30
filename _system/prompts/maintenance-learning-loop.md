@@ -100,6 +100,8 @@ Exception 記在該 source 的 `## Exceptions`（模板欄位見狀態機），�
 - structured → `tree`：目錄／標題可信，按樹定位。
 - semi-structured → `structure-text`：重建標題＋全文搜尋交叉檢查。
 - poor／OCR → `repair`：可用工具做 OCR／版面／表格修復，再評估；不把辨識不出的數字猜成事實。無需 Sean 親自消化，只有阻塞的品質問題才例外。
+- 圖片型 PDF（文字層只剩頁尾）：本機 Read 工具缺 pdftoppm、無法渲染 PDF，先轉 PNG 到 scratchpad 再逐頁讀圖，記 `ocr: true`：
+  `uv run --with pymupdf python -c "import pymupdf,sys; d=pymupdf.open(sys.argv[1]); [p.get_pixmap(dpi=110).save(f'{sys.argv[2]}/p{i+1:02d}.png') for i,p in enumerate(d)]" <pdf> <outdir>`
 
 PDF、錄音、大 binary、完整版權教材預設留 external/local/Drive；repo 保存 metadata、來源 pointer、structure/index、少量必要證據與衍生知識。小型自有或可合法保存的原始文字可放 `sources/`，不再把「fully raw」一律排除；它仍不是 `notes/` 的知識本體。Private 不改變 binary／版權政策，agent 不修改 repository visibility。
 
