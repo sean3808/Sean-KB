@@ -26,6 +26,8 @@
 | 逐字稿 | 補因果解釋與口語例子；數字、人名、術語以簡報為準，轉錄錯亂的值寫「講者口述、未核實」 | 從 Downloads 複製到課程資料夾；講者要求錄音不外流時留在課程資料夾 |
 | PLAUD 強化筆記 | 導航與交叉核對；「(AI 補充)」段標 `ai-inference` | 原文複製為 `sources/pmba/<課名> <日期> PLAUD.md`（raw，無 frontmatter） |
 
+- 只有簡報與課堂錄音的 AI 摘要（`…-Summary.md`）、沒有逐字稿時：Summary 原樣留在 `sources/pmba/` 當 raw 構件；簡報上有的主張與數字以簡報為準、`claim_origin: source`；只出現在 Summary 的內容在正文標「AI 摘要轉述」，核心主張只靠 Summary 的卡標 `ai-inference`、`confidence: medium`；簡報與 Summary 對不上的地方列在 Source 的品質段。範例：`sources/pmba/115-1_大局勢_W04_20260928_從 Fed 立場解析美元的流動性.md`。
+- 簡報頁與上課週次可能錯開（講者回講、補錄）：Source 以上課週為單位，節點記在實際講到的那一週，用另一週的簡報頁時在 pointer 寫明是哪一份 PDF。
 - 圖片型簡報的讀法與 `ocr` 記法見 `maintenance-learning-loop.md` §5；pointer 格式見 schema 的 Source Tree contract。
 - 講者的結論框（如「SIMON 的結論」）是講者的判斷：`claim_origin: source`，正文寫成「講者認為」。
 - 課程行政、進度表、講者自稱不負責的時點預測留在 source_tree 摘要，不作卡。
