@@ -13,25 +13,25 @@ lang: zh-TW
 confidence: high
 source_type: class
 source_ref:
-  - '[[大局勢-GT001-導論]]'
+  - '[[115-1_大局勢_W01_20260907_導論]]'
 source_evidence:
-  - source: '[[大局勢-GT001-導論]]'
+  - source: '[[115-1_大局勢_W01_20260907_導論]]'
     source_version: 'GT001 簡報 SHA256 C8342C3E22D1…（引用 Fed H.4.1，2026-09-03 發布）'
     node_id: s-fedbs
     section: 粗談 FED B/S
     page_range: [9, 10]
     evidence_pointer: 'local:課程 2026 0907 台大PMBA GT001 SIMON.pdf#page=9'
-  - source: '[[大局勢-GT001-導論]]'
+  - source: '[[115-1_大局勢_W01_20260907_導論]]'
     source_version: '逐字稿 SHA256 55B6D0A69AB7…'
     node_id: t-fed-onrrp
     section: 逐字稿 00:39:51–00:41:02
     evidence_pointer: 'transcript#00:39:51'
-  - source: '[[大局勢-GT001-導論]]'
+  - source: '[[115-1_大局勢_W01_20260907_導論]]'
     source_version: '逐字稿 SHA256 55B6D0A69AB7…'
     node_id: t-review
     section: 逐字稿 02:13:21–02:17:07（H.4.1 導讀）
     evidence_pointer: 'transcript#02:13:21'
-  - source: '[[大局勢-GT001-導論]]'
+  - source: '[[115-1_大局勢_W01_20260907_導論]]'
     source_version: '逐字稿 SHA256 55B6D0A69AB7…'
     node_id: t-fedprofit
     section: 逐字稿 02:25:06–02:26:50

@@ -83,7 +83,7 @@ Independent skill dry-run 結果：沒有阻塞四情境的規則矛盾。尤其
 
 ## 2026-09-30 首次真實素材驗收（Case A 型：大局勢 GT001）
 
-Sean 交三檔（圖片型簡報 13 頁、PLAUD 逐字稿、PLAUD 強化筆記）後不再操作；一路 selected → integrated，產出 14 張卡＋新領域 MOC，commit `0ea0acf`。來源紀錄：`sources/pmba/大局勢-GT001-導論.md`（Integration 段有覆蓋、未拆卡理由與驗證）。
+Sean 交三檔（圖片型簡報 13 頁、PLAUD 逐字稿、PLAUD 強化筆記）後不再操作；一路 selected → integrated，產出 14 張卡＋新領域 MOC，commit `0ea0acf`。來源紀錄：`sources/pmba/115-1_大局勢_W01_20260907_導論.md`（Integration 段有覆蓋、未拆卡理由與驗證）。
 
 | 驗證 | 結果 |
 |---|---|

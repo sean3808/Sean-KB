@@ -13,15 +13,15 @@ lang: zh-TW
 confidence: medium
 source_type: class
 source_ref:
-  - '[[大局勢-GT001-導論]]'
+  - '[[115-1_大局勢_W01_20260907_導論]]'
 source_evidence:
-  - source: '[[大局勢-GT001-導論]]'
+  - source: '[[115-1_大局勢_W01_20260907_導論]]'
     source_version: 'GT001 簡報 SHA256 C8342C3E22D1…'
     node_id: s-why
     section: WHY 我們不能獨善其身？ > 鏡廳問題 (Hall of Mirrors)
     page_range: [3, 3]
     evidence_pointer: 'local:課程 2026 0907 台大PMBA GT001 SIMON.pdf#page=3'
-  - source: '[[大局勢-GT001-導論]]'
+  - source: '[[115-1_大局勢_W01_20260907_導論]]'
     source_version: '逐字稿 SHA256 55B6D0A69AB7…'
     node_id: t-policy
     section: 逐字稿 01:20:11–01:21:16

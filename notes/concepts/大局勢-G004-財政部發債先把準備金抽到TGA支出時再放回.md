@@ -13,14 +13,14 @@ lang: zh-TW
 confidence: medium
 source_type: class
 source_ref:
-  - '[[大局勢-GT001-導論]]'
+  - '[[115-1_大局勢_W01_20260907_導論]]'
 source_evidence:
-  - source: '[[大局勢-GT001-導論]]'
+  - source: '[[115-1_大局勢_W01_20260907_導論]]'
     source_version: '逐字稿 SHA256 55B6D0A69AB7…'
     node_id: t-treasury
     section: 逐字稿 01:32:20–01:44:19
     evidence_pointer: 'transcript#01:35:56'
-  - source: '[[大局勢-GT001-導論]]'
+  - source: '[[115-1_大局勢_W01_20260907_導論]]'
     source_version: 'PLAUD 筆記 SHA256 F3BB73A9906E…'
     node_id: plaud
     section: 核心概念與框架 > 美國財政部發債→花錢的資金流；代表性例子 1

@@ -13,20 +13,20 @@ lang: zh-TW
 confidence: high
 source_type: class
 source_ref:
-  - '[[大局勢-GT001-導論]]'
+  - '[[115-1_大局勢_W01_20260907_導論]]'
 source_evidence:
-  - source: '[[大局勢-GT001-導論]]'
+  - source: '[[115-1_大局勢_W01_20260907_導論]]'
     source_version: 'GT001 簡報 SHA256 C8342C3E22D1…'
     node_id: s-sept
     section: 2026/09 水管堵了嗎？ > 九月真正要觀察什麼？
     page_range: [13, 13]
     evidence_pointer: 'local:課程 2026 0907 台大PMBA GT001 SIMON.pdf#page=13'
-  - source: '[[大局勢-GT001-導論]]'
+  - source: '[[115-1_大局勢_W01_20260907_導論]]'
     source_version: '逐字稿 SHA256 55B6D0A69AB7…'
     node_id: t-fed-onrrp
     section: 逐字稿 00:51:56–00:53:02
     evidence_pointer: 'transcript#00:52:31'
-  - source: '[[大局勢-GT001-導論]]'
+  - source: '[[115-1_大局勢_W01_20260907_導論]]'
     source_version: '逐字稿 SHA256 55B6D0A69AB7…'
     node_id: t-stress
     section: 逐字稿 01:06:45–01:07:19

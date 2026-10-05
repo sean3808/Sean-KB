@@ -13,19 +13,19 @@ lang: zh-TW
 confidence: medium
 source_type: class
 source_ref:
-  - '[[大局勢-GT001-導論]]'
+  - '[[115-1_大局勢_W01_20260907_導論]]'
 source_evidence:
-  - source: '[[大局勢-GT001-導論]]'
+  - source: '[[115-1_大局勢_W01_20260907_導論]]'
     source_version: '逐字稿 SHA256 55B6D0A69AB7…'
     node_id: t-fed-onrrp
     section: 逐字稿 00:40:33–00:51:25
     evidence_pointer: 'transcript#00:41:33'
-  - source: '[[大局勢-GT001-導論]]'
+  - source: '[[115-1_大局勢_W01_20260907_導論]]'
     source_version: '逐字稿 SHA256 55B6D0A69AB7…'
     node_id: t-bslens
     section: 逐字稿 00:20:52–00:22:37（非銀行不能存央行）
     evidence_pointer: 'transcript#00:22:04'
-  - source: '[[大局勢-GT001-導論]]'
+  - source: '[[115-1_大局勢_W01_20260907_導論]]'
     source_version: 'GT001 簡報 SHA256 C8342C3E22D1…（引用 Fed H.4.1，2026-09-03 發布）'
     node_id: s-fedbs
     section: 粗談 FED B/S > Reverse repurchase agreements
