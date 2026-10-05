@@ -4,11 +4,20 @@ description: 冷啟動入口 — 現況、第一個動作、必讀 pointer
 type: project
 ---
 
-**最後更新**：2026-09-30
+**最後更新**：2026-10-05
 
 ## TL;DR — 現況一行
 
-大局勢 GT001 已入庫、入庫經驗已寫回 PMBA 入庫說明／schema／SOP 並 commit（未 push）；Sean 會陸續交 GT002–GT004。
+大局勢 W01–W04 全部入庫（41 張卡，G001–G041），W01 來源已改名為 `115-1_大局勢_W01_20260907_導論`；全部 commit 在 `main`、未 push。下一堂是 W05（利率走廊）。
+
+## 2026-10-05 本輪推進
+
+- 改名：`大局勢-GT001-導論` → `115-1_大局勢_W01_20260907_導論`，17 處引用同步；新命名慣例寫進 `_system/prompts/pmba-compile.md`
+- W02（G015–G021）、W03（G022–G029）、W04（G030–G041）各一個 commit；來源是簡報＋課堂 AI 摘要（`…-Summary.md`），**沒有逐字稿**
+- 簡報進度比上課慢一週：GT002 後半在 W03 講、GT003 後半在 W04 講，各週 Source 的「來源與範圍」有寫
+- 5 張卡標 `ai-inference`（G018、G022、G027、G028、G039）：核心主張只在 AI 摘要裡；Sean 若補逐字稿可升級
+- W03 的 Summary 檔有缺損（知識點索引第二到四節不見，原檔第 188 行）
+- Anki 已重匯（`_system/exports/anki-cards.txt`，大局勢 41 題）；`/closeout` 見本輪回報
 
 ## 本次收工快照（2026-09-30）
 
@@ -18,7 +27,7 @@ type: project
 
 ## 第一個動作
 
-1. **Sean 交 GT002–GT004 素材時** → `/pmba-cycle` 照 `_system/prompts/pmba-compile.md`「一堂課的素材包」與「同一門課的後續週次」：沿用 `-gt-` 號段（下一張 G015）、同一張 MOC，先讀 G001–G014 的「待追問」。
+1. **Sean 交 W05 之後的素材時** → `/pmba-cycle` 照 `_system/prompts/pmba-compile.md`「一堂課的素材包」（含「只有簡報與 AI 摘要」與「簡報頁與週次錯開」兩條）：沿用 `-gt-` 號段（下一張 G042）、同一張 MOC，先讀 MOC 的 Open Questions 與各卡「待追問」；W05 講利率走廊時回頭補 G040。
 2. **開 `feat/agent-surface` 分支**（Sean 已拍板）：拆 `/kb-atomize`、`/kb-loop` 改 `disable-model-invocation`；對 CLAUDE.md／AGENTS.md／三個 skill／`_system/prompts/` 跑 `/claude-api prompt-audit`＋`/mattpocock-skills:writing-for-agents`，產報告＋擬議 diff 交 Sean、不直接套（pmba-cycle 與 pmba-compile 已於本輪先迭代，以新版為基底）；README 加 skill 小表；`C:\sean personal file\1_學習與進修\Knowledge-Atomized` 歸檔（留講義 PDF＋README、其餘移 `_archive/`、移除 huashu-nuwa 連結與 `.agents/skills.json` 對應行、`bulletproof-notes-framework` 歸檔、不刪檔）。L 級 → 分段 `/closeout`。Notion MCP 恢復時另依 `docs/current-status.md` 回寫。
 
 ## 必讀 Pointer
@@ -35,6 +44,7 @@ type: project
 - `C:\Sean_KB-pr19` 是 PR 工作目錄移除後殘留的空資料夾（被視窗占用），Sean 關掉相關視窗後手動刪。 `owner: expire`
 - git 報 `.md` modified 但 diff 空＝Obsidian CRLF 幻影，忽略或順手正規化。 `owner: move`
 - 大局勢逐字稿與 PLAUD 原檔的穩定位置是課程資料夾 `115-1_大局勢\`（Downloads 那份可刪）；逐字稿不入 repo。 `owner: expire`
+- `sources/pmba/財務管理B 2026-06-28 上／下.md` 與 `_inbox/fable-five-year-letter-2026-07-07.md` 是 Sean 的未追蹤檔，本輪未動、未指定納入。 `owner: expire`
 
 ## 未決事項
 
